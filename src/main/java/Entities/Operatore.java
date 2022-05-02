@@ -1,39 +1,71 @@
 package Entities;
 
+import Enums.Risorse;
+
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Table(name = "operatore")
-public abstract class Operatore extends Persona implements Serializable {
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public class Operatore extends Persona implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.TABLE)
+    private Long id;
+    @OneToMany(mappedBy = "operatore")
+    private List<Ordine> ordine;
+
     @Enumerated(EnumType.STRING)
-    @Column(name = "risorse")
-    HashSet<Risorse> risorse ;
+    private Risorse risorse ;
+
+
+
 
     public Operatore(String nome, String cognome, String dataNascita) {
         super(nome, cognome, dataNascita);
-        risorse = new HashSet();
     }
 
     public Operatore() {
 
     }
 
-    public void addRisorsa(String r){
-        risorse.add(Risorse.valueOf(r.toUpperCase())) ;
+    @Override
+    public Long getId() {
+        return id;
     }
 
-    public HashSet<Risorse> getRisorse() {
+    @Override
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+
+
+
+
+    public Risorse getRisorse() {
         return risorse;
+    }
+
+    public void setRisorse(Risorse risorse) {
+        this.risorse = risorse;
+    }
+
+    public List<Ordine> getOrdine() {
+        return ordine;
+    }
+
+    public void setOrdine(List<Ordine> ordine) {
+        this.ordine = ordine;
     }
 
     @Override
     public String toString() {
         return "Operatore{" +
-                super.toString() +
-                "risorse=" + risorse +
+                "id=" + id +
+                ", persona=" +
+                ", risorse=" + risorse +
                 '}';
     }
 }

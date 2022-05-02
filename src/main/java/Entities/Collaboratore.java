@@ -4,11 +4,16 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "collaboratore")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Collaboratore extends Operatore {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
+
+    @OneToOne
+    @JoinColumn(name = "operatore")
+    private Operatore operatore;
+
+    @ManyToOne
+    private Azienda azienda;
 
     public Collaboratore(String nome, String cognome, String dataNascita) {
         super(nome, cognome, dataNascita);
@@ -19,20 +24,21 @@ public class Collaboratore extends Operatore {
         super();
     }
 
-    @Override
-    public Long getId() {
-        return id;
+
+
+    public Operatore getOperatore() {
+        return operatore;
     }
 
-    @Override
-    public void setId(Long id) {
-        this.id = id;
+    public void setOperatore(Operatore operatore) {
+        this.operatore = operatore;
     }
 
     @Override
     public String toString() {
         return "Collaboratore{" +
-                "id=" + id +
+                "id="  +
+                ", operatore=" + operatore +
                 '}';
     }
 }

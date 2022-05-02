@@ -4,13 +4,16 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "contatto")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Contatto extends Persona {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
-    @OneToOne(mappedBy = "persona")
+    @OneToOne
     @JoinColumn(name = "persona", unique = true, nullable = false)
     private Persona persona;
+    @ManyToOne
+    private Cliente cliente;
 
     public Contatto() {
     }
