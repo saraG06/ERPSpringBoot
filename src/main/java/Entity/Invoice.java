@@ -12,7 +12,7 @@ public class Invoice {
     @Column(name = "date", nullable = false)
     private LocalDate date;
     @OneToOne
-    @JoinColumn(name = "`order`")
+    @JoinColumn(name = "`order`", referencedColumnName = "id")
     private Order order;
     @ManyToOne
     @JoinColumn(name = "contact")
