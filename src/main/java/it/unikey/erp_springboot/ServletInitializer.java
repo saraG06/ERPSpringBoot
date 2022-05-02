@@ -1,6 +1,6 @@
-package it.unikey.autospring;
+package it.unikey.erp_springboot;
 
-import Entity.AutoSpringApplication;
+import Entity.ErpSpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
@@ -8,7 +8,7 @@ public class ServletInitializer extends SpringBootServletInitializer {
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(AutoSpringApplication.class);
+        return application.sources(ErpSpringBootApplication.class);
     }
 
 }

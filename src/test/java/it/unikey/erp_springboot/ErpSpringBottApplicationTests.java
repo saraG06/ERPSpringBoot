@@ -1,10 +1,10 @@
-package it.unikey.autospring;
+package it.unikey.erp_springboot;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class AutoSpringApplicationTests {
+class ErpSpringBottApplicationTests {
 
     @Test
     void contextLoads() {
