@@ -9,11 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>it.unikey</groupId>
-    <artifactId>AutoSpring</artifactId>
+    <artifactId>springProva</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
-    <name>AutoSpring</name>
-    <description>AutoSpring</description>
+    <name>springProva</name>
+    <description>springProva</description>
     <properties>
         <java.version>11</java.version>
     </properties>
@@ -41,11 +40,6 @@
             <groupId>com.microsoft.sqlserver</groupId>
             <artifactId>mssql-jdbc</artifactId>
             <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-tomcat</artifactId>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
