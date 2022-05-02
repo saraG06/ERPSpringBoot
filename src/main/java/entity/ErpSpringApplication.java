@@ -1,13 +1,13 @@
-package Entity;
+package entity;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AutoSpringApplication {
+public class ErpSpringApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(AutoSpringApplication.class, args);
+        SpringApplication.run(ErpSpringApplication.class, args);
     }
 
 }
