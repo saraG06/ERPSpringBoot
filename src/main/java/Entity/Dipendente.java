@@ -1,11 +1,12 @@
 package Entity;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 
-@Table(name = "persona")
-public class Persona {
+@Table(name = "dipendente")
+public class Dipendente{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +20,13 @@ public class Persona {
 
     @Column(name = "dataNascita")
     private String dataNascita;
+
+    @Column(name = "dataAssunzione")
+    private LocalDate dataAssunzione;
+
+    @ManyToOne
+    @JoinColumn(name = "azienda_id")
+    private Azienda azienda;
 
     public Long getId() {
         return id;
@@ -50,5 +58,13 @@ public class Persona {
 
     public void setDataNascita(String dataNascita) {
         this.dataNascita = dataNascita;
+    }
+
+    public LocalDate getDataAssunzione() {
+        return dataAssunzione;
+    }
+
+    public void setDataAssunzione(LocalDate dataAssunzione) {
+        this.dataAssunzione = dataAssunzione;
     }
 }

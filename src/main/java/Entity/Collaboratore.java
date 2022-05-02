@@ -4,8 +4,8 @@ import javax.persistence.*;
 
 @Entity
 
-@Table(name = "persona")
-public class Persona {
+@Table(name = "collaboratore")
+public class Collaboratore {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +19,10 @@ public class Persona {
 
     @Column(name = "dataNascita")
     private String dataNascita;
+
+    @ManyToOne
+    @JoinColumn(name = "azienda_id")
+    private Azienda azienda;
 
     public Long getId() {
         return id;
