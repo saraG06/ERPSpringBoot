@@ -1,4 +1,4 @@
-package Entity;
+package it.unikey.erp_springboot.DAL.Entity;
 
 import javax.persistence.*;
 import java.util.ArrayList;

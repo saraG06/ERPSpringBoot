@@ -1,14 +1,15 @@
-package Entity;
+package it.unikey.erp_springboot.DAL.Entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-@Table(name = "operator")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class Operator {
+@Table(name = "contact")
+public class Contact {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "name", nullable = false)
     private String name;
@@ -16,8 +17,11 @@ public class Operator {
     private String lastname;
     @Column(name = "birthday", nullable = false)
     private LocalDate birth;
-    @Column(name = "resource")
-    private Resource resource;
+    @ManyToOne
+    @JoinColumn(name = "client")
+    private Client client;
+    @OneToMany(mappedBy = "contact")
+    private List<Invoice> invoices = new ArrayList<Invoice>();
 
     public Long getId() {
         return id;
@@ -51,22 +55,16 @@ public class Operator {
         this.birth = birth;
     }
 
-    public Resource getResource() {
-        return resource;
+    public Client getClient() {
+        return client;
     }
 
-    public void setResource(Resource resource) {
-        this.resource = resource;
+    public void setClient(Client client) {
+        this.client = client;
     }
 
     @Override
     public String toString() {
-        return "Operator{" +
-                super.toString()+
-                ", name='" + name + '\'' +
-                ", lastname='" + lastname + '\'' +
-                ", birth=" + birth +
-                ", resource=" + resource +
-                '}';
+        return "Contact{ " + id +" " + name + " " + lastname + " " + birth +" }";
     }
 }

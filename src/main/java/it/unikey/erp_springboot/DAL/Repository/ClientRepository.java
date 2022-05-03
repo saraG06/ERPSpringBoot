@@ -1,6 +1,6 @@
-package Repository;
+package it.unikey.erp_springboot.DAL.Repository;
 
-import Entity.Client;
+import it.unikey.erp_springboot.DAL.Entity.Client;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

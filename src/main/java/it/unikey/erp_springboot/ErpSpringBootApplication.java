@@ -1,6 +1,8 @@
-package Entity;
+package it.unikey.erp_springboot;
 
-import Repository.ContactRepository;
+import it.unikey.erp_springboot.DAL.Entity.Client;
+import it.unikey.erp_springboot.DAL.Entity.Company;
+import it.unikey.erp_springboot.DAL.Entity.Contact;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
