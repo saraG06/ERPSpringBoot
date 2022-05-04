@@ -10,9 +10,5 @@ import java.util.List;
 @Repository
 public interface ContactRepository extends JpaRepository<Contact, Long> {
 
-    List<Contact> findAllById(Long id);
-    List<Contact> findAllByName(String name);
-    List<Contact> findAllByLastname(String lastname);
-    List<Contact> findAllByBirth(LocalDate birth);
 
 }

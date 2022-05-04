@@ -12,8 +12,4 @@ import java.util.List;
 @Repository
 public interface InvoiceRepository extends JpaRepository<Invoice, Long> {
 
-    List<Invoice> findAllById(Long id);
-    List<Invoice> findAllByContact(Contact contact);
-    List<Invoice> findAllByOrder(Order order);
-    List<Invoice> findAllByDate(LocalDate date);
 }

@@ -1,10 +1,12 @@
 package it.unikey.erp_springboot.DAL.Entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
+@Data
 @Entity
 @Table(name = "contact")
 public class Contact {
@@ -23,48 +25,4 @@ public class Contact {
     @OneToMany(mappedBy = "contact")
     private List<Invoice> invoices = new ArrayList<Invoice>();
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
-    public LocalDate getBirth() {
-        return birth;
-    }
-
-    public void setBirth(LocalDate birth) {
-        this.birth = birth;
-    }
-
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
-    }
-
-    @Override
-    public String toString() {
-        return "Contact{ " + id +" " + name + " " + lastname + " " + birth +" }";
-    }
 }

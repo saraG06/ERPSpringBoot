@@ -9,8 +9,5 @@ import java.util.List;
 @Repository
 public interface ClientRepository extends JpaRepository<Client, Long> {
 
-    List<Client> findAllById(Long id);
-    List<Client> findAllByName(String name);
-    List<Client> findAllByPartitaIVA(String pIVA);
 
 }

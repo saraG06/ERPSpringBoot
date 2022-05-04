@@ -1,9 +1,12 @@
 package it.unikey.erp_springboot.DAL.Entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Data
 @Entity
 @Table(name = "client")
 public class Client {
@@ -21,32 +24,4 @@ public class Client {
     @ManyToOne
     @JoinColumn(name = "company")
     private Company company;
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPartitaIVA() {
-        return partitaIVA;
-    }
-
-    public void setPartitaIVA(String partitaIVA) {
-        this.partitaIVA = partitaIVA;
-    }
-
-    @Override
-    public String toString() {
-        return "Client{ "+id+ " " +name+ " " +partitaIVA+" }";
-    }
 }

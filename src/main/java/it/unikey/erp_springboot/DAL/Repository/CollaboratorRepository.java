@@ -10,8 +10,4 @@ import java.util.List;
 @Repository
 public interface CollaboratorRepository extends JpaRepository<Collaborator, Long> {
 
-    List<Collaborator> findAllById(Long id);
-    List<Collaborator> findAllByName(String name);
-    List<Collaborator> findAllByLastname(String lastname);
-    List<Collaborator> findAllByBirth(LocalDate birth);
 }

@@ -10,11 +10,5 @@ import java.util.List;
 @Repository
 public interface OrderRepository extends JpaRepository<Order, Long> {
 
-    List<Order> findAllById(Long id);
-    List<Order> findAllByDate(LocalDate date);
-    List<Order> findAllByClient(Client client);
-    List<Order> findAllByInvoice(Invoice invoice);
-    List<Order> findAllByCollaborator(Collaborator collaborator);
-    List<Order> findAllByEmployee(Employee employee);
 
 }

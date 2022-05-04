@@ -10,9 +10,5 @@ import java.util.List;
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
-    List<Employee> findAllById(Long id);
-    List<Employee> findAllByName(String name);
-    List<Employee> findAllByLastname(String lastname);
-    List<Employee> findAllByBirth(LocalDate birth);
 
 }

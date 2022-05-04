@@ -1,44 +1,27 @@
 package it.unikey.erp_springboot.DAL.Entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
+@Data
 @Entity
 @Table(name = "employee")
 public class Employee extends Operator{
 
-    @Column(name = "role")
+    @Id
+    private Long id;
+    @OneToOne
+    @JoinColumn(referencedColumnName = "operator", nullable = false)
+    private Operator operator;
+    @Column(name = "role", nullable = false)
     private Role role;
-    @ManyToOne
-    @JoinColumn(name = "company")
-    private Company company;
+    @Column(name = "hiring")
+    private LocalDate hiring;
     @OneToMany(mappedBy = "employee")
     private List<Order> orders = new ArrayList<Order>();
 
-    public Role getRole() {
-        return role;
-    }
 
-    public void setRole(Role role) {
-        this.role = role;
-    }
-
-    public Company getCompany() {
-        return company;
-    }
-
-    public void setCompany(Company company) {
-        this.company = company;
-    }
-
-    @Override
-    public String toString() {
-        return "Employee{" +
-                super.toString()+
-                ", role=" + role +
-                ", company=" + company +
-                ", orders=" + orders +
-                '}';
-    }
 }
