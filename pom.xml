@@ -9,11 +9,11 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>it.unikey</groupId>
-    <artifactId>AutoSpring</artifactId>
+    <artifactId>ERPSpringBoot</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>AutoSpring</name>
-    <description>AutoSpring</description>
+    <name>ERPSpringBoot</name>
+    <description>ERPSpringBoot</description>
     <properties>
         <java.version>11</java.version>
     </properties>
