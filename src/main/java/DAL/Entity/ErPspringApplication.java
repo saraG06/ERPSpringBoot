@@ -1,14 +1,13 @@
-package Entity;
+package DAL.Entity;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ERPSpringBootApplication {
+public class ErPspringApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ERPSpringBootApplication.class, args);
+        SpringApplication.run(ErPspringApplication.class, args);
     }
 
 }
-
