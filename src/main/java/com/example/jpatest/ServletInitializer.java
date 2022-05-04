@@ -1,6 +1,5 @@
 package com.example.jpatest;
 
-import Entity.JpaTestApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 

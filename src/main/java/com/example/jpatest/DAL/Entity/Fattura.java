@@ -1,8 +1,8 @@
-package Entity;
+package com.example.jpatest.DAL.Entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.UUID;
+
 @Table(name = "fattura")
 @Entity
 public class Fattura {

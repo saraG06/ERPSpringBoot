@@ -1,14 +1,16 @@
-package Entity;
+package com.example.jpatest.DAL.Entity;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 
-@MappedSuperclass
-public class Persona implements Serializable {
+
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public class Operatore{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
     @Column(name = "nome", nullable = false)
     private String nome;
@@ -16,6 +18,11 @@ public class Persona implements Serializable {
     private String cognome;
     @Column(name = "nascita", nullable = false)
     private LocalDate nascita;
+
+    @OneToMany(mappedBy = "operatore")
+    private List<Ordine> ordine;
+    @OneToMany(mappedBy = "operatore")
+    private List<Risorsa> risorseAssegnate;
 
     public Long getId() {
         return id;
@@ -47,5 +54,21 @@ public class Persona implements Serializable {
 
     public void setNascita(LocalDate nascita) {
         this.nascita = nascita;
+    }
+
+    public List<Ordine> getOrdine() {
+        return ordine;
+    }
+
+    public void setOrdine(List<Ordine> ordine) {
+        this.ordine = ordine;
+    }
+
+    public List<Risorsa> getRisorseAssegnate() {
+        return risorseAssegnate;
+    }
+
+    public void setRisorseAssegnate(List<Risorsa> risorseAssegnate) {
+        this.risorseAssegnate = risorseAssegnate;
     }
 }

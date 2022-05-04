@@ -1,16 +1,15 @@
-package Entity;
+package com.example.jpatest.DAL.Entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
-
+@Table(name = "contatto")
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class Operatore{
+public class Contatto{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "nome", nullable = false)
     private String nome;
@@ -18,12 +17,14 @@ public class Operatore{
     private String cognome;
     @Column(name = "nascita", nullable = false)
     private LocalDate nascita;
-
-    @OneToMany(mappedBy = "operatore")
-    private List<Ordine> ordine;
-    @OneToMany(mappedBy = "operatore")
-    private List<Risorsa> risorseAssegnate;
-
+    @ManyToOne
+    @JoinTable(name = "cliente", joinColumns = @JoinColumn(name = "id"))
+    private Cliente cliente;
+    @ManyToOne
+    @JoinTable(name = "azienda", joinColumns = @JoinColumn(name = "id"))
+    private Azienda azienda;
+    @OneToMany(mappedBy = "contatto")
+    private List<Fattura> fattura;
     public Long getId() {
         return id;
     }
@@ -55,20 +56,27 @@ public class Operatore{
     public void setNascita(LocalDate nascita) {
         this.nascita = nascita;
     }
-
-    public List<Ordine> getOrdine() {
-        return ordine;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public void setOrdine(List<Ordine> ordine) {
-        this.ordine = ordine;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
-    public List<Risorsa> getRisorseAssegnate() {
-        return risorseAssegnate;
+    public Azienda getAzienda() {
+        return azienda;
     }
 
-    public void setRisorseAssegnate(List<Risorsa> risorseAssegnate) {
-        this.risorseAssegnate = risorseAssegnate;
+    public void setAzienda(Azienda azienda) {
+        this.azienda = azienda;
+    }
+
+    public List<Fattura> getFattura() {
+        return fattura;
+    }
+
+    public void setFattura(List<Fattura> fattura) {
+        this.fattura = fattura;
     }
 }

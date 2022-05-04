@@ -1,9 +1,9 @@
-package Entity;
+package com.example.jpatest.DAL.Entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.UUID;
+
 @Table(name = "dipendente")
 @Entity
 public class Dipendente extends Operatore implements Serializable {

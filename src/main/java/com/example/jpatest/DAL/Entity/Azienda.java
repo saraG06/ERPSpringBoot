@@ -1,4 +1,4 @@
-package Entity;
+package com.example.jpatest.DAL.Entity;
 
 import javax.persistence.*;
 import java.util.ArrayList;
