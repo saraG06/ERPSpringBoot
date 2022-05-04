@@ -10,7 +10,7 @@ import java.util.List;
 public class Client implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int code;
+    private Long id;
     @Column(name = "name", nullable = false)
     private String name;
     @Column(name = "partitaIVA", nullable = false)
@@ -34,12 +34,12 @@ public class Client implements Serializable {
     public Client() {
     }
 
-    public int getCode() {
-        return code;
+    public Long getId() {
+        return id;
     }
 
-    public void setCode(int code) {
-        this.code = code;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -68,6 +68,6 @@ public class Client implements Serializable {
 
     @Override
     public String toString() {
-        return code + " " + name + " " + partitaIVA;
+        return id + " " + name + " " + partitaIVA;
     }
 }

@@ -10,7 +10,9 @@ import java.util.List;
 @Entity
 @Table(name = "collaborator")
 public class Collaborator extends Operator implements Serializable {
-    private int code;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @Column(name = "name", nullable = false)
     private String name;
     @Column(name = "surname", nullable = false)
@@ -35,12 +37,12 @@ public class Collaborator extends Operator implements Serializable {
 
     }
 
-    public int getCode() {
-        return code;
+    public Long getId() {
+        return id;
     }
 
-    public void setCode(int code) {
-        this.code = code;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -77,6 +79,6 @@ public class Collaborator extends Operator implements Serializable {
 
     @Override
     public String toString() {
-        return code +" " + name + " " + surname + " " + birth + " " + resource.name();
+        return id +" " + name + " " + surname + " " + birth + " " + resource.name();
     }
 }

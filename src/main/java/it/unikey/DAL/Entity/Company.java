@@ -11,7 +11,7 @@ import java.util.List;
 public class Company implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int code;
+    private Long id;
     @Column(name = "name", nullable = false)
     private String name;
     @OneToMany(mappedBy = "company")

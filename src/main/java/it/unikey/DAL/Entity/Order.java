@@ -9,7 +9,7 @@ import java.time.LocalDate;
 public class Order implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int code;
+    private Long id;
     @Column(name = "details", nullable = false)
     private String details;
     @Column(name = "date", nullable = false)
@@ -54,12 +54,12 @@ public class Order implements Serializable {
 
     }
 
-    public int getCode() {
-        return code;
+    public Long getId() {
+        return id;
     }
 
-    public void setCode(int code) {
-        this.code = code;
+    public void setCode(Long id) {
+        this.id = id;
     }
 
     public String getDetails() {
@@ -111,12 +111,12 @@ public class Order implements Serializable {
     }
 
     public void stampaConCollaborator(){
-        System.out.println( code + " " + details + " " + date + " " + price
-                + " " + client.getCode() +" " + collaborator.getCode());
+        System.out.println( id + " " + details + " " + date + " " + price
+                + " " + client.getId() +" " + collaborator.getId());
     }
     @Override
     public String toString() {
-        return code + " " + details + " " + date + " " + price
-                + " " + client.getCode() + " " + employee;
+        return id + " " + details + " " + date + " " + price
+                + " " + client.getId() + " " + employee;
     }
 }

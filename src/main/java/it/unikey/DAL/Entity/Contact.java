@@ -10,7 +10,7 @@ import java.util.List;
 public class Contact implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int code;
+    private Long id;
     @Column(name = "name", nullable = false)
     private String name;
     @Column(name = "surname", nullable = false)
@@ -23,8 +23,6 @@ public class Contact implements Serializable {
     @OneToMany(mappedBy = "contact")
     private List<Invoice> invoices;
 
-    private static int id = 0;
-
     public Contact(String name, String surname, String birth) {
         this.name = name;
         this.surname = surname;
@@ -35,12 +33,12 @@ public class Contact implements Serializable {
 
     }
 
-    public int getCode() {
-        return code;
+    public Long getId() {
+        return id;
     }
 
-    public void setCode(int code) {
-        this.code = code;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -79,7 +77,7 @@ public class Contact implements Serializable {
 
     @Override
     public String toString() {
-        return code + " " + name + " " + surname + " " + birth;
+        return id + " " + name + " " + surname + " " + birth;
     }
 
 

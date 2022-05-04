@@ -9,7 +9,7 @@ import java.time.LocalDate;
 public class Invoice implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int code;
+    private Long id;
 
     @Column(name = "date", nullable = false)
     private LocalDate date;
@@ -33,8 +33,12 @@ public class Invoice implements Serializable {
 
     }
 
-    public int getCode() {
-        return code;
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public LocalDate getDate() {
@@ -63,6 +67,6 @@ public class Invoice implements Serializable {
 
     @Override
     public String toString() {
-        return " " + code + " " + date + " " + order.getCode() + " " + contact;
+        return id + " " + date + " " + order.getCode() + " " + contact;
     }
 }
