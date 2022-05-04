@@ -1,7 +1,7 @@
-package Entity;
+package it.unikey.DAL.Entity;
 
-import Entity.Enum.Resources;
-import Entity.Enum.Roles;
+import it.unikey.DAL.Entity.Enum.Resources;
+import it.unikey.DAL.Entity.Enum.Roles;
 
 import javax.persistence.*;
 import java.io.Serializable;

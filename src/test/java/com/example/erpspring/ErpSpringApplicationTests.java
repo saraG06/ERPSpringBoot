@@ -1,8 +1,9 @@
 package com.example.erpspring;
 
-import Entity.Client;
-import Entity.Collaborator;
+import it.unikey.DAL.Entity.Client;
+import it.unikey.DAL.Entity.Collaborator;
 import Repository.*;
+import it.unikey.DAL.Repository.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 

@@ -1,6 +1,5 @@
-package Entity;
+package it.unikey.DAL.Entity;
 
-import com.example.erpspring.ServletInitializer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

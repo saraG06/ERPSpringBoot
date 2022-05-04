@@ -1,4 +1,4 @@
-package Entity.Enum;
+package it.unikey.DAL.Entity.Enum;
 
 public enum Roles {
     MANAGER("manager", 3),

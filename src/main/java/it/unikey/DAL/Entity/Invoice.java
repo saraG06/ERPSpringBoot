@@ -1,4 +1,4 @@
-package Entity;
+package it.unikey.DAL.Entity;
 
 import javax.persistence.*;
 import java.io.Serializable;

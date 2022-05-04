@@ -1,4 +1,6 @@
-package Entity;
+package it.unikey.DAL.Entity;
+
+import it.unikey.DAL.Entity.Enum.Resources;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -6,10 +8,8 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Table(name = "contact")
-public class Contact implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+@Table(name = "collaborator")
+public class Collaborator extends Operator implements Serializable {
     private int code;
     @Column(name = "name", nullable = false)
     private String name;
@@ -17,21 +17,21 @@ public class Contact implements Serializable {
     private String surname;
     @Column(name = "birth", nullable = false)
     private LocalDate birth;
-    @ManyToOne
-    @JoinTable(name = "client", joinColumns = @JoinColumn(name = "id"))
-    private Client client;
-    @OneToMany(mappedBy = "contact")
-    private List<Invoice> invoices;
+    @Enumerated
+    @Column(name = "resource", nullable = false)
+    private Resources resource;
 
-    private static int id = 0;
+    @OneToMany(mappedBy = "collaborator")
+    private List<Order> orders;
 
-    public Contact(String name, String surname, String birth) {
+    public Collaborator( String name, String surname, String birth, String resource) {
         this.name = name;
         this.surname = surname;
         this.birth = LocalDate.parse(birth);
+        this.resource = Resources.valueOf(resource.toUpperCase());;
     }
 
-    public Contact() {
+    public Collaborator() {
 
     }
 
@@ -67,20 +67,16 @@ public class Contact implements Serializable {
         this.birth = birth;
     }
 
-    public List<Invoice> getClientInvoices(Company c) {
-        for (Client cl : c.getClients()){
-            if(cl.getContacts().contains(this)){
-               return c.getInvoices();
-            }
-        }
-        System.out.println("Questo Contatto non fa parte dell'azienda");
-        return null;
+    public Resources getResource() {
+        return resource;
+    }
+
+    public void setResource(String resource) {
+        this.resource = Resources.valueOf(resource.toUpperCase());
     }
 
     @Override
     public String toString() {
-        return code + " " + name + " " + surname + " " + birth;
+        return code +" " + name + " " + surname + " " + birth + " " + resource.name();
     }
-
-
 }

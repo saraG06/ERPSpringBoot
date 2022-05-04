@@ -1,4 +1,4 @@
-package Entity.Enum;
+package it.unikey.DAL.Entity.Enum;
 
 import javax.persistence.Enumerated;
 

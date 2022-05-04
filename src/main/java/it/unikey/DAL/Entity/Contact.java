@@ -1,6 +1,4 @@
-package Entity;
-
-import Entity.Enum.Resources;
+package it.unikey.DAL.Entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -8,8 +6,10 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Table(name = "collaborator")
-public class Collaborator extends Operator implements Serializable {
+@Table(name = "contact")
+public class Contact implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int code;
     @Column(name = "name", nullable = false)
     private String name;
@@ -17,21 +17,21 @@ public class Collaborator extends Operator implements Serializable {
     private String surname;
     @Column(name = "birth", nullable = false)
     private LocalDate birth;
-    @Enumerated
-    @Column(name = "resource", nullable = false)
-    private Resources resource;
+    @ManyToOne
+    @JoinTable(name = "client", joinColumns = @JoinColumn(name = "id"))
+    private Client client;
+    @OneToMany(mappedBy = "contact")
+    private List<Invoice> invoices;
 
-    @OneToMany(mappedBy = "collaborator")
-    private List<Order> orders;
+    private static int id = 0;
 
-    public Collaborator( String name, String surname, String birth, String resource) {
+    public Contact(String name, String surname, String birth) {
         this.name = name;
         this.surname = surname;
         this.birth = LocalDate.parse(birth);
-        this.resource = Resources.valueOf(resource.toUpperCase());;
     }
 
-    public Collaborator() {
+    public Contact() {
 
     }
 
@@ -67,16 +67,20 @@ public class Collaborator extends Operator implements Serializable {
         this.birth = birth;
     }
 
-    public Resources getResource() {
-        return resource;
-    }
-
-    public void setResource(String resource) {
-        this.resource = Resources.valueOf(resource.toUpperCase());
+    public List<Invoice> getClientInvoices(Company c) {
+        for (Client cl : c.getClients()){
+            if(cl.getContacts().contains(this)){
+               return c.getInvoices();
+            }
+        }
+        System.out.println("Questo Contatto non fa parte dell'azienda");
+        return null;
     }
 
     @Override
     public String toString() {
-        return code +" " + name + " " + surname + " " + birth + " " + resource.name();
+        return code + " " + name + " " + surname + " " + birth;
     }
+
+
 }
