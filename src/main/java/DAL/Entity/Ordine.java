@@ -1,6 +1,8 @@
 package DAL.Entity;
 
 
+import DAL.Entity.persone.Operatore;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 @Table(name = "ordine")
@@ -24,8 +26,8 @@ public class Ordine {
    @JoinColumn(name = "cliente_id")
     Cliente cliente ;
 
-   @OneToOne
-   Fattura fattura ;
+//   @OneToOne
+//   Fattura fattura ;
 
     @ManyToOne
     @JoinColumn(name = "azienda_id")

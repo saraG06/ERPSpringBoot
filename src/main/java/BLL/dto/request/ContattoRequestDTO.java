@@ -18,7 +18,7 @@ public class ContattoRequestDTO {
 
     private LocalDate dataNascita ;
 
-    private Cliente cliente ;
+    private ClienteRequestDTO clienteRequestDTO ;
 
-    private List<Fattura> fatture;
+    private List<FatturaRequestDTO> fatturaRequestDTOList;
 }

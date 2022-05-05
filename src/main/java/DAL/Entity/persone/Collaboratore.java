@@ -14,12 +14,7 @@ public class Collaboratore extends Operatore {
     @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id ;
 
-    @Column(name = "nome")
-    private String nome;
-    @Column(name = "cognome")
-    private String cognome;
-    @Column(name = "dataNascita")
-    private LocalDate dataNascita ;
+
     @Enumerated
     @Column(name = "risorsa")
     Risorse risorsa ;

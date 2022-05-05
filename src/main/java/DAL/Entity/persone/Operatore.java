@@ -16,6 +16,13 @@ public class Operatore {
     @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id ;
 
+    @Column(name = "nome")
+    private String nome;
+    @Column(name = "cognome")
+    private String cognome;
+    @Column(name = "dataNascita")
+    private LocalDate dataNascita ;
+
     @ManyToOne
     @JoinColumn(name = "azienda_id")
     Azienda azienda ;
