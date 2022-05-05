@@ -28,37 +28,58 @@ public class Cliente {
     public Cliente() {
          }
 
-//    public boolean hasContatto(Contatto c){
-//        return contatti.contains(c);
-//    }
-//
-//    public ArrayList<Contatto> getContatti() {
-//        return contatti;
-//    }
-//
-//    public void setContatti(ArrayList<Contatto> contatti) {
-//        this.contatti = contatti;
-//    }
-//
-//    public int getCodice() {
-//        return codice;
-//    }
-//
-//    public String getNome() {
-//        return nome;
-//    }
-//
-//    public void setNome(String nome) {
-//        this.nome = nome;
-//    }
-//
-//    public String getpIva() {
-//        return pIva;
-//    }
-//
-//    public void setpIva(String pIva) {
-//        this.pIva = pIva;
-//    }
+    public boolean hasContatto(Contatto c){
+        return contatti.contains(c);
+    }
+
+    public List<Contatto> getContatti() {
+        return contatti;
+    }
+
+    public void setContatti(List<Contatto> contatti) {
+        this.contatti = contatti;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public List<Ordine> getOrdini() {
+        return ordini;
+    }
+
+    public void setOrdini(List<Ordine> ordini) {
+        this.ordini = ordini;
+    }
+
+    public Azienda getAzienda() {
+        return azienda;
+    }
+
+    public void setAzienda(Azienda azienda) {
+        this.azienda = azienda;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getpIva() {
+        return pIva;
+    }
+
+    public void setpIva(String pIva) {
+        this.pIva = pIva;
+    }
+
 
 
 }

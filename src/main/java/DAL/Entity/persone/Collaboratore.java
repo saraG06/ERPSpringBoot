@@ -26,7 +26,27 @@ public class Collaboratore extends Operatore {
 
     }
 
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 
+    public Risorse getRisorsa() {
+        return risorsa;
+    }
 
+    public void setRisorsa(Risorse risorsa) {
+        this.risorsa = risorsa;
+    }
+
+    public Operatore getOperatore() {
+        return operatore;
+    }
+
+    public void setOperatore(Operatore operatore) {
+        this.operatore = operatore;
+    }
 }

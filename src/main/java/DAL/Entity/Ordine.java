@@ -42,42 +42,63 @@ public class Ordine {
 //        this.cliente = cliente ;
 //    }
 
-//    public Operatore getOper() {
-//        return oper;
-//    }
-//
-//    public Cliente getCliente() {
-//        return cliente;
-//    }
-//
-//    public int getCodice() {
-//        return codice;
-//    }
-//
-//    public LocalDate getData() {
-//        return data;
-//    }
-//
-//    public void setData(LocalDate data) {
-//        this.data = data;
-//    }
-//
-//    public double getImporto() {
-//        return importo;
-//    }
-//
-//    public void setImporto(double importo) {
-//        this.importo = importo;
-//    }
-//
-//    public String getDettaglio() {
-//        return dettaglio;
-//    }
-//
-//    public void setDettaglio(String dettaglio) {
-//        this.dettaglio = dettaglio;
-//    }
-//
+    public Operatore getOperatore() {
+        return operatore;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+
+    public LocalDate getData() {
+        return data;
+    }
+
+    public void setData(LocalDate data) {
+        this.data = data;
+    }
+
+    public double getImporto() {
+        return importo;
+    }
+
+    public void setImporto(double importo) {
+        this.importo = importo;
+    }
+
+    public String getDettaglio() {
+        return dettaglio;
+    }
+
+    public void setDettaglio(String dettaglio) {
+        this.dettaglio = dettaglio;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setOperatore(Operatore operatore) {
+        this.operatore = operatore;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Azienda getAzienda() {
+        return azienda;
+    }
+
+    public void setAzienda(Azienda azienda) {
+        this.azienda = azienda;
+    }
+    //
 //    @Override
 //    public String toString() {
 //        return "Ordine{" +
