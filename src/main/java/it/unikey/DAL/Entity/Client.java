@@ -1,10 +1,13 @@
 package it.unikey.DAL.Entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+@Data
 @Entity
 @Table(name = "client")
 public class Client implements Serializable {
@@ -34,40 +37,4 @@ public class Client implements Serializable {
     public Client() {
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPartitaIVA() {
-        return partitaIVA;
-    }
-
-    public void setPartitaIVA(String partitaIVA) {
-        this.partitaIVA = partitaIVA;
-    }
-
-    public List<Contact> getContacts() {
-        return contacts;
-    }
-
-    public void setContacts(List<Contact> contacts) {
-        this.contacts = contacts;
-    }
-
-    @Override
-    public String toString() {
-        return id + " " + name + " " + partitaIVA;
-    }
 }

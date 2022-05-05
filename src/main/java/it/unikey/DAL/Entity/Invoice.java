@@ -1,9 +1,12 @@
 package it.unikey.DAL.Entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+@Data
 @Entity
 @Table(name = "Invoice")
 public class Invoice implements Serializable {
@@ -27,46 +30,5 @@ public class Invoice implements Serializable {
         this.date = LocalDate.parse(date);
         this.order = o;
         this.contact = c;
-    }
-
-    public Invoice() {
-
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
-    public Order getOrder() {
-        return order;
-    }
-
-    public void setOrder(Order order) {
-        this.order = order;
-    }
-
-    public Contact getContact() {
-        return contact;
-    }
-
-    public void setContact(Contact contact) {
-        this.contact = contact;
-    }
-
-    @Override
-    public String toString() {
-        return id + " " + date + " " + order.getCode() + " " + contact;
     }
 }

@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -23,7 +24,10 @@ public class Company implements Serializable {
     @OneToMany(mappedBy = "company")
     private List<Employee> employees;
 
-    public Company(String name){
+    @OneToMany(mappedBy = "company")
+    private List<Operator> operators;
+
+    public Company(String name) {
         this.name = name;
         this.clients = new ArrayList<>();
         this.invoices = new ArrayList<>();
@@ -77,11 +81,12 @@ public class Company implements Serializable {
 
     public void moreThan10() {
         for (Client c : this.getClients()) {
-            if (c.getContacts().size() >= 10){
-                System.out.println("Il contatto " +c.getName() + " di " + this.getName() + " ha almeno 10 contatti");
+            if (c.getContacts().size() >= 10) {
+                System.out.println("Il contatto " + c.getName() + " di " + this.getName() + " ha almeno 10 contatti");
             }
         }
     }
+
     public void invoicesReply() {
         for (Client c : this.getClients()) {
             if (c.getName().equals("Reply")) {
@@ -90,22 +95,22 @@ public class Company implements Serializable {
         }
     }
 
-    public void carOwnerEmployees(){
+    public void carOwnerEmployees() {
         for (Employee e : this.getEmployees()) {
-            try{
-                if(e.getResource().getValue() == 1){
+            try {
+                if (e.getResource().getValue() == 1) {
                     System.out.println(e);
                 }
-            } catch(NullPointerException n){
+            } catch (NullPointerException n) {
                 continue;
             }
 
         }
     }
 
-    public void invoiceDateAfter(String data){
-        for(Invoice i : this.getInvoices()){
-            if (i.getDate().compareTo(LocalDate.parse(data)) > 0){
+    public void invoiceDateAfter(String data) {
+        for (Invoice i : this.getInvoices()) {
+            if (i.getDate().compareTo(LocalDate.parse(data)) > 0) {
                 System.out.println(i);
             }
         }
@@ -115,35 +120,41 @@ public class Company implements Serializable {
         for (Order o : this.getOrders()) {
             for (Invoice i : this.getInvoices()) {
                 if (!o.equals(i.getOrder())) {
-                    if (o.getCollaborator() != null) {
-                        o.stampaConCollaborator();
-                    } else {
-                        System.out.println(o);
-                    }
+                    System.out.println(o);
                 }
             }
         }
     }
-    public void employeeHiredLastMonth(){
-        for (Employee e : this.getEmployees()){
-            if(e.getDateOfEmployment().compareTo(LocalDate.now().minusDays(30)) > 0){
+
+    public void employeeHiredLastMonth() {
+        for (Employee e : this.getEmployees()) {
+            if (e.getDateOfEmployment().compareTo(LocalDate.now().minusDays(30)) > 0) {
                 System.out.println(e);
             }
         }
     }
 
-    public void countEmployees(){
-        try(ObjectInputStream ob = new ObjectInputStream(new FileInputStream("resources/" + this.getName() + ".txt"))) {
+    public void countEmployees() {
+        try (ObjectInputStream ob = new ObjectInputStream(new FileInputStream("resources/" + this.getName() + ".txt"))) {
             ArrayList<Employee> o = (ArrayList<Employee>) ob.readObject();
 
             this.setEmployees(o);
             System.out.println(o.size());
-        }
-        catch(IOException e){
+        } catch (IOException e) {
             e.getMessage();
-        }
-        catch (ClassNotFoundException e) {
+        } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @OneToMany(mappedBy = "company")
+    private Collection<Operator> operator;
+
+    public Collection<Operator> getOperator() {
+        return operator;
+    }
+
+    public void setOperator(Collection<Operator> operator) {
+        this.operator = operator;
     }
 }

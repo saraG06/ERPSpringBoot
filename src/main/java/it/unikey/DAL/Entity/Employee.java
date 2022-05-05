@@ -2,21 +2,21 @@ package it.unikey.DAL.Entity;
 
 import it.unikey.DAL.Entity.Enum.Resources;
 import it.unikey.DAL.Entity.Enum.Roles;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
+@Data
 @Entity
 @Table(name = "employee")
-public class Employee extends Operator implements Serializable {
-    @Column(name = "name", nullable = false)
-    private String name;
-    @Column(name = "surname", nullable = false)
-    private String surname;
-    @Column(name = "birth", nullable = false)
-    private LocalDate birth;
+public class Employee implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private Long id;
     @Enumerated
     @Column(name = "resource", nullable = false)
     private Resources resource;
@@ -32,53 +32,15 @@ public class Employee extends Operator implements Serializable {
     @OneToMany(mappedBy = "employee")
     private List<Order> orders;
 
-    public Employee(String name, String surname, String birth, String dateOfEmployment, String role, Company c) {
-        this.name = name;
-        this.surname = surname;
-        this.birth = LocalDate.parse(birth);
-        this.dateOfEmployment = LocalDate.parse(dateOfEmployment);
-        this.role = Roles.valueOf(role.toUpperCase());
-        this.company = c;
-    }
+    @OneToOne()
+    @JoinColumn(name = "operatore_id", referencedColumnName = "id")
+    private Operator operator;
 
     public Employee() {
-
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public LocalDate getBirth() {
-        return birth;
-    }
-
-    public void setBirth(LocalDate birth) {
-        this.birth = birth;
     }
 
     public Resources getResource() {
         return resource;
-    }
-
-    public Company getCompany() {
-        return company;
-    }
-
-    public void setCompany(Company company) {
-        this.company = company;
     }
 
     public void setResource(String resource) {
@@ -89,8 +51,8 @@ public class Employee extends Operator implements Serializable {
         return dateOfEmployment;
     }
 
-    public void setDateOfEmployment(LocalDate dateOfEmployment) {
-        this.dateOfEmployment = dateOfEmployment;
+    public void setDateOfEmployment(String dateOfEmployment) {
+        this.dateOfEmployment = LocalDate.parse(dateOfEmployment);
     }
 
     public Roles getRole() {
@@ -115,7 +77,6 @@ public class Employee extends Operator implements Serializable {
 
     @Override
     public String toString() {
-        return  name + " " + surname + " " + birth + " "
-                + resource + " " + dateOfEmployment + " " + role.name();
+        return  resource.name() + " " + dateOfEmployment + " " + role.name();
     }
 }
