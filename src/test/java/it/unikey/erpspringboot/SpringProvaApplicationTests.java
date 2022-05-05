@@ -1,8 +1,7 @@
 package it.unikey.erpspringboot;
 
-import DAL.Entity.Azienda;
-import DAL.Repository.AziendaRepository;
-import DAL.SpringProvaApplication;
+import it.unikey.erpspringboot.DAL.Entity.Azienda;
+import it.unikey.erpspringboot.DAL.Repository.AziendaRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -10,10 +9,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
-@SpringBootTest(classes = SpringProvaApplication.class)
+@SpringBootTest(classes = ERPSpringBootApplication.class)
 @DataJpaTest
 
-class SpringProvaApplicationTests {
+class ERPSpringBootApplicationTests {
      @Autowired
     private AziendaRepository aziendaRepository;
     @Test
