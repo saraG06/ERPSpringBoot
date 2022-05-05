@@ -22,16 +22,6 @@ public class Fattura {
     @JoinTable(name = "azienda", joinColumns = @JoinColumn(name = "id"))
     private Azienda azienda;
 
-    public Fattura(LocalDate data, Contatto contatto, Ordine ordine) {
-        this.data = data;
-        this.contatto= contatto;
-        this.ordine= ordine;
-    }
-
-    public Fattura() {
-
-    }
-
     public LocalDate getData() {
         return data;
     }
@@ -44,13 +34,31 @@ public class Fattura {
         return ordine;
     }
 
-    @Override
-    public String toString() {
-        return "Fattura{" +
-                "codice=" + id +
-                ", data=" + data +
-                ", contatto=" + contatto +
-                ", ordine=" + ordine +
-                '}';
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setData(LocalDate data) {
+        this.data = data;
+    }
+
+    public void setContatto(Contatto contatto) {
+        this.contatto = contatto;
+    }
+
+    public void setOrdine(Ordine ordine) {
+        this.ordine = ordine;
+    }
+
+    public Azienda getAzienda() {
+        return azienda;
+    }
+
+    public void setAzienda(Azienda azienda) {
+        this.azienda = azienda;
     }
 }

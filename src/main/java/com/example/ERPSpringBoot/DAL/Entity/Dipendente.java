@@ -62,4 +62,20 @@ public class Dipendente implements Serializable {
     public void setRisorsa(Risorsa risorsa) {
         this.risorsa = risorsa;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Operatore getO() {
+        return o;
+    }
+
+    public void setO(Operatore o) {
+        this.o = o;
+    }
 }

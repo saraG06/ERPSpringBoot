@@ -71,4 +71,5 @@ public class Operatore{
     public void setRisorseAssegnate(List<Risorsa> risorseAssegnate) {
         this.risorseAssegnate = risorseAssegnate;
     }
+
 }

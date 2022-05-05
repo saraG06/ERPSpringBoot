@@ -27,4 +27,28 @@ public class Collaboratore{
     public void setAzienda(Azienda azienda) {
         this.azienda = azienda;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Operatore getO() {
+        return o;
+    }
+
+    public void setO(Operatore o) {
+        this.o = o;
+    }
+
+    public Risorsa getRisorsa() {
+        return risorsa;
+    }
+
+    public void setRisorsa(Risorsa risorsa) {
+        this.risorsa = risorsa;
+    }
 }

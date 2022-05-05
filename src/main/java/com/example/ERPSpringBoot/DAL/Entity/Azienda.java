@@ -23,5 +23,51 @@ public class Azienda {
     @OneToMany(mappedBy = "azienda")
     private List<Ordine> listaOrdini;
 
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public List<Dipendente> getListaDipendenti() {
+        return listaDipendenti;
+    }
+
+    public void setListaDipendenti(List<Dipendente> listaDipendenti) {
+        this.listaDipendenti = listaDipendenti;
+    }
+
+    public List<Collaboratore> getListaCollaboratori() {
+        return listaCollaboratori;
+    }
+
+    public void setListaCollaboratori(List<Collaboratore> listaCollaboratori) {
+        this.listaCollaboratori = listaCollaboratori;
+    }
+
+    public List<Fattura> getListaFatture() {
+        return listaFatture;
+    }
+
+    public void setListaFatture(List<Fattura> listaFatture) {
+        this.listaFatture = listaFatture;
+    }
+
+    public List<Contatto> getListaContatti() {
+        return listaContatti;
+    }
+
+    public void setListaContatti(List<Contatto> listaContatti) {
+        this.listaContatti = listaContatti;
+    }
+
+    public List<Ordine> getListaOrdini() {
+        return listaOrdini;
+    }
+
+    public void setListaOrdini(List<Ordine> listaOrdini) {
+        this.listaOrdini = listaOrdini;
+    }
 }
