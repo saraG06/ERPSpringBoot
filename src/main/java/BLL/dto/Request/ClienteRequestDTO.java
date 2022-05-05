@@ -9,6 +9,6 @@ public class ClienteRequestDTO {
 
     private String nome;
     private String PI;
-    private List<OrdineRequestDTO> ordineRequestDTO;
-    private List<ContattoRequestDTO> contattoRequestDTO;
+    private List<OrdineRequestDTO> ordineRequestDTOList;
+    private List<ContattoRequestDTO> contattoRequestDTOList;
 }

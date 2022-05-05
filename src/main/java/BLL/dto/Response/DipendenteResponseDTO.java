@@ -4,9 +4,10 @@ import lombok.Data;
 
 import java.time.LocalDate;
 @Data
-public class DipendenteResponseDTO extends  OperatoreResponseDTO {
+public class DipendenteResponseDTO {
 
     private Long id;
     private LocalDate assunzione;
     private RuoloResponseDTO RuoloResponseDTO;
+    private RisorsaResponseDTO risorsaResponseDTO;
 }

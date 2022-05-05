@@ -5,7 +5,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "dipendenti")
-public class Dipendente extends Operatore{
+public class Dipendente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,12 +18,34 @@ public class Dipendente extends Operatore{
     @JoinColumn(name = "ruolo_id",nullable = false)
     private Ruolo ruolo;
 
-    @Override
+    @ManyToOne
+    @JoinColumn(name = "risorsa_id",nullable = false)
+    private Risorsa risorsa;
+
+    public Risorsa getRisorsa() {
+        return risorsa;
+    }
+
+    public void setRisorsa(Risorsa risorsa) {
+        this.risorsa = risorsa;
+    }
+
+    @OneToOne
+    @JoinColumn(name = "operatore_id", referencedColumnName = "id")
+    private Operatore operatore;
+
+    public Operatore getOperatore() {
+        return operatore;
+    }
+
+    public void setOperatore(Operatore operatore) {
+        this.operatore = operatore;
+    }
+
     public Long getId() {
         return id;
     }
 
-    @Override
     public void setId(Long id) {
         this.id = id;
     }

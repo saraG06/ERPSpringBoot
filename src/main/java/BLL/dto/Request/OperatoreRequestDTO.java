@@ -2,11 +2,15 @@ package BLL.dto.Request;
 
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Data
-public class OperatoreRequestDTO extends PersonaRequestDTO{
+public class OperatoreRequestDTO{
 
-    private RisorsaRequestDTO risorsaRequestDTO;
+    private String nome;
+    private String cognome;
+    private LocalDate dataNascita;
+    private AziendaRequestDTO aziendaRequestDTO;
     private List<OrdineRequestDTO> ordineRequestDTOList;
 }

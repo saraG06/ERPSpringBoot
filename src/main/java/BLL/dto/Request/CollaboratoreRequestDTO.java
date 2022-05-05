@@ -1,9 +1,11 @@
 package BLL.dto.Request;
 
+
 import lombok.Data;
 
 @Data
-public class CollaboratoreRequestDTO extends OperatoreRequestDTO{
+public class CollaboratoreRequestDTO {
 
-
+    private OperatoreRequestDTO operatoreRequestDTO;
+    private RisorsaRequestDTO risorsaRequestDTO;
 }

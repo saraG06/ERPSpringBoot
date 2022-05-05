@@ -2,11 +2,15 @@ package BLL.dto.Response;
 
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.util.List;
 @Data
-public class OperatoreResponseDTO extends PersonaResponseDTO{
+public class OperatoreResponseDTO {
 
     private Long id;
-    private RisorsaResponseDTO risorsaResponseDTO;
+    private String nome;
+    private String cognome;
+    private LocalDate dataNascita;
+    private AziendaResponseDTO aziendaResponseDTO;
     private List<OrdineResponseDTO> ordineResponseDTOList;
 }
