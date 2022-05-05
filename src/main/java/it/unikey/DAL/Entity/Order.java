@@ -30,8 +30,6 @@ public class Order implements Serializable {
     @JoinTable(name = "contact", joinColumns = @JoinColumn(name = "id"))
     private Company company;
 
-    @OneToOne
-    private Invoice invoice;
 
     public Order(String details, String date, double price, Operator o, Client cl) {
         this.details = details;

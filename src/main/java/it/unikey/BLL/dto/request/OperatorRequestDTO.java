@@ -1,16 +1,14 @@
 package it.unikey.BLL.dto.request;
 
+import it.unikey.BLL.dto.response.CompanyResponseDTO;
 import lombok.Data;
 
 import java.time.LocalDate;
-import java.util.List;
 
 @Data
-public class ContactRequestDTO {
-
+public class OperatorRequestDTO {
     private String name;
     private String surname;
     private LocalDate birth;
-    private ClientRequestDTO clientRequestDTO;
-    private List<InvoiceRequestDTO> invoiceRequestDTOList;
+    private CompanyResponseDTO companyResponseDTO;
 }

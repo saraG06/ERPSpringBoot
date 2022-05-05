@@ -5,13 +5,15 @@ import it.unikey.BLL.dto.request.ContactRequestDTO;
 import it.unikey.BLL.dto.request.OrderRequestDTO;
 import lombok.Data;
 
-import java.time.LocalDate;
+import java.util.List;
 
 @Data
-public class InvoiceResponseDTO {
+public class ClientResponseDTO {
+
     private Long id;
-    private LocalDate date;
-    private OrderRequestDTO orderRequestDTO;
-    private ContactRequestDTO contactRequestDTO;
+    private String name;
+    private String partitaIVA;
+    private List<ContactRequestDTO> contactRequestDTOList;
+    private List<OrderRequestDTO> orderRequestDTOList;
     private CompanyRequestDTO companyRequestDTO;
 }

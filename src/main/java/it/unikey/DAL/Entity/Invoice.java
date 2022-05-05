@@ -31,4 +31,8 @@ public class Invoice implements Serializable {
         this.order = o;
         this.contact = c;
     }
+
+    public Invoice() {
+
+    }
 }
