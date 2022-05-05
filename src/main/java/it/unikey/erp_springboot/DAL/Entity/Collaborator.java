@@ -8,13 +8,17 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "collaborator")
-public class Collaborator extends Operator{
+public class Collaborator {
 
     @Id
     private Long id;
     @OneToOne
     @JoinColumn(referencedColumnName = "operator", nullable = false)
     private Operator operator;
+
+    @Column(name = "resource")
+    @Enumerated(EnumType.ORDINAL)
+    private Resource resource;
     @OneToMany(mappedBy = "collaborator")
     List<Order> orders = new ArrayList<Order>();
 

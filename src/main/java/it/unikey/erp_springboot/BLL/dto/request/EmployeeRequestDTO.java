@@ -1,8 +1,6 @@
 package it.unikey.erp_springboot.BLL.dto.request;
 
-import it.unikey.erp_springboot.BLL.dto.response.CompanyResponseDTO;
-import it.unikey.erp_springboot.BLL.dto.response.OperatorResponseDTO;
-import it.unikey.erp_springboot.BLL.dto.response.OrderResponseDTO;
+import it.unikey.erp_springboot.DAL.Entity.Resource;
 import it.unikey.erp_springboot.DAL.Entity.Role;
 import lombok.Data;
 
@@ -14,6 +12,8 @@ public class EmployeeRequestDTO {
     private OperatorRequestDTO operatorRequestDTO;
     private Role role;
     private LocalDate hiring;
+
+    private Resource resource;
     private List<OrderRequestDTO> orderRequestDTOList;
 
 }

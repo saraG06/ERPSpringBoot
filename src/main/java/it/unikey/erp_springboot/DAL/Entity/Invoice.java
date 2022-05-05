@@ -19,4 +19,7 @@ public class Invoice {
     @ManyToOne
     @JoinColumn(name = "contact")
     private Contact contact;
+    @ManyToOne
+    @JoinColumn(name = "company")
+    private Company company;
 }

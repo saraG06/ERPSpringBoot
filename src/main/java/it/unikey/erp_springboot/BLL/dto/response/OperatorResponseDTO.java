@@ -1,7 +1,5 @@
 package it.unikey.erp_springboot.BLL.dto.response;
 
-import it.unikey.erp_springboot.DAL.Entity.Company;
-import it.unikey.erp_springboot.DAL.Entity.Resource;
 import lombok.Data;
 
 import java.time.LocalDate;
@@ -13,6 +11,5 @@ public class OperatorResponseDTO {
     private String name;
     private String lastname;
     private LocalDate birth;
-    private Resource resource;
     private CompanyResponseDTO companyResponseDTO;
 }

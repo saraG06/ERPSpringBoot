@@ -6,10 +6,9 @@ import javax.persistence.*;
 import java.time.LocalDate;
 @Entity
 @Data
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Operator {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "name", nullable = false)
     private String name;
@@ -17,8 +16,6 @@ public class Operator {
     private String lastname;
     @Column(name = "birthday", nullable = false)
     private LocalDate birth;
-    @Column(name = "resource")
-    private Resource resource;
     @ManyToOne
     @JoinColumn(name = "company")
     private Company company;

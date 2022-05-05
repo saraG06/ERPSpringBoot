@@ -18,5 +18,6 @@ public class Company {
     private List<Client> clients = new ArrayList<Client>();
     @OneToMany(mappedBy = "company")
     private List<Operator> operators = new ArrayList<Operator>();
-
+    @OneToMany(mappedBy = "company")
+    private List<Invoice> invoices = new ArrayList<Invoice>();
 }
