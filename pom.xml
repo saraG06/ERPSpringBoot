@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>ERPSpring</artifactId>
+    <artifactId>ERPSpringBoot</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>ERPSpring</name>
-    <description>ERPSpring</description>
+    <name>ERPSpringBoot</name>
+    <description>ERPSpringBoot</description>
     <properties>
         <java.version>11</java.version>
     </properties>
@@ -29,7 +29,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.20</version>
+            <scope>provided</scope>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
