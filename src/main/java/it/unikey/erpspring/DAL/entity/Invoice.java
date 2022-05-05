@@ -1,4 +1,4 @@
-package entity;
+package it.unikey.erpspring.DAL.entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;

@@ -1,7 +1,6 @@
-package entity;
+package it.unikey.erpspring.DAL.entity;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity

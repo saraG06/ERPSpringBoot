@@ -1,16 +1,14 @@
-package entity;
-
-import enumerators.AssignedResources;
+package it.unikey.erpspring.DAL.entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class Worker {
+@Table(name ="contact")
+public class Contact {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "firstName")
     private String firstName;
@@ -18,17 +16,15 @@ public class Worker {
     private String lastName;
     @Column(name = "birthDate")
     private LocalDate birthDate;
-    @Enumerated
-    @Column(name = "assignedResources")
-    private AssignedResources assignedResources;
-    @OneToOne(mappedBy = "worker")
-    private Order order;
+    @ManyToOne
+    @JoinColumn(name = "client_id")
+    private Client client;
+    @OneToOne(mappedBy = "contact")
+    private Invoice invoice;
 
     public Long getId() {
         return id;
     }
-
-
 
     public void setId(Long id) {
         this.id = id;
@@ -58,31 +54,32 @@ public class Worker {
         this.birthDate = birthDate;
     }
 
-    public Order getOrder() {
-        return order;
+    public Client getClient() {
+        return client;
     }
 
-    public void setOrder(Order order) {
-        this.order = order;
+    public void setClient(Client client) {
+        this.client = client;
     }
 
-    public AssignedResources getAssignedResources() {
-        return assignedResources;
+    public Invoice getInvoice() {
+        return invoice;
     }
 
-    public void setAssignedResources(AssignedResources assignedResources) {
-        this.assignedResources = assignedResources;
+    public void setInvoice(Invoice invoice) {
+        this.invoice = invoice;
     }
+
+
 
     @Override
     public String toString() {
-        return "Worker{" +
+        return "Contact{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", birthDate=" + birthDate +
-                ", assignedResources=" + assignedResources +
-                ", order=" + order +
+                ", client=" + client +
                 '}';
     }
 }

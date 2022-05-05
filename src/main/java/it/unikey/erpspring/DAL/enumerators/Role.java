@@ -1,4 +1,4 @@
-package enumerators;
+package it.unikey.erpspring.DAL.enumerators;
 
 public enum Role {
     MANAGER(1),

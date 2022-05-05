@@ -1,4 +1,4 @@
-package entity;
+package it.unikey.erpspring.DAL.entity;
 
 
 import javax.persistence.*;
@@ -17,8 +17,8 @@ public class Order {
     private LocalDate date;
     @Column(name = "price")
     private Double price;
-    @OneToOne
-    @JoinColumn(name = "worker_id", referencedColumnName = "id")
+    @ManyToOne
+    @JoinColumn(name = "worker_id")
     private Worker worker;
     @ManyToOne
     @JoinColumn(name = "client_id")

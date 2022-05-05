@@ -1,11 +1,12 @@
-package entity;
+package it.unikey.erpspring.DAL.entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
-@Table(name ="contact")
-public class Contact {
+@Table(name = "worker")
+public class Worker {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,11 +17,8 @@ public class Contact {
     private String lastName;
     @Column(name = "birthDate")
     private LocalDate birthDate;
-    @ManyToOne
-    @JoinColumn(name = "client_id")
-    private Client client;
-    @OneToOne(mappedBy = "contact")
-    private Invoice invoice;
+    @OneToMany(mappedBy = "worker")
+    private List<Order> orders;
 
     public Long getId() {
         return id;
@@ -54,32 +52,21 @@ public class Contact {
         this.birthDate = birthDate;
     }
 
-    public Client getClient() {
-        return client;
+    public List<Order> getOrders() {
+        return orders;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
-
-    public Invoice getInvoice() {
-        return invoice;
-    }
-
-    public void setInvoice(Invoice invoice) {
-        this.invoice = invoice;
-    }
-
-
 
     @Override
     public String toString() {
-        return "Contact{" +
+        return "Worker{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", birthDate=" + birthDate +
-                ", client=" + client +
                 '}';
     }
 }
