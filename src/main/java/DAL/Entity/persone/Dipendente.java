@@ -2,6 +2,7 @@ package DAL.Entity.persone;
 
 
 import DAL.Entity.Azienda;
+import DAL.Entity.Enum.Risorse;
 import DAL.Entity.Enum.Ruoli;
 
 import javax.persistence.*;
@@ -12,17 +13,29 @@ import java.time.LocalDate;
 @Entity
 public class Dipendente extends Operatore implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.TABLE)
+    private Long id ;
+
+    @Column(name = "nome")
+    private String nome;
+    @Column(name = "cognome")
+    private String cognome;
+    @Column(name = "dataNascita")
+    private LocalDate dataNascita ;
+    @Enumerated
+    @Column(name = "risorsa")
+    Risorse risorsa ;
+
+    @OneToOne
+    private Operatore operatore ;
+
 
     @Column(name = "dataAssunzione")
     private LocalDate dataAssunzione;
     @Enumerated
     @Column(name = "ruolo")
     private Ruoli ruolo;
-
-    @ManyToOne
-    @JoinColumn(name = "azienda_id")
-    Azienda azienda ;
-
 
 
 }

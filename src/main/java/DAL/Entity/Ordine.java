@@ -1,8 +1,6 @@
 package DAL.Entity;
 
 
-import DAL.Entity.persone.Operatore;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 @Table(name = "ordine")
