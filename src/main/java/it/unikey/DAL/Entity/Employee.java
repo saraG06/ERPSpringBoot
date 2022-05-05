@@ -33,7 +33,7 @@ public class Employee implements Serializable {
     private List<Order> orders;
 
     @OneToOne()
-    @JoinColumn(name = "operatore_id", referencedColumnName = "id")
+    @JoinColumn(name = "operatore_id", referencedColumnName = "id", nullable = false)
     private Operator operator;
 
     public Employee() {

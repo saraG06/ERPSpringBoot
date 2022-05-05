@@ -1,10 +1,9 @@
 package it.unikey.DAL.Repository;
 
-import it.unikey.DAL.Entity.Client;
+import it.unikey.DAL.Entity.Operator;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ClientRepository extends JpaRepository<Client, Long> {
-
+public interface OperatorRepository extends JpaRepository<Operator, Long> {
 }

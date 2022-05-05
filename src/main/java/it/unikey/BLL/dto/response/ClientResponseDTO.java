@@ -1,8 +1,8 @@
 package it.unikey.BLL.dto.response;
 
+import it.unikey.BLL.dto.request.OrderRequestDTO;
 import it.unikey.BLL.dto.request.CompanyRequestDTO;
 import it.unikey.BLL.dto.request.ContactRequestDTO;
-import it.unikey.BLL.dto.request.OrderRequestDTO;
 import lombok.Data;
 
 import java.util.List;
