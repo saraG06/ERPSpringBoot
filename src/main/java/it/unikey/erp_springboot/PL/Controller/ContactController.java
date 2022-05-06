@@ -25,7 +25,7 @@ public class ContactController {
     }
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<ContactResponseDTO> findById(@PathVariable Long id){
+    public ResponseEntity<ContactResponseDTO> getById(@PathVariable Long id){
         return new ResponseEntity<>(contactService.findById(id), HttpStatus.OK);
     }
 
@@ -36,7 +36,7 @@ public class ContactController {
     }
 
     @GetMapping
-    public ResponseEntity<List<ContactResponseDTO>> findAll(){
+    public ResponseEntity<List<ContactResponseDTO>> getAll(){
         return new ResponseEntity<>(contactService.findAllContact(), HttpStatus.OK);
     }
 

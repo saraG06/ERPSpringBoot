@@ -39,8 +39,4 @@ public class OrderController {
     public ResponseEntity<List<OrderResponseDTO>> findAll(){
         return new ResponseEntity<>(orderService.findAllOrder(), HttpStatus.OK);
     }
-    @GetMapping
-    public ResponseEntity<List<OrderResponseDTO>> findOrderWithoutInvoice(){
-        return new ResponseEntity<>(orderService.findOrderWithoutInvoice(), HttpStatus.OK);
-    }
 }

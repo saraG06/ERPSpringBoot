@@ -1,13 +1,9 @@
 package it.unikey.erp_springboot.BLL.service.impl;
 
 import it.unikey.erp_springboot.BLL.dto.request.CompanyRequestDTO;
-import it.unikey.erp_springboot.BLL.dto.response.ClientResponseDTO;
 import it.unikey.erp_springboot.BLL.dto.response.CompanyResponseDTO;
-import it.unikey.erp_springboot.BLL.dto.response.InvoiceResponseDTO;
-import it.unikey.erp_springboot.BLL.mapper.implementation.ClientResponseMapper;
 import it.unikey.erp_springboot.BLL.mapper.implementation.CompanyRequestMapper;
 import it.unikey.erp_springboot.BLL.mapper.implementation.CompanyResponseMapper;
-import it.unikey.erp_springboot.BLL.mapper.implementation.InvoiceResponseMapper;
 import it.unikey.erp_springboot.BLL.service.abstraction.CompanyService;
 import it.unikey.erp_springboot.DAL.Entity.Company;
 import it.unikey.erp_springboot.DAL.Repository.CompanyRepository;
@@ -22,9 +18,6 @@ public class CompanyServiceImpl implements CompanyService {
     private final CompanyRepository companyRepository;
     private final CompanyRequestMapper companyRequestMapper;
     private final CompanyResponseMapper companyResponseMapper;
-    private final ClientResponseMapper clientResponseMapper;
-    private final InvoiceResponseMapper invoiceResponseMapper;
-
 
     @Override
     public void saveCompany(CompanyRequestDTO companyRequestDTO) {

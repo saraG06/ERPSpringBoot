@@ -1,6 +1,5 @@
 package it.unikey.erp_springboot.PL.Controller;
 
-import it.unikey.erp_springboot.BLL.dto.request.CompanyRequestDTO;
 import it.unikey.erp_springboot.BLL.dto.request.EmployeeRequestDTO;
 import it.unikey.erp_springboot.BLL.dto.response.EmployeeResponseDTO;
 import it.unikey.erp_springboot.BLL.service.abstraction.EmployeeService;
@@ -26,7 +25,7 @@ public class EmployeeController {
     }
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<EmployeeResponseDTO> findById(@PathVariable Long id){
+    public ResponseEntity<EmployeeResponseDTO> getById(@PathVariable Long id){
         return new ResponseEntity<>(employeeService.findById(id), HttpStatus.OK);
     }
 
@@ -37,22 +36,8 @@ public class EmployeeController {
     }
 
     @GetMapping
-    public ResponseEntity<List<EmployeeResponseDTO>> findAll(){
+    public ResponseEntity<List<EmployeeResponseDTO>> getAll(){
         return new ResponseEntity<>(employeeService.findAllEmployee(), HttpStatus.OK);
     }
 
-    @GetMapping
-    public ResponseEntity<List<EmployeeResponseDTO>> findByResourceCar(){
-        return new ResponseEntity<>(employeeService.findByResourceCar(), HttpStatus.OK);
-    }
-
-    @GetMapping
-    public ResponseEntity<List<EmployeeResponseDTO>> findByHireLastMonth(){
-        return new ResponseEntity<>(employeeService.findByHireLastMonth(), HttpStatus.OK);
-    }
-
-    @GetMapping
-    public ResponseEntity<List<EmployeeResponseDTO>> findByCompany(@RequestBody CompanyRequestDTO companyRequestDTO){
-        return new ResponseEntity<>(employeeService.findByCompany(companyRequestDTO), HttpStatus.OK);
-    }
 }

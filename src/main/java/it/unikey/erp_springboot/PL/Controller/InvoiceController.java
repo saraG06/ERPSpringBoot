@@ -27,7 +27,7 @@ public class InvoiceController {
     }
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<InvoiceResponseDTO> findById(@PathVariable Long id){
+    public ResponseEntity<InvoiceResponseDTO> getById(@PathVariable Long id){
         return new ResponseEntity<>(invoiceService.findById(id), HttpStatus.OK);
     }
 
@@ -38,17 +38,8 @@ public class InvoiceController {
     }
 
     @GetMapping
-    public ResponseEntity<List<InvoiceResponseDTO>> findAll(){
+    public ResponseEntity<List<InvoiceResponseDTO>> getAll(){
         return new ResponseEntity<>(invoiceService.findAllInvoice(), HttpStatus.OK);
     }
 
-    @GetMapping
-    public ResponseEntity<List<InvoiceResponseDTO>> findByClient(@RequestBody ClientRequestDTO clientRequestDTO){
-        return new ResponseEntity<>(invoiceService.findByClient(clientRequestDTO), HttpStatus.OK);
-    }
-
-    @GetMapping
-    public ResponseEntity<List<InvoiceResponseDTO>> findInvoiceByDateIsAfter(LocalDate date){
-        return new ResponseEntity<>(invoiceService.findInvoiceByDateIsAfter(date), HttpStatus.OK);
-    }
 }

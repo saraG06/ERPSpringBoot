@@ -39,9 +39,4 @@ public class ClientController {
     public ResponseEntity<List<ClientResponseDTO>> getAll(){
         return new ResponseEntity<>(clientService.findAllClient(), HttpStatus.OK);
     }
-
-    @GetMapping
-    public ResponseEntity<List<ClientResponseDTO>> getWithMoreThan10Contacts(){
-        return new ResponseEntity<>(clientService.findClientWithMore10Contacts(), HttpStatus.OK);
-    }
 }

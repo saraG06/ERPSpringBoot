@@ -25,7 +25,7 @@ public class CompanyController {
     }
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<CompanyResponseDTO> findById(@PathVariable Long id){
+    public ResponseEntity<CompanyResponseDTO> getById(@PathVariable Long id){
         return new ResponseEntity<>(companyService.findById(id), HttpStatus.OK);
     }
 
@@ -36,7 +36,7 @@ public class CompanyController {
     }
 
     @GetMapping
-    public ResponseEntity<List<CompanyResponseDTO>> findAll(){
+    public ResponseEntity<List<CompanyResponseDTO>> getAll(){
         return new ResponseEntity<>(companyService.findAllCompany(), HttpStatus.OK);
     }
 
