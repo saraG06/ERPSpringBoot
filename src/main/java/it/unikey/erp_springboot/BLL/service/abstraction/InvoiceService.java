@@ -1,7 +1,9 @@
 package it.unikey.erp_springboot.BLL.service.abstraction;
 
+import it.unikey.erp_springboot.BLL.dto.request.ClientRequestDTO;
 import it.unikey.erp_springboot.BLL.dto.request.InvoiceRequestDTO;
 import it.unikey.erp_springboot.BLL.dto.response.InvoiceResponseDTO;
+import it.unikey.erp_springboot.DAL.Entity.Client;
 import it.unikey.erp_springboot.DAL.Entity.Company;
 import it.unikey.erp_springboot.DAL.Entity.Invoice;
 
@@ -18,7 +20,7 @@ public interface InvoiceService {
 
     List<InvoiceResponseDTO> findAllInvoice();
 
-    List<InvoiceResponseDTO> findByCompany(Company company);
+    List<InvoiceResponseDTO> findByClient(ClientRequestDTO clientRequestDTO);
 
     List<InvoiceResponseDTO> findInvoiceByDateIsAfter(LocalDate date);
 }

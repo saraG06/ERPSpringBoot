@@ -1,6 +1,8 @@
 package it.unikey.erp_springboot.BLL.service.impl;
 
+import it.unikey.erp_springboot.BLL.dto.request.CompanyRequestDTO;
 import it.unikey.erp_springboot.BLL.dto.request.EmployeeRequestDTO;
+import it.unikey.erp_springboot.BLL.dto.response.CompanyResponseDTO;
 import it.unikey.erp_springboot.BLL.dto.response.EmployeeResponseDTO;
 import it.unikey.erp_springboot.BLL.mapper.implementation.*;
 import it.unikey.erp_springboot.BLL.service.abstraction.EmployeeService;
@@ -21,6 +23,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     private final EmployeeRequestMapper employeeRequestMapper;
     private final EmployeeResponseMapper employeeResponseMapper;
     private final OperatorRequestMapper operatorRequestMapper;
+
+    private final CompanyRequestMapper companyRequestMapper;
 
     @Override
     public void saveEmployee(EmployeeRequestDTO employeeRequestDTO) {
@@ -66,7 +70,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employeeResponseMapper.asDTOList(employeeRepository.findByHireLastMonth());
     }
     @Override
-    public List<EmployeeResponseDTO> findByCompany(Company company) {
-        return employeeResponseMapper.asDTOList(employeeRepository.findByCompany(company));
+    public List<EmployeeResponseDTO> findByCompany(CompanyRequestDTO companyRequestDTO) {
+        return employeeResponseMapper.asDTOList(employeeRepository.findByCompany(companyRequestMapper.asEntity(companyRequestDTO)));
     }
 }

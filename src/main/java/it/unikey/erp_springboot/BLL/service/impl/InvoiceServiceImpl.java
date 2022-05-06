@@ -1,13 +1,11 @@
 package it.unikey.erp_springboot.BLL.service.impl;
 
+import it.unikey.erp_springboot.BLL.dto.request.ClientRequestDTO;
 import it.unikey.erp_springboot.BLL.dto.request.InvoiceRequestDTO;
 import it.unikey.erp_springboot.BLL.dto.response.InvoiceResponseDTO;
 import it.unikey.erp_springboot.BLL.mapper.implementation.*;
 import it.unikey.erp_springboot.BLL.service.abstraction.InvoiceService;
-import it.unikey.erp_springboot.DAL.Entity.Company;
-import it.unikey.erp_springboot.DAL.Entity.Contact;
-import it.unikey.erp_springboot.DAL.Entity.Invoice;
-import it.unikey.erp_springboot.DAL.Entity.Order;
+import it.unikey.erp_springboot.DAL.Entity.*;
 import it.unikey.erp_springboot.DAL.Repository.InvoiceRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -24,6 +22,8 @@ public class InvoiceServiceImpl implements InvoiceService {
     private final InvoiceRequestMapper invoiceRequestMapper;
     private final OrderRequestMapper orderRequestMapper;
     private final ContactRequestMapper contactRequestMapper;
+
+    private final ClientRequestMapper clientRequestMapper;
 
     @Override
     public void saveInvoice(InvoiceRequestDTO invoiceRequestDTO) {
@@ -60,9 +60,10 @@ public class InvoiceServiceImpl implements InvoiceService {
         return invoiceResponseMapper.asDTOList(list);
     }
 
+
     @Override
-    public List<InvoiceResponseDTO> findByCompany(Company company) {
-        return invoiceResponseMapper.asDTOList(invoiceRepository.findByCompany(company));
+    public List<InvoiceResponseDTO> findByClient(ClientRequestDTO clientRequestDTO) {
+        return invoiceResponseMapper.asDTOList(invoiceRepository.findByClient(clientRequestMapper.asEntity(clientRequestDTO)));
     }
 
     @Override
