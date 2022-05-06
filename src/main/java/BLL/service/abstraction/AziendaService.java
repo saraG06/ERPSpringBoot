@@ -15,5 +15,5 @@ public interface AziendaService {
 
     List<AziendaResponseDTO> findAllAzienda();
 
-    int numeroDipendenti();
+    Integer numeroDipendenti();
 }

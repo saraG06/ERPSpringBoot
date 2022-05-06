@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 public interface AziendaRepository extends JpaRepository<Azienda, Long> {
 
     @Query(value= "SELECT count(d.id) FROM azienda a, dipendente d WHERE d.azienda= a.id", nativeQuery = true)
-    int numeroDipendenti();
+    Integer numeroDipendenti();
 }

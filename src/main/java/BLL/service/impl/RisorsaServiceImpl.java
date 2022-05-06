@@ -1,15 +1,12 @@
 package BLL.service.impl;
 
+import BLL.mapper.dto.request.DipendenteRequestDTO;
 import BLL.mapper.dto.request.RisorsaRequestDTO;
 import BLL.mapper.dto.response.RisorsaResponseDTO;
-import BLL.mapper.implementation.OrdineRequestMapper;
-import BLL.mapper.implementation.OrdineResponseMapper;
 import BLL.mapper.implementation.RisorsaRequestMapper;
 import BLL.mapper.implementation.RisorsaResponseMapper;
 import BLL.service.abstraction.RisorsaService;
-import DAL.Entity.Ordine;
 import DAL.Entity.Risorsa;
-import DAL.Repository.OrdineRepository;
 import DAL.Repository.RisorsaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -52,5 +49,11 @@ public class RisorsaServiceImpl implements RisorsaService {
     public List<RisorsaResponseDTO> findAllRisorsa() {
         List<Risorsa> risorsaList= risorsaRepository.findAll();
         return risorsaResponseMapper.asDTOList(risorsaList);
+    }
+
+    @Override
+    public void assegnaRisorsa(DipendenteRequestDTO capo, DipendenteRequestDTO dip, RisorsaRequestDTO risorsaRequestDTO) {
+        Risorsa r= risorsaRequestMapper.asEntity(risorsaRequestDTO);
+        risorsaRepository.save(r);
     }
 }

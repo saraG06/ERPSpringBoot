@@ -2,14 +2,10 @@ package BLL.service.impl;
 
 import BLL.mapper.dto.request.OrdineRequestDTO;
 import BLL.mapper.dto.response.OrdineResponseDTO;
-import BLL.mapper.implementation.OperatoreRequestMapper;
-import BLL.mapper.implementation.OperatoreResponseMapper;
 import BLL.mapper.implementation.OrdineRequestMapper;
 import BLL.mapper.implementation.OrdineResponseMapper;
 import BLL.service.abstraction.OrdineService;
-import DAL.Entity.Operatore;
 import DAL.Entity.Ordine;
-import DAL.Repository.OperatoreRepository;
 import DAL.Repository.OrdineRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -55,8 +51,8 @@ public class OrdineServiceImpl implements OrdineService {
     }
 
     @Override
-    public List<OrdineResponseDTO> ordiniSenzaFattura() {
-        List<Ordine> ordineList= ordineRepository.ordiniSenzaFattura();
+    public List<OrdineResponseDTO> findOrdiniSenzaFattura() {
+        List<Ordine> ordineList= ordineRepository.findOrdiniSenzaFattura();
         return ordineResponseMapper.asDTOList(ordineList);
     }
 }

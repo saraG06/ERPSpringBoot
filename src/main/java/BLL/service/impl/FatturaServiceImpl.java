@@ -1,10 +1,13 @@
 package BLL.service.impl;
 
+import BLL.mapper.dto.request.ContattoRequestDTO;
 import BLL.mapper.dto.request.FatturaRequestDTO;
 import BLL.mapper.dto.response.FatturaResponseDTO;
+import BLL.mapper.implementation.ContattoRequestMapper;
 import BLL.mapper.implementation.FatturaRequestMapper;
 import BLL.mapper.implementation.FatturaResponseMapper;
 import BLL.service.abstraction.FatturaService;
+import DAL.Entity.Contatto;
 import DAL.Entity.Fattura;
 import DAL.Repository.FatturaRepository;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +23,7 @@ public class FatturaServiceImpl implements FatturaService {
     private final FatturaRepository fatturaRepository;
     private final FatturaRequestMapper fatturaRequestMapper;
     private final FatturaResponseMapper fatturaResponseMapper;
+    private final ContattoRequestMapper contattoRequestMapper;
 
     @Override
     public void saveFattura(FatturaRequestDTO fatturaRequestDTO) {
@@ -62,4 +66,10 @@ public class FatturaServiceImpl implements FatturaService {
         return fatturaResponseMapper.asDTOList(fatturaList);
     }
 
+    @Override
+    public List<FatturaResponseDTO> findAllFatturaContatto(ContattoRequestDTO contattoRequestDTO) {
+        Contatto c= contattoRequestMapper.asEntity(contattoRequestDTO);
+        List<Fattura> fatturaList= c.getListaFatture();
+        return fatturaResponseMapper.asDTOList(fatturaList);
+    }
 }

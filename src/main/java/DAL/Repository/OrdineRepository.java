@@ -11,6 +11,6 @@ import java.util.List;
 public interface OrdineRepository extends JpaRepository<Ordine, Long> {
 
     @Query(value= "SELECT * FROM ordine o WHERE o.fattura IS NULL", nativeQuery = true)
-    List<Ordine> ordiniSenzaFattura();
+    List<Ordine> findOrdiniSenzaFattura();
 
 }

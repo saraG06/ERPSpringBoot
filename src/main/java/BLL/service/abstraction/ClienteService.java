@@ -2,7 +2,6 @@ package BLL.service.abstraction;
 
 import BLL.mapper.dto.request.ClienteRequestDTO;
 import BLL.mapper.dto.response.ClienteResponseDTO;
-import DAL.Entity.Cliente;
 
 import java.util.List;
 
@@ -16,5 +15,5 @@ public interface ClienteService {
 
     List<ClienteResponseDTO> findAllCliente();
 
-    List<Cliente> clienti10Contatti();
+    List<ClienteResponseDTO> clienti10Contatti();
 }

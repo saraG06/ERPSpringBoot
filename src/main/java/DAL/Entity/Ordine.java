@@ -14,21 +14,21 @@ public class Ordine {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name= "dettaglio")
+    @Column(name= "dettaglio", nullable = false)
     private String dettaglio;
 
-    @Column(name= "dataImporto")
+    @Column(name= "dataImporto", nullable = false)
     private LocalDate dataImporto;
 
-    @JoinColumn(name= "Operatore_id")
+    @JoinColumn(name= "Operatore_id", nullable = false)
     @ManyToOne
     private Operatore operatore;
 
-    @JoinColumn(name= "Cliente_id")
+    @JoinColumn(name= "Cliente_id", nullable = false)
     @ManyToOne
     private Cliente cliente;
 
-    @JoinColumn(name= "Fattura_id", referencedColumnName = "id")
+    @JoinColumn(name= "Fattura_id", referencedColumnName = "id", nullable = true)
     @OneToOne
     private Fattura fattura;
 

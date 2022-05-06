@@ -1,5 +1,6 @@
 package BLL.service.abstraction;
 
+import BLL.mapper.dto.request.DipendenteRequestDTO;
 import BLL.mapper.dto.request.RisorsaRequestDTO;
 import BLL.mapper.dto.response.RisorsaResponseDTO;
 
@@ -14,4 +15,6 @@ public interface RisorsaService {
     void deleteById(Long id);
 
     List<RisorsaResponseDTO> findAllRisorsa();
+
+    void assegnaRisorsa(DipendenteRequestDTO capo, DipendenteRequestDTO dip, RisorsaRequestDTO risorsaRequestDTO);
 }

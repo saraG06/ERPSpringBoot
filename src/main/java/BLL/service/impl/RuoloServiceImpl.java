@@ -1,16 +1,11 @@
 package BLL.service.impl;
 
-import BLL.mapper.dto.request.DipendenteRequestDTO;
 import BLL.mapper.dto.request.RuoloRequestDTO;
 import BLL.mapper.dto.response.RuoloResponseDTO;
-import BLL.mapper.implementation.RisorsaRequestMapper;
-import BLL.mapper.implementation.RisorsaResponseMapper;
 import BLL.mapper.implementation.RuoloRequestMapper;
 import BLL.mapper.implementation.RuoloResponseMapper;
 import BLL.service.abstraction.RuoloService;
-import DAL.Entity.Risorsa;
 import DAL.Entity.Ruolo;
-import DAL.Repository.RisorsaRepository;
 import DAL.Repository.RuoloRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -53,13 +48,5 @@ public class RuoloServiceImpl implements RuoloService {
     public List<RuoloResponseDTO> findAllRuolo() {
         List<Ruolo> ruoloList= ruoloRepository.findAll();
         return ruoloResponseMapper.asDTOList(ruoloList);
-    }
-
-    @Override
-    public void assegnaRuolo(DipendenteRequestDTO capo, DipendenteRequestDTO dip, RuoloRequestDTO ruoloRequestDTO) {
-        if((capo.getRuolo().equals("PROJECTMANAGER") && dip.getRuolo().equals("OPERATOR")) || capo.getRuolo().equals("MANAGER")){
-            Ruolo r= ruoloRequestMapper.asEntity(ruoloRequestDTO);
-            ruoloRepository.save(r);
-        }
     }
 }

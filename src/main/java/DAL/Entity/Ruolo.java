@@ -18,7 +18,7 @@ public class Ruolo {
         PROJECTMANAGER,
         OPERATOR
     }
-    @Column(name= "ruoloAssegnato")
+    @Column(name= "ruoloAssegnato", nullable = false)
     private String ruoloAssegnato;
 
     @OneToOne(mappedBy = "fattura")

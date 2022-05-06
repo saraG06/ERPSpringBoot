@@ -2,7 +2,6 @@ package BLL.service.abstraction;
 
 import BLL.mapper.dto.request.OperatoreRequestDTO;
 import BLL.mapper.dto.response.OperatoreResponseDTO;
-import DAL.Entity.Ordine;
 
 import java.util.List;
 
@@ -15,5 +14,9 @@ public interface OperatoreService {
     void deleteById(Long id);
 
     List<OperatoreResponseDTO> findAllOperatore();
+
+    List<OperatoreResponseDTO> findDipendentiMacchina();
+
+    Long contaOperatori();
 
 }

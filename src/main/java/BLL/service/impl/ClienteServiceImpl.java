@@ -51,8 +51,8 @@ public class ClienteServiceImpl implements ClienteService {
     }
 
     @Override
-    public List<Cliente> clienti10Contatti() {
+    public List<ClienteResponseDTO> clienti10Contatti() {
         List<Cliente> clienteList= clienteRepository.clienti10Contatti();
-        return clienteList;
+        return clienteResponseMapper.asDTOList(clienteList);
     }
 }

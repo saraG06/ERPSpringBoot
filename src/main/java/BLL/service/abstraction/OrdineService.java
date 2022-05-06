@@ -2,7 +2,6 @@ package BLL.service.abstraction;
 
 import BLL.mapper.dto.request.OrdineRequestDTO;
 import BLL.mapper.dto.response.OrdineResponseDTO;
-import DAL.Entity.Ordine;
 
 import java.util.List;
 
@@ -16,5 +15,5 @@ public interface OrdineService {
 
     List<OrdineResponseDTO> findAllOrdine();
 
-    List<OrdineResponseDTO> ordiniSenzaFattura();
+    List<OrdineResponseDTO> findOrdiniSenzaFattura();
 }

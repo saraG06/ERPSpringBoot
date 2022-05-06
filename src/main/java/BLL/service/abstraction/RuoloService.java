@@ -1,6 +1,5 @@
 package BLL.service.abstraction;
 
-import BLL.mapper.dto.request.DipendenteRequestDTO;
 import BLL.mapper.dto.request.RuoloRequestDTO;
 import BLL.mapper.dto.response.RuoloResponseDTO;
 
@@ -15,6 +14,4 @@ public interface RuoloService {
     void deleteById(Long id);
 
     List<RuoloResponseDTO> findAllRuolo();
-
-    void assegnaRuolo(DipendenteRequestDTO capo, DipendenteRequestDTO dip, RuoloRequestDTO ruoloRequestDTO);
 }

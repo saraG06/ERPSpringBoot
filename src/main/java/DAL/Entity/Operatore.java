@@ -32,7 +32,7 @@ public class Operatore{
     @OneToMany(mappedBy = "operatore")
     private List<Ordine> listaOrdini= new ArrayList<>();
 
-    @JoinColumn(name= "Azienda_id")
+    @JoinColumn(name= "Azienda_id", nullable = false)
     @ManyToOne
     private Azienda azienda;
 

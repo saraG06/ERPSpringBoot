@@ -15,10 +15,10 @@ public class Cliente {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name= "nome")
+    @Column(name= "nome", nullable = false)
     private String nome;
 
-    @Column(name= "PI")
+    @Column(name= "PI", nullable = false, unique = true)
     private String PI;
 
     @OneToMany(mappedBy = "cliente")

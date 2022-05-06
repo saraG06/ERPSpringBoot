@@ -1,17 +1,12 @@
 package BLL.service.impl;
 
 import BLL.mapper.dto.request.DipendenteRequestDTO;
-import BLL.mapper.dto.request.RuoloRequestDTO;
 import BLL.mapper.dto.response.DipendenteResponseDTO;
 import BLL.mapper.implementation.DipendenteRequestMapper;
 import BLL.mapper.implementation.DipendenteResponseMapper;
-import BLL.mapper.implementation.RuoloRequestMapper;
 import BLL.service.abstraction.DipendenteService;
-import DAL.Entity.Contatto;
 import DAL.Entity.Dipendente;
-import DAL.Entity.Ruolo;
 import DAL.Repository.DipendenteRepository;
-import DAL.Repository.RuoloRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -59,17 +54,15 @@ public class DipendenteServiceImpl implements DipendenteService {
 
     @Override
     public List<DipendenteResponseDTO> ultimiDipendentiAssunti(LocalDate now) {
-        List<Dipendente> dipendenteList= dipendenteRepository.findAll();
-        for(Dipendente d: dipendenteList)
-            if(d.getAssunzione().getMonth()!=now.getMonth() || d.getAssunzione().getYear()!=now.getYear())
-                dipendenteList.remove(d);
+        now= LocalDate.now();
+        List<Dipendente> dipendenteList= dipendenteRepository.ultimiDipendentiAssunti(now);
         return dipendenteResponseMapper.asDTOList(dipendenteList);
     }
 
     @Override
-    public List<Dipendente> dipendentiConMacchina() {
+    public List<DipendenteResponseDTO> dipendentiConMacchina() {
         List<Dipendente> dipendenteList= dipendenteRepository.dipendentiConMacchina();
-        return dipendenteList;
+        return dipendenteResponseMapper.asDTOList(dipendenteList);
     }
 
 }

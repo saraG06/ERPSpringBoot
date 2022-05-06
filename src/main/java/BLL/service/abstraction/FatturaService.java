@@ -1,8 +1,8 @@
 package BLL.service.abstraction;
 
+import BLL.mapper.dto.request.ContattoRequestDTO;
 import BLL.mapper.dto.request.FatturaRequestDTO;
 import BLL.mapper.dto.response.FatturaResponseDTO;
-import DAL.Entity.Fattura;
 
 import java.util.List;
 
@@ -19,4 +19,6 @@ public interface FatturaService {
     List<FatturaResponseDTO> findFattureReply();
 
     List<FatturaResponseDTO> findAfter31122019();
+
+    List<FatturaResponseDTO> findAllFatturaContatto(ContattoRequestDTO contattoRequestDTO);       //id del contatto
 }

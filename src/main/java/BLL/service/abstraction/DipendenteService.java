@@ -1,11 +1,7 @@
 package BLL.service.abstraction;
 
-import BLL.mapper.dto.request.ContattoRequestDTO;
 import BLL.mapper.dto.request.DipendenteRequestDTO;
-import BLL.mapper.dto.request.RuoloRequestDTO;
 import BLL.mapper.dto.response.DipendenteResponseDTO;
-import DAL.Entity.Contatto;
-import DAL.Entity.Dipendente;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -22,5 +18,5 @@ public interface DipendenteService {
 
     List<DipendenteResponseDTO> ultimiDipendentiAssunti(LocalDate now);
 
-    List<Dipendente> dipendentiConMacchina();
+    List<DipendenteResponseDTO> dipendentiConMacchina();
 }

@@ -1,8 +1,11 @@
 package DAL.Entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
+@Data
 @Table(name= "risorsa")
 @Entity
 public class Risorsa implements Serializable {
@@ -16,35 +19,11 @@ public class Risorsa implements Serializable {
         PC,
         TELEFONO
     }
-    @Column(name= "risorsaAssegnata")
+    @Column(name= "risorsaAssegnata", nullable = false)
     private String risorsaAssegnata;
 
-    @JoinColumn(name= "Operatore_id")
+    @JoinColumn(name= "Operatore_id", nullable = false)
     @ManyToOne
     private Operatore operatore;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setRisorsaAssegnata(RisorsaAssegnata risorsaAssegnata) {
-        this.risorsaAssegnata = String.valueOf(risorsaAssegnata);
-    }
-
-    public String getRisorsaAssegnata() {
-        return String.valueOf(risorsaAssegnata);
-    }
-
-    @Override
-    public String toString() {
-        return "Risorsa{" +
-                "id=" + id +
-                ", risorsaAssegnata='" + risorsaAssegnata + '\'' +
-                ", operatore=" + operatore +
-                '}';
-    }
 }

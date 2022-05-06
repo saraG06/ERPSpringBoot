@@ -28,7 +28,7 @@ public class Contatto{
     @Column(name= "nascita", nullable = false)
     private LocalDate nascita;
 
-    @JoinColumn(name= "Cliente_id")
+    @JoinColumn(name= "Cliente_id", nullable = true)
     @ManyToOne
     private Cliente cliente;
 

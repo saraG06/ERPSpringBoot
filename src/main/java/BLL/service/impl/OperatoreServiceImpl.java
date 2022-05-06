@@ -6,7 +6,6 @@ import BLL.mapper.implementation.OperatoreRequestMapper;
 import BLL.mapper.implementation.OperatoreResponseMapper;
 import BLL.service.abstraction.OperatoreService;
 import DAL.Entity.Operatore;
-import DAL.Entity.Ordine;
 import DAL.Repository.OperatoreRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -49,6 +48,18 @@ public class OperatoreServiceImpl implements OperatoreService {
     public List<OperatoreResponseDTO> findAllOperatore() {
         List<Operatore> operatoreList= operatoreRepository.findAll();
         return operatoreResponseMapper.asDTOList(operatoreList);
+    }
+
+    @Override
+    public List<OperatoreResponseDTO> findDipendentiMacchina() {
+        List<Operatore> operatoreList= operatoreRepository.dipendentiMacchina();
+        return operatoreResponseMapper.asDTOList(operatoreList);
+    }
+
+    @Override
+    public Long contaOperatori() {
+        Long nOperatori= operatoreRepository.contaOperatori();
+        return nOperatori;
     }
 
 }

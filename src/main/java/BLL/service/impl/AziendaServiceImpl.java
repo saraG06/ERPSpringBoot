@@ -51,8 +51,8 @@ public class AziendaServiceImpl implements AziendaService {
     }
 
     @Override
-    public int numeroDipendenti() {
-        int nDipendenti= aziendaRepository.numeroDipendenti();
+    public Integer numeroDipendenti() {
+        Integer nDipendenti= aziendaRepository.numeroDipendenti();
         return nDipendenti;
     }
 
