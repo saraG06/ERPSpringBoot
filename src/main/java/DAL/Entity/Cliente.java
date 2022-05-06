@@ -1,9 +1,9 @@
 package DAL.Entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-
 @Table(name = "cliente")
 public class Cliente {
 
@@ -16,6 +16,12 @@ public class Cliente {
 
     @Column(name = "pIva")
     private String pIva;
+
+    @OneToMany(mappedBy = "cliente")
+    private List<Fattura> fatture;
+
+    @OneToMany(mappedBy = "clienti")
+    private List<Contatto> contattos;
 
     @ManyToOne
     private Azienda azienda;

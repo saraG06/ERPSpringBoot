@@ -18,5 +18,8 @@ public class Ordine {
     @ManyToOne
     @JoinColumn(name = "id")
     private Azienda azienda;
+
+    @OneToOne
+    private Fattura fatture;
     
 }

@@ -17,4 +17,7 @@ public class Fattura {
 
     @Column(name = "ordine")
     private Ordine ordine;
+
+    @ManyToOne
+    private Cliente cliente;
 }

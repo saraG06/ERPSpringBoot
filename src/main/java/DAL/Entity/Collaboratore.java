@@ -3,7 +3,6 @@ package DAL.Entity;
 import javax.persistence.*;
 
 @Entity
-
 @Table(name = "collaboratore")
 public class Collaboratore {
 

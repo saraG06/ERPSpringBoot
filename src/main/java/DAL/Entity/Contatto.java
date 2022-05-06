@@ -16,6 +16,9 @@ public class Contatto {
     @Column(name = "cognome")
     private String cognome;
 
+    @ManyToOne
+    private Cliente clienti;
+
     @ManyToMany
     Set<Fattura> fatturas;
 }

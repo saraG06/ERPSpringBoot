@@ -18,10 +18,7 @@ public class Azienda {
     private List<Cliente> clienti;
 
     @OneToMany(mappedBy = "azienda")
-    private List<Dipendente> dipendenti;
-
-    @OneToMany(mappedBy = "azienda")
-    private List<Collaboratore> collaboratori;
+    private List<Operatore> operatoris;
 
     @OneToMany(mappedBy = "azienda")
     private List<Ordine> ordini;
@@ -32,8 +29,6 @@ public class Azienda {
                 "id=" + id +
                 ", operatori=" + operatori +
                 ", clienti=" + clienti +
-                ", dipendenti=" + dipendenti +
-                ", collaboratori=" + collaboratori +
                 ", ordini=" + ordini +
                 '}';
     }

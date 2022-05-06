@@ -13,6 +13,9 @@ public class Risorsa {
     @Column(name = "nome" ,unique = true,nullable = false)
     private String nome;
 
+    @ManyToOne
+    private Dipendente dipendente;
+
     @Override
     public String toString() {
         return "Risorsa{" +

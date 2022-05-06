@@ -25,8 +25,7 @@ public interface AziendaRepository extends JpaRepository<Azienda,Long> {
     Integer findByCognome5Lettere();*/
 
     //Dipendenti totali
-    @Query(value = "SELECT * FROM Dipendente",nativeQuery = true)
-    List<Dipendente> findDipendentiTotali (@Param("id") Long id);
+    @Query(value = "SELECT o FROM Dipendente o where o.operatore.azienda IS NOT NULL")
+    List<Dipendente> findDipendentiAzienda (@Param("id") Long id);
 
-    //@Query(value = "SELECT * FROM Contatto ",nativeQuery = true)
 }
