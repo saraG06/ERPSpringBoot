@@ -62,6 +62,11 @@ public class EmployeeServiceImplementation implements EmployeeService {
     }
 
     @Override
+    public List<EmployeeResponseDTO> findEmployeeListWithCar() {
+        return employeeResponseMapper.asDTOList(employeeRepository.findEmployeeListWithCar());
+    }
+
+    @Override
     public List<EmployeeResponseDTO> findAllEmployees() {
         return employeeResponseMapper.asDTOList(employeeRepository.findAll());
     }

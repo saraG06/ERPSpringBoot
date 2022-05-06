@@ -68,6 +68,16 @@ public class InvoiceServiviceImplementation implements InvoiceService {
     }
 
     @Override
+    public List<InvoiceResponseDTO> findAfter2019() {
+        return invoiceResponseMapper.asDTOList(invoiceRepository.findAfter2019());
+    }
+
+    @Override
+    public List<InvoiceResponseDTO> findReplyInvoices() {
+        return invoiceResponseMapper.asDTOList(invoiceRepository.findReplyInvoices());
+    }
+
+    @Override
     public List<InvoiceResponseDTO> findAllInvoices() {
         return invoiceResponseMapper.asDTOList(invoiceRepository.findAll());
     }

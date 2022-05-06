@@ -1,4 +1,4 @@
-package it.unikey.DAL.Entity;
+package com.example.erpspring;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

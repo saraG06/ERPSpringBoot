@@ -65,6 +65,11 @@ public class ClientServiceImplementation implements ClientService {
     }
 
     @Override
+    public List<ClientResponseDTO> findContactsGreaterThan10() {
+        return clientResponseMapper.asDTOList(clientRepository.findContatcsGreaterThan10());
+    }
+
+    @Override
     public List<ClientResponseDTO> findAllClients() {
         return clientResponseMapper.asDTOList(clientRepository.findAll());
     }

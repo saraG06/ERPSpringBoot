@@ -14,5 +14,7 @@ public interface ClientService {
 
     void deleteClientById(Long id) throws IdNotFoundException;
 
+    List<ClientResponseDTO> findContactsGreaterThan10();
+
     List<ClientResponseDTO> findAllClients();
 }

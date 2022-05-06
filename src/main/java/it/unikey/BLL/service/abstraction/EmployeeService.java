@@ -11,4 +11,6 @@ public interface EmployeeService {
     EmployeeResponseDTO findById(Long id) throws IdNotFoundException;
     void deleteEmployeeById(Long id) throws IdNotFoundException;
     List<EmployeeResponseDTO> findAllEmployees();
+
+    List<EmployeeResponseDTO> findEmployeeListWithCar();
 }

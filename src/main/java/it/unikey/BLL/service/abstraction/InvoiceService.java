@@ -11,4 +11,8 @@ public interface InvoiceService {
     InvoiceResponseDTO findById(Long id) throws IdNotFoundException;
     void deleteInvoiceById(Long id) throws IdNotFoundException;
     List<InvoiceResponseDTO> findAllInvoices();
+
+    List<InvoiceResponseDTO> findReplyInvoices();
+
+    List<InvoiceResponseDTO> findAfter2019();
 }
