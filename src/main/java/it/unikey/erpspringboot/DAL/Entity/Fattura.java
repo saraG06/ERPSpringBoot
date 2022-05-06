@@ -19,7 +19,7 @@ public class Fattura {
     private Contatto contatto;
 
     @OneToOne
-    @JoinColumn(name = "ordine_id",nullable = false)
+    @JoinColumn(name = "ordine_id")
     private Ordine ordine;
 
 

@@ -64,4 +64,12 @@ public class ClienteServiceImplementation implements ClienteService {
 
         return clienteResponseMapper.asDTOList(lista);
     }
+
+    @Override
+    public List<ClienteResponseDTO> getAllClientiWith10OrMoreContatti() {
+        List<Cliente> lista = clienteRepository.getAllClientiWith10OrMoreContatti();
+        return clienteResponseMapper.asDTOList(lista);
+    }
+
+
 }

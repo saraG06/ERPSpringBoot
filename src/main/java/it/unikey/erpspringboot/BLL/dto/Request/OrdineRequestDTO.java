@@ -11,4 +11,5 @@ public class OrdineRequestDTO {
     private LocalDate dataImporto;
     private OperatoreRequestDTO operatoreRequestDTO;
     private ClienteRequestDTO clienteRequestDTO;
+    private FatturaRequestDTO fatturaRequestDTO;
 }

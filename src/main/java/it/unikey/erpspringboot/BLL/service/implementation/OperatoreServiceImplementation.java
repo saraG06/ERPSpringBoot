@@ -14,6 +14,7 @@ import it.unikey.erpspringboot.DAL.Repository.OperatoreRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -61,6 +62,12 @@ public class OperatoreServiceImplementation implements OperatoreService {
 
         List<Operatore> lista = operatoreRepository.findAll();
 
+        return operatoreResponseMapper.asDTOList(lista);
+    }
+
+    @Override
+    public List<OperatoreResponseDTO> getAllAssuntiUltimoMese(LocalDate now) {
+        List<Operatore> lista = operatoreRepository.getAllAssuntiUltimoMese(now);
         return operatoreResponseMapper.asDTOList(lista);
     }
 }

@@ -25,7 +25,17 @@ public class Ordine {
     @JoinColumn(name = "cliente_id",nullable = false)
     private Cliente cliente;
 
+    @OneToOne
+    @JoinColumn(name = "fattura_id")
+    private Fattura fattura;
 
+    public Fattura getFattura() {
+        return fattura;
+    }
+
+    public void setFattura(Fattura fattura) {
+        this.fattura = fattura;
+    }
 
     public Long getId() {
         return id;

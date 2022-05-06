@@ -19,8 +19,13 @@ public class Dipendente {
     private Ruolo ruolo;
 
     @ManyToOne
-    @JoinColumn(name = "risorsa_id",nullable = false)
+    @JoinColumn(name = "risorsa_id")
     private Risorsa risorsa;
+
+    @OneToOne
+    @JoinColumn(name = "operatore_id", referencedColumnName = "id")
+    private Operatore operatore;
+
 
     public Risorsa getRisorsa() {
         return risorsa;
@@ -29,10 +34,6 @@ public class Dipendente {
     public void setRisorsa(Risorsa risorsa) {
         this.risorsa = risorsa;
     }
-
-    @OneToOne
-    @JoinColumn(name = "operatore_id", referencedColumnName = "id")
-    private Operatore operatore;
 
     public Operatore getOperatore() {
         return operatore;

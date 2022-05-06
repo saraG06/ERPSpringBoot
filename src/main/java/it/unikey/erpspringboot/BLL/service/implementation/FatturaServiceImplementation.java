@@ -7,6 +7,7 @@ import it.unikey.erpspringboot.BLL.mapper.implementation.request.FatturaRequestM
 import it.unikey.erpspringboot.BLL.mapper.implementation.request.OrdineRequestMapper;
 import it.unikey.erpspringboot.BLL.mapper.implementation.response.FatturaResponseMapper;
 import it.unikey.erpspringboot.BLL.service.abstraction.FatturaService;
+import it.unikey.erpspringboot.DAL.Entity.Cliente;
 import it.unikey.erpspringboot.DAL.Entity.Contatto;
 import it.unikey.erpspringboot.DAL.Entity.Fattura;
 import it.unikey.erpspringboot.DAL.Entity.Ordine;
@@ -61,6 +62,25 @@ public class FatturaServiceImplementation implements FatturaService {
 
         List<Fattura> lista = fatturaRepository.findAll();
 
+        return fatturaResponseMapper.asDTOList(lista);
+    }
+
+    @Override
+    public List<FatturaResponseDTO> getAllFattureEmesseDopo31_12_2019() {
+        List<Fattura> lista = fatturaRepository.getAllFattureEmesseDopo31_12_2019();
+        return fatturaResponseMapper.asDTOList(lista);
+    }
+
+    @Override
+    public List<FatturaResponseDTO> getAllFattureClienteReply() {
+        List<Fattura> lista = fatturaRepository.getAllFattureClienteReply();
+        return fatturaResponseMapper.asDTOList(lista);
+
+    }
+
+    @Override
+    public List<FatturaResponseDTO> getAllFattureCliente(Cliente cliente) {
+        List<Fattura> lista = fatturaRepository.getAllFattureCliente(cliente);
         return fatturaResponseMapper.asDTOList(lista);
     }
 }

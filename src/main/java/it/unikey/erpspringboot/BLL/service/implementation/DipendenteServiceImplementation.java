@@ -64,4 +64,15 @@ public class DipendenteServiceImplementation implements DipendenteService {
 
         return dipendenteResponseMapper.asDTOList(lista);
     }
+
+    @Override
+    public Integer getNDipendentiByAziendaId(Integer aziendaId) {
+        return dipendenteRepository.getNDIpendentiByAziendaId(aziendaId);
+    }
+
+    @Override
+    public List<DipendenteResponseDTO> getDipendentiWithMacchina() {
+        List<Dipendente> lista = dipendenteRepository.getDipendentiWithMacchina();
+        return dipendenteResponseMapper.asDTOList(lista);
+    }
 }
