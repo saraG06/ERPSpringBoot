@@ -4,20 +4,20 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-@Entity
 @Data
+@Entity
 public class Operator {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "name", nullable = false)
     private String name;
-    @Column(name = "lastname", nullable = false)
-    private String lastname;
-    @Column(name = "birthday", nullable = false)
+    @Column(name = "surname", nullable = false)
+    private String surname;
+    @Column(name = "birth", nullable = false)
     private LocalDate birth;
     @ManyToOne
-    @JoinColumn(name = "company")
+    @JoinTable(name = "company", joinColumns = @JoinColumn(name = "id"))
     private Company company;
 
 }

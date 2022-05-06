@@ -18,11 +18,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class InvoiceServiceImpl implements InvoiceService {
 
-    private InvoiceRepository invoiceRepository;
-    private InvoiceResponseMapper invoiceResponseMapper;
-    private InvoiceRequestMapper invoiceRequestMapper;
-    private OrderRequestMapper orderRequestMapper;
-    private ContactRequestMapper contactRequestMapper;
+    private final InvoiceRepository invoiceRepository;
+    private final InvoiceResponseMapper invoiceResponseMapper;
+    private final InvoiceRequestMapper invoiceRequestMapper;
+    private final OrderRequestMapper orderRequestMapper;
+    private final ContactRequestMapper contactRequestMapper;
 
     @Override
     public void saveInvoice(InvoiceRequestDTO invoiceRequestDTO) {

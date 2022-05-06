@@ -17,12 +17,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class EmployeeServiceImpl implements EmployeeService {
 
-    private EmployeeRepository employeeRepository;
-    private EmployeeRequestMapper employeeRequestMapper;
-    private EmployeeResponseMapper employeeResponseMapper;
-    private OperatorRequestMapper operatorRequestMapper;
-    private OperatorResponseMapper operatorResponseMapper;
-    private CompanyRequestMapper companyRequestMapper;
+    private final EmployeeRepository employeeRepository;
+    private final EmployeeRequestMapper employeeRequestMapper;
+    private final EmployeeResponseMapper employeeResponseMapper;
+    private final OperatorRequestMapper operatorRequestMapper;
+
     @Override
     public void saveEmployee(EmployeeRequestDTO employeeRequestDTO) {
         Employee e = employeeRequestMapper.asEntity(employeeRequestDTO);

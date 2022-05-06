@@ -19,10 +19,10 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CollaboratorServiceImpl implements CollaboratorService {
 
-    private CollaboratorRepository collaboratorRepository;
-    private CollaboratorRequestMapper collaboratorRequestMapper;
-    private CollaboratorResponseMapper collaboratorResponseMapper;
-    private OperatorRequestMapper operatorRequestMapper;
+    private final CollaboratorRepository collaboratorRepository;
+    private final CollaboratorRequestMapper collaboratorRequestMapper;
+    private final CollaboratorResponseMapper collaboratorResponseMapper;
+    private final OperatorRequestMapper operatorRequestMapper;
     @Override
     public void saveCollaborator(CollaboratorRequestDTO collaboratorRequestDTO) {
         Collaborator c = collaboratorRequestMapper.asEntity(collaboratorRequestDTO);

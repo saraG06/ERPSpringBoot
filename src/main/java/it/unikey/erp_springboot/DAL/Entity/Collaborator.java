@@ -3,23 +3,26 @@ package it.unikey.erp_springboot.DAL.Entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-@Data
-@Entity
-@Table(name = "collaborator")
-public class Collaborator {
 
-    @Id
-    private Long id;
-    @OneToOne
-    @JoinColumn(referencedColumnName = "operator", nullable = false)
-    private Operator operator;
+    @Data
+    @Entity
+    @Table(name = "collaborator")
+    public class Collaborator implements Serializable {
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Long id;
 
-    @Column(name = "resource")
-    @Enumerated(EnumType.ORDINAL)
-    private Resource resource;
-    @OneToMany(mappedBy = "collaborator")
-    List<Order> orders = new ArrayList<Order>();
+        @Enumerated
+        @Column(name = "resource", nullable = false)
+        private Resource resource;
 
+        @OneToMany(mappedBy = "collaborator")
+        private List<Order> orders;
+
+        @OneToOne
+        @JoinColumn(name = "operatore_id", referencedColumnName = "id", nullable = false)
+        private Operator operator;
 }

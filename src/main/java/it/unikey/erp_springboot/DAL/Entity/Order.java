@@ -3,30 +3,35 @@ package it.unikey.erp_springboot.DAL.Entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 @Data
 @Entity
 @Table(name = "`order`")
-public class Order {
+public class Order implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "details")
+    @Column(name = "details", nullable = false)
     private String details;
     @Column(name = "date", nullable = false)
     private LocalDate date;
     @Column(name = "price", nullable = false)
-    private Double price;
+    private double price;
     @ManyToOne
-    @JoinColumn(name = "collaborator")
-    private Collaborator collaborator;
-    @ManyToOne
-    @JoinColumn(name = "client")
+    @JoinTable(name = "client", joinColumns = @JoinColumn(name = "id"))
     private Client client;
     @ManyToOne
-    @JoinColumn(name = "employee")
-    private Employee employee;
+    @JoinTable(name = "operator", joinColumns = @JoinColumn(name = "id"))
+    private Operator operator;
     @OneToOne(mappedBy = "order")
-    private Invoice invoice;
+    Invoice invoice;
+    @ManyToOne
+    Collaborator collaborator;
+    @ManyToOne
+    @JoinTable(name = "contact", joinColumns = @JoinColumn(name = "id"))
+    private Company company;
+    @ManyToOne
+    Employee employee;
 
 }

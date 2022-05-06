@@ -18,10 +18,10 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ClientServiceImpl implements ClientService {
 
-    private ClientRepository clientRepository;
-    private ClientRequestMapper clientRequestMapper;
-    private ClientResponseMapper clientResponseMapper;
-    private CompanyRequestMapper companyRequestMapper;
+    private final ClientRepository clientRepository;
+    private final ClientRequestMapper clientRequestMapper;
+    private final ClientResponseMapper clientResponseMapper;
+    private final CompanyRequestMapper companyRequestMapper;
     @Override
     public void saveClient(ClientRequestDTO clientRequestDTO) {
         Client c = clientRequestMapper.asEntity(clientRequestDTO);

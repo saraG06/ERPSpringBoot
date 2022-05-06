@@ -18,10 +18,10 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ContactServiceImpl implements ContactService {
 
-    private ContactRepository contactRepository;
-    private ContactRequestMapper contactRequestMapper;
-    private ContactResponseMapper contactResponseMapper;
-    private ClientRequestMapper clientRequestMapper;
+    private final ContactRepository contactRepository;
+    private final ContactRequestMapper contactRequestMapper;
+    private final ContactResponseMapper contactResponseMapper;
+    private final ClientRequestMapper clientRequestMapper;
 
     @Override
     public void saveContact(ContactRequestDTO contactRequestDTO) {

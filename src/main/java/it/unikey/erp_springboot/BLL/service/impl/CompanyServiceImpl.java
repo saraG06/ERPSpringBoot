@@ -19,11 +19,11 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class CompanyServiceImpl implements CompanyService {
-    private CompanyRepository companyRepository;
-    private CompanyRequestMapper companyRequestMapper;
-    private CompanyResponseMapper companyResponseMapper;
-    private ClientResponseMapper clientResponseMapper;
-    private InvoiceResponseMapper invoiceResponseMapper;
+    private final CompanyRepository companyRepository;
+    private final CompanyRequestMapper companyRequestMapper;
+    private final CompanyResponseMapper companyResponseMapper;
+    private final ClientResponseMapper clientResponseMapper;
+    private final InvoiceResponseMapper invoiceResponseMapper;
 
 
     @Override
