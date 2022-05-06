@@ -12,6 +12,8 @@ import it.unikey.erpSpringBootTest.DAL.Repository.OrdineRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class OrdineServiceImpl implements OrdineService {
@@ -25,8 +27,8 @@ public class OrdineServiceImpl implements OrdineService {
     @Override
     public void saveOrdine(OrdineRequestDTO ordineRequestDTO) {
         Ordine o = ordineRequestMapper.asEntity(ordineRequestDTO);
-        Cliente c = clienteRequestMapper.asEntity(ordineRequestDTO.getClienteRequestDTO());
-        o.setCliente(c);
+        List<Cliente> clienteList = clienteRequestMapper.asEntityList(ordineRequestDTO.getClienteRequestDTOList());
+        o.setCliente(clienteList);
         ordineRepository.save(o);
     }
 

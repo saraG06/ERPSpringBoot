@@ -2,6 +2,7 @@ package it.unikey.erpSpringBootTest.DAL.Entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "ordine")
@@ -16,17 +17,17 @@ public class Ordine {
     private double importo;
     @Column(name = "dettaglio")
     private String dettaglio;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "cliente_id", referencedColumnName = "id")
-    private Cliente cliente;
+    @OneToMany(mappedBy = "ordine")
+    private List<Cliente> cliente;
     @ManyToOne
     private Operatore operatore ;
+    @ManyToOne
+    private Azienda azienda;
 
     public Ordine(String data, double importo, String dettaglio, Operatore oper, Cliente cliente) {
         this.data = LocalDate.parse(data);
         this.importo = importo;
         this.dettaglio = dettaglio;
-        this.cliente = cliente ;
     }
 
     public Ordine() {
@@ -38,10 +39,6 @@ public class Ordine {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
     }
 
     public LocalDate getData() {
@@ -68,8 +65,28 @@ public class Ordine {
         this.dettaglio = dettaglio;
     }
 
-    public void setCliente(Cliente cliente) {
+    public List<Cliente> getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(List<Cliente> cliente) {
         this.cliente = cliente;
+    }
+
+    public Operatore getOperatore() {
+        return operatore;
+    }
+
+    public void setOperatore(Operatore operatore) {
+        this.operatore = operatore;
+    }
+
+    public Azienda getAzienda() {
+        return azienda;
+    }
+
+    public void setAzienda(Azienda azienda) {
+        this.azienda = azienda;
     }
 
     @Override
@@ -80,6 +97,8 @@ public class Ordine {
                 ", importo=" + importo +
                 ", dettaglio='" + dettaglio + '\'' +
                 ", cliente=" + cliente +
+                ", operatore=" + operatore +
+                ", azienda=" + azienda +
                 '}';
     }
 }

@@ -16,6 +16,10 @@ public class Cliente {
     private String pIva ;
     @OneToMany(mappedBy = "cliente")
     private List<Contatto> contatti;
+    @OneToMany(mappedBy = "cliente")
+    private List<Fattura> fatture;
+    @ManyToOne
+    private Ordine ordine;
     @ManyToOne
     private Azienda azienda;
 

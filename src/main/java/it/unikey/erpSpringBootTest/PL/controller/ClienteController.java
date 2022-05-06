@@ -22,7 +22,7 @@ public class ClienteController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @GetMapping(path = "/{id}")
+    @GetMapping()
     public ResponseEntity<ClienteResponseDTO> findClientiWithMoreThan10Contatti(){
         clienteService.findAllClientiWithMoreThan10Contatti();
         return new ResponseEntity<>(HttpStatus.FOUND);

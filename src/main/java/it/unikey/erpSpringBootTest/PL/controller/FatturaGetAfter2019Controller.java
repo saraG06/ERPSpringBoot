@@ -21,7 +21,7 @@ public class FatturaGetAfter2019Controller {
 
     private final FatturaService fatturaService;
 
-    @GetMapping(path = "/{id}")
+    @GetMapping
     public ResponseEntity<List<FatturaResponseDTO>> findFattureAfter2019(){
         fatturaService.findAllFattureAfter2019();
         return new ResponseEntity<>(HttpStatus.FOUND);

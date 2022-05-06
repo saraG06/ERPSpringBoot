@@ -3,6 +3,7 @@ package it.unikey.erpSpringBootTest.BLL.dto.response;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 public class OrdineResponseDTO {
@@ -11,5 +12,5 @@ public class OrdineResponseDTO {
     private LocalDate data ;
     private double importo;
     private String dettaglio;
-    private ClienteResponseDTO clienteResponseDTO;
+    private List<ClienteResponseDTO> clienteResponseDTOList;
 }

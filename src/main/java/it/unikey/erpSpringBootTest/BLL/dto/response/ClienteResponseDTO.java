@@ -12,4 +12,5 @@ public class ClienteResponseDTO {
     private String nome;
     private String pIva;
     private List<ContattoResponseDTO> contattoResponseDTOList;
+    private List<FatturaResponseDTO> fatturaResponseDTOList;
 }

@@ -18,6 +18,8 @@ public class Fattura {
     @JoinColumn(name = "id_contatto")
     private Contatto contatto;
     @ManyToOne
+    private Cliente cliente;
+    @ManyToOne
     private Azienda azienda;
 
     public Fattura(String data, Ordine ordine, Contatto contatto) {

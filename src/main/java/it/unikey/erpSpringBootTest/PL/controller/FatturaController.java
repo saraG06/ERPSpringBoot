@@ -25,7 +25,7 @@ public class FatturaController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @GetMapping(path = "/{id}")
+    @GetMapping
     public ResponseEntity<List<ClienteResponseDTO>> findFattureByCliente(@RequestBody ClienteRequestDTO clienteRequestDTO){
         fatturaService.findAllFattureByCliente(clienteRequestDTO);
         return new ResponseEntity<>(HttpStatus.FOUND);

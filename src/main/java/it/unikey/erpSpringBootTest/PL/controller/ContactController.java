@@ -9,9 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/contatto")
-@CrossOrigin("http://localhost:8080")
-public class ContattoController {
+@RequestMapping("/api/contact")
+public class ContactController {
 
     private final ContattoService contattoService;
 

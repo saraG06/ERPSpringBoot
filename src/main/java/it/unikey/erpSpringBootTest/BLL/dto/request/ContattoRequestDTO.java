@@ -8,6 +8,6 @@ public class ContattoRequestDTO {
 
     private String nome;
     private String cognome;
-    private LocalDate dataNascita;
+
 
 }
