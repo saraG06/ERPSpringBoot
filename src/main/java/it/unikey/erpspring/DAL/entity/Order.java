@@ -18,16 +18,12 @@ public class Order {
     @Column(name = "price")
     private Double price;
     @ManyToOne
-    @JoinColumn(name = "worker_id")
     private Worker worker;
     @ManyToOne
-    @JoinColumn(name = "client_id")
     private Client client;
-    @OneToOne(mappedBy = "order")
-    private Invoice invoice;
     @ManyToOne
-    @JoinColumn(name = "company_id")
     private Company company;
+
 
     public Long getId() {
         return id;
@@ -77,13 +73,14 @@ public class Order {
         this.client = client;
     }
 
-    public Invoice getInvoice() {
-        return invoice;
+    public Company getCompany() {
+        return company;
     }
 
-    public void setInvoice(Invoice invoice) {
-        this.invoice = invoice;
+    public void setCompany(Company company) {
+        this.company = company;
     }
+
 
     @Override
     public String toString() {

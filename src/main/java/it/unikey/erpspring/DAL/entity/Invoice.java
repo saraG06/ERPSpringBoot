@@ -19,10 +19,8 @@ public class Invoice {
     @JoinColumn(name = "contact_id", referencedColumnName = "id")
     private Contact contact;
     @ManyToOne
-    @JoinColumn(name = "client_id")
     private Client client;
     @ManyToOne
-    @JoinColumn(name = "company_id")
     private Company company;
 
     public Long getId() {

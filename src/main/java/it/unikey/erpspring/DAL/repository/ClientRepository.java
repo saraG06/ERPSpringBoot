@@ -11,5 +11,5 @@ import java.util.List;
 public interface ClientRepository extends JpaRepository<Client, Long> {
 
     @Query(value = "SELECT c FROM Client c WHERE c.contacts.size > 10")
-    List<Client> clientsContactGreater10();
+    List<Client> getClientsContactGreater10();
 }

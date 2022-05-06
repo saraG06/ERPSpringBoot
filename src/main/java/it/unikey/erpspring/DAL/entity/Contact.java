@@ -17,10 +17,7 @@ public class Contact {
     @Column(name = "birthDate")
     private LocalDate birthDate;
     @ManyToOne
-    @JoinColumn(name = "client_id")
     private Client client;
-    @OneToOne(mappedBy = "contact")
-    private Invoice invoice;
 
     public Long getId() {
         return id;
@@ -62,13 +59,6 @@ public class Contact {
         this.client = client;
     }
 
-    public Invoice getInvoice() {
-        return invoice;
-    }
-
-    public void setInvoice(Invoice invoice) {
-        this.invoice = invoice;
-    }
 
 
 
