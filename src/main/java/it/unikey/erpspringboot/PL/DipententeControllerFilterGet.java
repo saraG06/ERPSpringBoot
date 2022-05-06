@@ -20,7 +20,7 @@ import java.util.List;
 @CrossOrigin("http://localhost:8080")
 public class DipententeControllerFilterGet {
 
-    private DipendenteService dipendenteService;
+    private final DipendenteService dipendenteService;
 
     @GetMapping(path = "/{aziendaId}")
     public ResponseEntity<Integer> getNDipendentiByAziendaId(Integer aziendaId) {

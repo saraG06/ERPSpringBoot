@@ -20,7 +20,7 @@ import java.util.List;
 @CrossOrigin("http://localhost:8080")
 public class FatturaControllerFilterCliente {
 
-    private FatturaService fatturaService;
+    private final FatturaService fatturaService;
 
     @GetMapping
     public ResponseEntity<List<FatturaResponseDTO>> getAllFattureClienteReply() {

@@ -16,7 +16,7 @@ import java.util.List;
 @CrossOrigin("http://localhost:8080")
 public class OrdineController {
 
-    private OrdineService ordineService;
+    private final OrdineService ordineService;
 
     @PostMapping
     public ResponseEntity<Void> save(@RequestBody OrdineRequestDTO ordineRequestDTO){

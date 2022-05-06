@@ -19,7 +19,7 @@ import java.util.List;
 @CrossOrigin("http://localhost:8080")
 public class OrdineControllerFatturaNull {
 
-    private OrdineService ordineService;
+    private final OrdineService ordineService;
 
     @GetMapping
     public ResponseEntity<List<OrdineResponseDTO>> getAllOrdiniSenzaFattura() {

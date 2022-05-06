@@ -16,7 +16,7 @@ import java.util.List;
 @CrossOrigin("http://localhost:8080")
 public class RuoloController {
 
-    private RuoloService ruoloService;
+    private final RuoloService ruoloService;
 
     @PostMapping
     public ResponseEntity<Void> save(@RequestBody RuoloRequestDTO ruoloRequestDTO){

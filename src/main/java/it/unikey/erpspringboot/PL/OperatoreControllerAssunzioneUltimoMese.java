@@ -20,7 +20,7 @@ import java.util.List;
 @CrossOrigin("http://localhost:8080")
 public class OperatoreControllerAssunzioneUltimoMese {
 
-    private OperatoreService operatoreService;
+    private final OperatoreService operatoreService;
 
     @GetMapping(path = "/{now}")
     public ResponseEntity<List<OperatoreResponseDTO>> getAllAssuntiUltimoMese(LocalDate now) {

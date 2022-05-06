@@ -19,7 +19,7 @@ import java.util.List;
 @CrossOrigin("http://localhost:8080")
 public class FatturaControllerFilterData {
 
-    private FatturaService fatturaService;
+    private final FatturaService fatturaService;
 
     @GetMapping
     public ResponseEntity<List<FatturaResponseDTO>> getAllFattureEmesseDopo31_12_2019() {

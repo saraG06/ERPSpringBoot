@@ -16,7 +16,7 @@ import java.util.List;
 @CrossOrigin("http://localhost:8080")
 public class ClienteController {
 
-    private ClienteService clienteService;
+    private final ClienteService clienteService;
 
     @PostMapping
     public ResponseEntity<Void> save(@RequestBody ClienteRequestDTO clienteRequestDTO){

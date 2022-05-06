@@ -16,7 +16,7 @@ import java.util.List;
 @CrossOrigin("http://localhost:8080")
 public class CollaboratoreController {
 
-    private CollaboratoreService collaboratoreService;
+    private final CollaboratoreService collaboratoreService;
 
     @PostMapping
     public ResponseEntity<Void> save(@RequestBody CollaboratoreRequestDTO collaboratoreRequestDTO){

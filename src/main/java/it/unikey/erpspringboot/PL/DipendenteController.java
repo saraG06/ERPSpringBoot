@@ -16,7 +16,7 @@ import java.util.List;
 @CrossOrigin("http://localhost:8080")
 public class DipendenteController {
 
-    private DipendenteService dipendenteService;
+    private final DipendenteService dipendenteService;
 
     @PostMapping
     public ResponseEntity<Void> save(@RequestBody DipendenteRequestDTO dipendenteRequestDTO){

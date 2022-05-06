@@ -16,7 +16,7 @@ import java.util.List;
 @CrossOrigin("http://localhost:8080")
 public class FatturaController {
 
-    private FatturaService fatturaService;
+    private final FatturaService fatturaService;
 
     @PostMapping
     public ResponseEntity<Void> save(@RequestBody FatturaRequestDTO fatturaRequestDTO){

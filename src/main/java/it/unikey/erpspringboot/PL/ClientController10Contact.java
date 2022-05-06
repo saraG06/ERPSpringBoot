@@ -15,7 +15,7 @@ import java.util.List;
 @CrossOrigin("http://localhost:8080")
 public class ClientController10Contact {
 
-    private ClienteService clienteService;
+    private final ClienteService clienteService;
 
     @GetMapping
     public ResponseEntity<List<ClienteResponseDTO>> getAllClientiWith10OrMoreContatti(){
