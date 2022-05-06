@@ -17,7 +17,6 @@ public class Contact {
     @Column(name = "birthDate")
     private LocalDate birthDate;
     @ManyToOne
-    @JoinColumn(name = "client_id")
     private Client client;
     @OneToOne(mappedBy = "contact")
     private Invoice invoice;

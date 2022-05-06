@@ -16,11 +16,9 @@ public class Resource {
     private String assignedResource;
 
     @ManyToOne
-    @JoinColumn(name = "employee_id")
     private Employee employee;
 
     @ManyToOne
-    @JoinColumn(name = "collaborator_id")
     private Collaborator collaborator;
 
     public Long getId() {

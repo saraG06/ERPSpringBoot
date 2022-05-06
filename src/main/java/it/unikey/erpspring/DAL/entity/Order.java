@@ -18,15 +18,12 @@ public class Order {
     @Column(name = "price")
     private Double price;
     @ManyToOne
-    @JoinColumn(name = "worker_id")
     private Worker worker;
     @ManyToOne
-    @JoinColumn(name = "client_id")
     private Client client;
     @OneToOne(mappedBy = "order")
     private Invoice invoice;
     @ManyToOne
-    @JoinColumn(name = "company_id")
     private Company company;
 
     public Long getId() {
