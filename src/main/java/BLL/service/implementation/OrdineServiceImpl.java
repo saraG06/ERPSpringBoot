@@ -12,6 +12,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @RequiredArgsConstructor
 public class OrdineServiceImpl implements OrdineService {
@@ -40,5 +42,13 @@ public class OrdineServiceImpl implements OrdineService {
     @Override
     public List<OrdineResponseDTO> findAllOrdine() {
         return ordineResponseMapper.asDTOList(ordineRepository.findAll());
+    }
+
+    @Override
+    public List<OrdineResponseDTO> findOrdiniSenzaFattura() {
+        List<Ordine> fatturati = ordineRepository.ordiniFatturati();
+        List<Ordine> tutti = ordineRepository.findAll() ;
+        List<Ordine> nonFatturati = tutti.stream().filter(o -> !fatturati.contains(o)).collect(Collectors.toList()) ;
+        return  ordineResponseMapper.asDTOList(nonFatturati) ;
     }
 }

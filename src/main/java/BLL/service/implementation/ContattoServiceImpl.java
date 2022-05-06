@@ -44,4 +44,6 @@ public class ContattoServiceImpl implements ContattoService {
     public List<ContattoResponseDTO> findAllContatto() {
         return contattoResponseMapper.asDTOList(contattoRepository.findAll());
     }
+
+
 }

@@ -15,7 +15,7 @@ public class Fattura {
     private Long id ;
     @Column(name = "data")
     LocalDate data ;
-    @OneToOne(mappedBy = "fattura" , fetch= FetchType.LAZY)
+    @OneToOne
     Ordine ordine ;
     @ManyToOne
     @JoinColumn(name="contatto_id")

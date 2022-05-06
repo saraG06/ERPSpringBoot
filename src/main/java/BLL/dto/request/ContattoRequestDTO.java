@@ -1,8 +1,11 @@
 package BLL.dto.request;
 
+import lombok.Data;
+
 import java.time.LocalDate;
 import java.util.List;
 
+@Data
 public class ContattoRequestDTO {
 
     private String nome;
@@ -14,6 +17,7 @@ public class ContattoRequestDTO {
     private ClienteRequestDTO clienteRequestDTO ;
 
     private List<FatturaRequestDTO> fatturaRequestDTOList;
+
 
 
     public String getNome() {
@@ -55,4 +59,6 @@ public class ContattoRequestDTO {
     public void setFatturaRequestDTOList(List<FatturaRequestDTO> fatturaRequestDTOList) {
         this.fatturaRequestDTOList = fatturaRequestDTOList;
     }
+
+
 }

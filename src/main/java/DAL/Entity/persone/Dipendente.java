@@ -16,14 +16,12 @@ public class Dipendente extends Operatore implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id ;
-
     @Enumerated
     @Column(name = "risorsa")
     Risorse risorsa ;
 
     @OneToOne
     private Operatore operatore ;
-
 
     @Column(name = "dataAssunzione")
     private LocalDate dataAssunzione;

@@ -12,4 +12,5 @@ public interface OperatoreService {
     OperatoreResponseDTO findById(Long id) ;
     void deleteOperatoreById(Long id) ;
     List<OperatoreResponseDTO> findAllOperatore();
+
 }

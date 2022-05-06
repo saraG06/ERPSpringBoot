@@ -12,4 +12,6 @@ public interface OrdineService {
     OrdineResponseDTO findById(Long id) ;
     void deleteOrdineById(Long id) ;
     List<OrdineResponseDTO> findAllOrdine();
+
+    List<OrdineResponseDTO> findOrdiniSenzaFattura();
 }

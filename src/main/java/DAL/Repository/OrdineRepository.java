@@ -2,6 +2,7 @@ package DAL.Repository;
 
 import DAL.Entity.Ordine;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -9,5 +10,7 @@ import java.util.List;
 @Repository
 public interface OrdineRepository extends JpaRepository<Ordine,Long>{
 
-    List<Ordine> findAllByNome(String nome);
+
+    @Query(value = "SELECT o FROM Fattura f ,Ordine o WHERE f.ordine = o")
+    List<Ordine> ordiniFatturati();
 }

@@ -13,4 +13,7 @@ public interface FatturaService {
     FatturaResponseDTO findById(Long id) ;
     void deleteFatturaById(Long id) ;
     List<FatturaResponseDTO> findAllFattura();
+
+    public List<FatturaResponseDTO> findFattureDopo2019();
+    public List<FatturaResponseDTO> findFattureReply();
 }

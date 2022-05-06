@@ -6,11 +6,13 @@ import BLL.mapper.implementation.DipendenteRequestMapper;
 import BLL.mapper.implementation.DipendenteResponseMapper;
 import BLL.mapper.implementation.OperatoreRequestMapper;
 import BLL.service.abstraction.DipendenteService;
+import DAL.Entity.Enum.Risorse;
 import DAL.Entity.persone.Dipendente;
 import DAL.Repository.DipendenteRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 @Service
 @RequiredArgsConstructor
@@ -43,5 +45,21 @@ public class DipendenteServiceImpl implements DipendenteService {
     @Override
     public List<DipendenteResponseDTO> findAllDipendente() {
         return dipendenteResponseMapper.asDTOList(dipendenteRepository.findAll());
+    }
+
+    public Integer numeroDipendentiAzienda(){
+        return findAllDipendente().size() ;
+    }
+
+
+    public List<DipendenteResponseDTO> dipendentiMenoDiUnMese(){
+
+        List<Dipendente> list = dipendenteRepository.dipendentiMenoDiUnMese(LocalDate.now().minusDays(31));
+        return  dipendenteResponseMapper.asDTOList(list) ;
+    }
+
+    public List<DipendenteResponseDTO> findDipendentiAuto(Risorse auto){
+        List<Dipendente> list = dipendenteRepository.dipendentiConRisorsa(Risorse.MACCHINA);
+        return dipendenteResponseMapper.asDTOList(list);
     }
 }
