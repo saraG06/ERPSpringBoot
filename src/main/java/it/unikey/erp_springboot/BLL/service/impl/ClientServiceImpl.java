@@ -54,4 +54,9 @@ public class ClientServiceImpl implements ClientService {
         List<Client> list = clientRepository.findAll();
         return clientResponseMapper.asDTOList(list);
     }
+
+    @Override
+    public List<ClientResponseDTO> findClientWithMore10Contacts() {
+        return clientResponseMapper.asDTOList(clientRepository.findClientWithMore10Contacts());
+    }
 }

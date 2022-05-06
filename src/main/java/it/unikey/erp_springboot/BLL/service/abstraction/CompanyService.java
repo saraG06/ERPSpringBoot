@@ -14,6 +14,4 @@ public interface CompanyService {
     void deleteCompanyById(Long id);
     List<CompanyResponseDTO> findAllCompany();
 
-    List<ClientResponseDTO> moreThan10();
-    List<InvoiceResponseDTO> invoices(String name);
 }

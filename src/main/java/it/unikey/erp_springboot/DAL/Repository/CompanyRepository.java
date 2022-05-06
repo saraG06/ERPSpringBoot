@@ -12,8 +12,5 @@ import java.util.List;
 
 @Repository
 public interface CompanyRepository extends JpaRepository<Company, Long> {
-   @Query("SELECT c FROM Client c INNER JOIN Company c2 ON c.company = c2 WHERE count(c) > 10")
-    List<Client> moreThan10();
-   @Query("SELECT i FROM Invoice i INNER JOIN Company c ON i.company = c WHERE c.name=:name")
-   List<Invoice> invoices(@Param("name") String name);
+
 }

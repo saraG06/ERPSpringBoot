@@ -57,13 +57,4 @@ public class CompanyServiceImpl implements CompanyService {
         return companyResponseMapper.asDTOList(list);
     }
 
-    @Override
-    public List<ClientResponseDTO> moreThan10() {
-        return clientResponseMapper.asDTOList(companyRepository.moreThan10());
-    }
-
-    @Override
-    public List<InvoiceResponseDTO> invoices(String name) {
-        return invoiceResponseMapper.asDTOList(companyRepository.invoices(name));
-    }
 }

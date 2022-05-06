@@ -14,4 +14,6 @@ public interface ClientService {
     void deleteClientById(Long id);
 
     List<ClientResponseDTO> findAllClient();
+
+    List<ClientResponseDTO> findClientWithMore10Contacts();
 }

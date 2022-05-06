@@ -12,6 +12,7 @@ import it.unikey.erp_springboot.DAL.Repository.InvoiceRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -57,5 +58,15 @@ public class InvoiceServiceImpl implements InvoiceService {
     public List<InvoiceResponseDTO> findAllInvoice() {
         List<Invoice> list = invoiceRepository.findAll();
         return invoiceResponseMapper.asDTOList(list);
+    }
+
+    @Override
+    public List<InvoiceResponseDTO> findByCompany(Company company) {
+        return invoiceResponseMapper.asDTOList(invoiceRepository.findByCompany(company));
+    }
+
+    @Override
+    public List<InvoiceResponseDTO> findInvoiceByDateIsAfter(LocalDate date) {
+        return invoiceResponseMapper.asDTOList(invoiceRepository.findInvoiceByDateIsAfter(date));
     }
 }

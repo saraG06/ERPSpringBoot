@@ -2,6 +2,7 @@ package it.unikey.erp_springboot.BLL.service.abstraction;
 
 import it.unikey.erp_springboot.BLL.dto.request.OrderRequestDTO;
 import it.unikey.erp_springboot.BLL.dto.response.OrderResponseDTO;
+import it.unikey.erp_springboot.DAL.Entity.Order;
 
 import java.util.List;
 
@@ -14,4 +15,6 @@ public interface OrderService {
     void deleteOrderById(Long id);
 
     List<OrderResponseDTO> findAllOrder();
+
+    List<OrderResponseDTO> findOrderWithoutInvoice();
 }

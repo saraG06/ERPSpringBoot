@@ -56,4 +56,9 @@ public class OrderServiceImpl implements OrderService {
         List<Order> list = orderRepository.findAll();
         return orderResponseMapper.asDTOList(list);
     }
+
+    @Override
+    public List<OrderResponseDTO> findOrderWithoutInvoice() {
+        return orderResponseMapper.asDTOList(orderRepository.findOrderWithoutInvoice());
+    }
 }
