@@ -5,7 +5,7 @@ import BLL.dto.response.OperatoreResponseDTO;
 import BLL.mapper.implementazioni.request.OperatoreRequestMapper;
 import BLL.mapper.implementazioni.response.OperatoreResponseMapper;
 import BLL.service.astratti.OperatoreService;
-import DAL.Entity.Operatore;
+import BLL.Entity.Operatore;
 import DAL.Repository.OperatoreRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package DAL.Entity;
+package BLL.Entity;
 
 import javax.persistence.*;
 
@@ -21,7 +21,7 @@ public class Operatore {
     private String dataNascita;
 
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "id_azienda")
     private Azienda azienda;
 
 

@@ -1,11 +1,12 @@
 package BLL.service.implementazioni;
 
 import BLL.dto.request.OrdineRequestDTO;
+import BLL.dto.response.FatturaResponseDTO;
 import BLL.dto.response.OrdineResponseDTO;
 import BLL.mapper.implementazioni.request.OrdineRequestMapper;
 import BLL.mapper.implementazioni.request.OrdineResponseMapper;
 import BLL.service.astratti.OrdineService;
-import DAL.Entity.Ordine;
+import BLL.Entity.Ordine;
 import DAL.Repository.OrdineRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -42,5 +43,10 @@ public class OrdineServiceImplementazioni implements OrdineService {
     public List<OrdineResponseDTO> findAllOridni() {
         List<Ordine> ordines = ordineRepository.findAll();
         return ordineResponseMapper.asDTOList(ordines);
+    }
+
+    @Override
+    public List<FatturaResponseDTO> fattureNonPresenti() {
+        return fattureNonPresenti();
     }
 }

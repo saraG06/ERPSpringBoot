@@ -1,6 +1,6 @@
 package BLL.dto.request;
 
-import DAL.Entity.Operatore;
+import BLL.Entity.Operatore;
 
 import java.util.List;
 

@@ -10,4 +10,6 @@ public interface DipendenteService {
     DipendenteResponseDTO findbyId(Long id);
     void deleteById(Long id);
     List<DipendenteResponseDTO> findAllDipendenti();
+    List<DipendenteResponseDTO> dipendentiConRisorse();
+
 }

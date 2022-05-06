@@ -10,4 +10,5 @@ public interface ClienteService {
     ClienteResponseDTO findbyId(Long id);
     void deleteById(Long id);
     List<ClienteResponseDTO> findAllClienti();
+    List<ClienteResponseDTO> clientiCon10Contatti();
 }

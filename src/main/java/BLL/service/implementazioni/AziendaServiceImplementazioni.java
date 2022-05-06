@@ -5,7 +5,7 @@ import BLL.dto.response.AziendaResponseDTO;
 import BLL.mapper.implementazioni.request.AziendaRequestMapper;
 import BLL.mapper.implementazioni.response.AziendaResponseMapper;
 import BLL.service.astratti.AziendaService;
-import DAL.Entity.Azienda;
+import BLL.Entity.Azienda;
 import DAL.Repository.AziendaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -46,6 +46,11 @@ public class AziendaServiceImplementazioni implements AziendaService {
 
     @Override
     public List<AziendaResponseDTO> findDipendentiTotali() {
+        return findDipendentiTotali();
+    }
+
+    @Override
+    public List<AziendaResponseDTO> findDipendentiAzienda() {
         return findDipendentiTotali();
     }
 }

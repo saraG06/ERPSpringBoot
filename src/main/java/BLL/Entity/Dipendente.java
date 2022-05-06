@@ -1,4 +1,4 @@
-package DAL.Entity;
+package BLL.Entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;

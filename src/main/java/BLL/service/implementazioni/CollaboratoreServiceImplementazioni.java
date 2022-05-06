@@ -5,7 +5,7 @@ import BLL.dto.response.CollaboratoreResponseDTO;
 import BLL.mapper.implementazioni.request.CollaboratoreRequestMapper;
 import BLL.mapper.implementazioni.response.CollaboratoreResponseMapper;
 import BLL.service.astratti.CollaboratoreService;
-import DAL.Entity.Collaboratore;
+import BLL.Entity.Collaboratore;
 import DAL.Repository.CollaboratoreRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

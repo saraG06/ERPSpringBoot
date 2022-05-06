@@ -5,7 +5,7 @@ import BLL.dto.response.ClienteResponseDTO;
 import BLL.mapper.implementazioni.request.ClienteRequestMapper;
 import BLL.mapper.implementazioni.response.ClienteResponseMapper;
 import BLL.service.astratti.ClienteService;
-import DAL.Entity.Cliente;
+import BLL.Entity.Cliente;
 import DAL.Repository.ClienteRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -42,5 +42,10 @@ public class ClienteServiceImplementazioni implements ClienteService {
     public List<ClienteResponseDTO> findAllClienti() {
         List<Cliente> clientes = clienteRepository.findAll();
         return clienteResponseMapper.asDTOList(clientes);
+    }
+
+    @Override
+    public List<ClienteResponseDTO> clientiCon10Contatti() {
+        return clientiCon10Contatti();
     }
 }

@@ -1,7 +1,7 @@
 package DAL.Repository;
 
-import DAL.Entity.Fattura;
-import DAL.Entity.Ordine;
+import BLL.Entity.Fattura;
+import BLL.Entity.Ordine;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

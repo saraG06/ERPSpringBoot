@@ -1,10 +1,13 @@
 package PL;
 
+import BLL.dto.request.OrdineRequestDTO;
+import BLL.dto.response.AziendaResponseDTO;
+import BLL.dto.response.OrdineResponseDTO;
 import BLL.service.astratti.OrdineService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -12,4 +15,19 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin("http://localhost:8080")
 public class OrdineController {
     private final OrdineService ordineService;
+
+    @PostMapping
+    public ResponseEntity<Void> save(@RequestBody OrdineRequestDTO ordineRequestDTO) {
+        ordineService.saveOrdine(ordineRequestDTO);
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<OrdineResponseDTO> getById(@PathVariable Long id){
+        try {
+            return new ResponseEntity<>(ordineService.findbyId(id),HttpStatus.OK);
+        } catch (NullPointerException e){
+            return new ResponseEntity<>(ordineService.findbyId(id),HttpStatus.NOT_FOUND);
+        }
+    }
 }

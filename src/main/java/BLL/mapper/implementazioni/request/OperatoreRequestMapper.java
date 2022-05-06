@@ -2,7 +2,7 @@ package BLL.mapper.implementazioni.request;
 
 import BLL.dto.request.OperatoreRequestDTO;
 import BLL.mapper.astratti.GenericRequestMapper;
-import DAL.Entity.Operatore;
+import BLL.Entity.Operatore;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")

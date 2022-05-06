@@ -5,7 +5,7 @@ import BLL.dto.response.RuoloResponseDTO;
 import BLL.mapper.implementazioni.request.RuoloRequestMapper;
 import BLL.mapper.implementazioni.response.RuoloResponseMapper;
 import BLL.service.astratti.RuoloService;
-import DAL.Entity.Ruolo;
+import BLL.Entity.Ruolo;
 import DAL.Repository.RuoloRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

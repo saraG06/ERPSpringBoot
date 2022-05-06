@@ -1,4 +1,4 @@
-package DAL.Entity;
+package BLL.Entity;
 
 import javax.persistence.*;
 import java.util.List;
@@ -6,6 +6,9 @@ import java.util.List;
 @Entity
 @Table(name = "azienda")
 public class Azienda {
+
+    @Column(name = "nome")
+    private String nome;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

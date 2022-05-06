@@ -1,4 +1,4 @@
-package DAL.Entity;
+package BLL.Entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -16,7 +16,7 @@ public class Ordine {
     private LocalDate data;
 
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "id_ordine")
     private Azienda azienda;
 
     @OneToOne

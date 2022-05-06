@@ -2,7 +2,7 @@ package BLL.mapper.implementazioni.request;
 
 import BLL.dto.request.AziendaRequestDTO;
 import BLL.mapper.astratti.GenericRequestMapper;
-import DAL.Entity.Azienda;
+import BLL.Entity.Azienda;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")

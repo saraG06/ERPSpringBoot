@@ -5,7 +5,7 @@ import BLL.dto.response.DipendenteResponseDTO;
 import BLL.mapper.implementazioni.request.DipendenteRequestMapper;
 import BLL.mapper.implementazioni.response.DipendenteResponseMapper;
 import BLL.service.astratti.DipendenteService;
-import DAL.Entity.Dipendente;
+import BLL.Entity.Dipendente;
 import DAL.Repository.DipendenteRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -42,5 +42,10 @@ public class DipendenteServiceImplementazioni implements DipendenteService {
     public List<DipendenteResponseDTO> findAllDipendenti() {
         List<Dipendente> dipendentes = dipendenteRepository.findAll();
         return dipendenteResponseMapper.asDTOList(dipendentes);
+    }
+
+    @Override
+    public List<DipendenteResponseDTO> dipendentiConRisorse() {
+        return dipendentiConRisorse();
     }
 }

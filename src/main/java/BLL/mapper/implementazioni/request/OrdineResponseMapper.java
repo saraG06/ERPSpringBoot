@@ -2,7 +2,7 @@ package BLL.mapper.implementazioni.request;
 
 import BLL.dto.response.OrdineResponseDTO;
 import BLL.mapper.astratti.GenericResponseMapper;
-import DAL.Entity.Ordine;
+import BLL.Entity.Ordine;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")

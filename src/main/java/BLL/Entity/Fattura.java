@@ -1,4 +1,4 @@
-package DAL.Entity;
+package BLL.Entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -15,7 +15,8 @@ public class Fattura {
     @Column(name = "data")
     private LocalDate data;
 
-    @Column(name = "ordine")
+    @OneToOne
+
     private Ordine ordine;
 
     @ManyToOne

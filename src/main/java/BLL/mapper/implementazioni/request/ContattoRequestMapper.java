@@ -2,7 +2,7 @@ package BLL.mapper.implementazioni.request;
 
 import BLL.dto.request.ContattoRequestDTO;
 import BLL.mapper.astratti.GenericRequestMapper;
-import DAL.Entity.Contatto;
+import BLL.Entity.Contatto;
 
 public interface ContattoRequestMapper extends GenericRequestMapper<Contatto, ContattoRequestDTO> {
 }

@@ -1,6 +1,6 @@
 package DAL.Repository;
 
-import DAL.Entity.Contatto;
+import BLL.Entity.Contatto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

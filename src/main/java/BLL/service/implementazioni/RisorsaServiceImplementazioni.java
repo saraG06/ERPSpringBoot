@@ -5,7 +5,7 @@ import BLL.dto.response.RisorseResponseDTO;
 import BLL.mapper.implementazioni.request.RisorsaRequestMapper;
 import BLL.mapper.implementazioni.response.RisorseResponseMapper;
 import BLL.service.astratti.RisorsaService;
-import DAL.Entity.Risorsa;
+import BLL.Entity.Risorsa;
 import DAL.Repository.RisorsaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

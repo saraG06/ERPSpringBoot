@@ -1,7 +1,7 @@
 package DAL.Repository;
 
-import DAL.Entity.Azienda;
-import DAL.Entity.Dipendente;
+import BLL.Entity.Azienda;
+import BLL.Entity.Dipendente;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

@@ -2,7 +2,7 @@ package BLL.mapper.implementazioni.response;
 
 import BLL.dto.response.CollaboratoreResponseDTO;
 import BLL.mapper.astratti.GenericResponseMapper;
-import DAL.Entity.Collaboratore;
+import BLL.Entity.Collaboratore;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
