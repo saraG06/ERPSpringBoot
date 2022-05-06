@@ -1,5 +1,7 @@
 package it.unikey.BLL.mapper.dto.request;
 
+import it.unikey.BLL.mapper.dto.response.ContattoResponseDTO;
+import it.unikey.BLL.mapper.dto.response.OrdineResponseDTO;
 import it.unikey.DAL.Entity.Contatto;
 import it.unikey.DAL.Entity.Ordine;
 import lombok.Data;
@@ -10,6 +12,6 @@ import java.time.LocalDate;
 public class FatturaRequestDTO {
 
     private LocalDate data;
-    private Contatto contatto;
-    private Ordine ordine;
+    private ContattoResponseDTO contattoResponseDTO;
+    private OrdineResponseDTO ordineResponseDTO;
 }

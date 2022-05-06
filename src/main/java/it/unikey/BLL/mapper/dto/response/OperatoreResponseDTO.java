@@ -5,13 +5,17 @@ import it.unikey.DAL.Entity.Ordine;
 import it.unikey.DAL.Entity.Risorsa;
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Data
 public class OperatoreResponseDTO {
 
     private Long id;
-    private List<Risorsa> listaRisorse;
-    private List<Ordine> listaOrdini;
-    private Azienda azienda;
+    private String nome;
+    private String cognome;
+    private LocalDate nascita;
+    private List<RisorsaResponseDTO> listaRisorsaResponseDTO;
+    private List<OrdineResponseDTO> listaOrdineResponseDTO;
+    private AziendaResponseDTO aziendaResponseDTO;
 }

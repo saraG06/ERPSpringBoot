@@ -1,7 +1,5 @@
 package it.unikey.BLL.mapper.dto.response;
 
-import it.unikey.DAL.Entity.Operatore;
-import it.unikey.DAL.Entity.Ruolo;
 import lombok.Data;
 
 import java.time.LocalDate;
@@ -11,6 +9,6 @@ public class DipendenteResponseDTO {
 
     private Long id;
     private LocalDate assunzione;
-    private Operatore operatore;
-    private Ruolo ruolo;
+    private OperatoreResponseDTO operatoreResponseDTO;
+    private RuoloResponseDTO ruoloResponseDTO;
 }

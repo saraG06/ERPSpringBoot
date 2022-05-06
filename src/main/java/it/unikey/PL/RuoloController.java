@@ -17,7 +17,7 @@ import java.util.List;
 @CrossOrigin("http://localhost:8080")
 public class RuoloController {
 
-    private RuoloService ruoloService;
+    private final RuoloService ruoloService;
 
     @PostMapping
     public ResponseEntity<Void> save(@RequestBody RuoloRequestDTO ruoloRequestDTO){
@@ -35,7 +35,7 @@ public class RuoloController {
         }
     }
 
-    @DeleteMapping(path="/{id}")
+    @PutMapping(path="/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id){
         try{
             ruoloService.deleteById(id);

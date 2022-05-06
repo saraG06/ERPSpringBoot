@@ -8,5 +8,5 @@ public class RuoloResponseDTO {
 
     private Long id;
     private String ruolo;
-    private Dipendente dipendente;
+    private DipendenteResponseDTO dipendenteResponseDTO;
 }

@@ -8,5 +8,5 @@ public class RisorsaResponseDTO {
 
     private Long id;
     private String risorsaAssegnata;
-    private Operatore operatore;
+    private OperatoreResponseDTO operatoreResponseDTO;
 }

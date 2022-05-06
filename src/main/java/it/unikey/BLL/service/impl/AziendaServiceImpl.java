@@ -4,8 +4,11 @@ import it.unikey.BLL.mapper.dto.request.AziendaRequestDTO;
 import it.unikey.BLL.mapper.dto.response.AziendaResponseDTO;
 import it.unikey.BLL.mapper.implementation.AziendaRequestMapper;
 import it.unikey.BLL.mapper.implementation.AziendaResponseMapper;
+import it.unikey.BLL.mapper.implementation.OperatoreRequestMapper;
+import it.unikey.BLL.mapper.implementation.OperatoreResponseMapper;
 import it.unikey.BLL.service.abstraction.AziendaService;
 import it.unikey.DAL.Entity.Azienda;
+import it.unikey.DAL.Entity.Operatore;
 import it.unikey.DAL.Repository.AziendaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,10 +23,13 @@ public class AziendaServiceImpl implements AziendaService {
     private final AziendaRepository aziendaRepository;
     private final AziendaRequestMapper aziendaRequestMapper;
     private final AziendaResponseMapper aziendaResponseMapper;
+    private final OperatoreRequestMapper operatoreRequestMapper;
 
     @Override
     public void saveAzienda(AziendaRequestDTO aziendaRequestDTO) {
         Azienda a= aziendaRequestMapper.asEntity(aziendaRequestDTO);
+        List<Operatore> listaOperatori= operatoreRequestMapper.asEntityList(aziendaRequestDTO.getListaOperatoreRequestDTO());
+        a.setListaOperatori(listaOperatori);
         aziendaRepository.save(a);
     }
 

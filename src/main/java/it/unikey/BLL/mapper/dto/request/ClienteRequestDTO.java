@@ -1,7 +1,7 @@
 package it.unikey.BLL.mapper.dto.request;
 
-import it.unikey.DAL.Entity.Contatto;
-import it.unikey.DAL.Entity.Ordine;
+import it.unikey.BLL.mapper.dto.response.ContattoResponseDTO;
+import it.unikey.BLL.mapper.dto.response.OrdineResponseDTO;
 import lombok.Data;
 
 import java.util.List;
@@ -11,6 +11,6 @@ public class ClienteRequestDTO {
 
     private String nome;
     private String PI;
-    private List<Contatto> listaContatti;
-    private List<Ordine> listaOrdini;
+    private List<ContattoResponseDTO> listaContattoResponseDTO;
+    private List<OrdineResponseDTO> listaOrdineResponseDTO;
 }

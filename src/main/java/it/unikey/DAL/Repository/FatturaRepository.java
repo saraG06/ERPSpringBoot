@@ -19,7 +19,7 @@ public interface FatturaRepository  extends JpaRepository<Fattura, Long> {
     @Query(value= "SELECT * FROM fattura f WHERE f.contatto.cliente.nome LIKE 'Reply'", nativeQuery= true)
     List<Fattura> findFattureReply();
 
-    @Query(value= "SELECT * FROM contatto c, fattura f WHERE c.id= :id AND f.contatto= c.id", nativeQuery = true)
+    @Query(value= "SELECT * FROM contatto c, fattura f WHERE c.id= :contatto.id AND f.contatto= c.id", nativeQuery = true)
     List<FatturaResponseDTO> findAllFatturaContatto(@Param("contatto") Contatto contatto);
 
 }

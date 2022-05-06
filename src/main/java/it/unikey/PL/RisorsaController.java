@@ -1,5 +1,6 @@
 package it.unikey.PL;
 
+import it.unikey.BLL.Exception.LowRoleException;
 import it.unikey.BLL.mapper.dto.request.DipendenteRequestDTO;
 import it.unikey.BLL.mapper.dto.request.RisorsaRequestDTO;
 import it.unikey.BLL.mapper.dto.response.RisorsaResponseDTO;
@@ -18,13 +19,7 @@ import java.util.List;
 @CrossOrigin("http://localhost:8080")
 public class RisorsaController {
 
-    private RisorsaService risorsaService;
-
-    @PostMapping
-    public ResponseEntity<Void> save(@RequestBody RisorsaRequestDTO risorsaRequestDTO){
-        risorsaService.saveRisorsa(risorsaRequestDTO);
-        return new ResponseEntity<>(HttpStatus.CREATED);
-    }
+    private final RisorsaService risorsaService;
 
     @GetMapping(path= "/{id}")      //le graffe indicano una variabile
     public ResponseEntity<RisorsaResponseDTO> getById(@PathVariable Long id) {
@@ -36,7 +31,7 @@ public class RisorsaController {
         }
     }
 
-    @DeleteMapping(path="/{id}")
+    @PutMapping(path="/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id){
         try{
             risorsaService.deleteById(id);
@@ -53,7 +48,7 @@ public class RisorsaController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> assegnaRisorsa(DipendenteRequestDTO capo, DipendenteRequestDTO dip, @RequestBody RisorsaRequestDTO risorsaRequestDTO){
+    public ResponseEntity<Void> assegnaRisorsa(DipendenteRequestDTO capo, DipendenteRequestDTO dip, @RequestBody RisorsaRequestDTO risorsaRequestDTO) throws LowRoleException {
         risorsaService.assegnaRisorsa(capo, dip, risorsaRequestDTO);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }

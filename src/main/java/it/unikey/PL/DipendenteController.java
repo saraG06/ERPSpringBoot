@@ -18,7 +18,7 @@ import java.util.List;
 @CrossOrigin("http://localhost:8080")
 public class DipendenteController {
 
-    private DipendenteService dipendenteService;
+    private final DipendenteService dipendenteService;
 
     @PostMapping
     public ResponseEntity<Void> save(@RequestBody DipendenteRequestDTO dipendenteRequestDTO){
@@ -36,7 +36,7 @@ public class DipendenteController {
         }
     }
 
-    @DeleteMapping(path="/{id}")
+    @PutMapping(path="/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id){
         try{
             dipendenteService.deleteById(id);
@@ -50,16 +50,6 @@ public class DipendenteController {
     @GetMapping()
     public ResponseEntity<List<DipendenteResponseDTO>> getAll(){
         return new ResponseEntity<>(dipendenteService.findAllDipendente(), HttpStatus.OK);
-    }
-
-    @GetMapping(path="/{now}")
-    public ResponseEntity<List<DipendenteResponseDTO>> getUltimiDipendentiAssunti(@PathVariable LocalDate now){
-        return new ResponseEntity<>(dipendenteService.ultimiDipendentiAssunti(now), HttpStatus.OK);
-    }
-
-    @GetMapping(path="/{now}")
-    public ResponseEntity<List<DipendenteResponseDTO>> getDipendentiConMacchina(){
-        return new ResponseEntity<>(dipendenteService.dipendentiConMacchina(), HttpStatus.OK);
     }
 
 }

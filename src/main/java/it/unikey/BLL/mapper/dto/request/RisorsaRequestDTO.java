@@ -1,5 +1,6 @@
 package it.unikey.BLL.mapper.dto.request;
 
+import it.unikey.BLL.mapper.dto.response.OperatoreResponseDTO;
 import it.unikey.DAL.Entity.Operatore;
 import lombok.Data;
 
@@ -7,5 +8,5 @@ import lombok.Data;
 public class RisorsaRequestDTO {
 
     private String risorsaAssegnata;
-    private Operatore operatore;
+    private OperatoreResponseDTO operatoreResponseDTO;
 }

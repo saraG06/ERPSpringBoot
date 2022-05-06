@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RisorsaRepository extends JpaRepository<Risorsa, Long> {
 
-    @Query(value= "INSERT INTO risorsa r VALUES risorsa WHERE (:capo.ruolo LIKE 'PROJECTMANAGER' AND :d.ruolo LIKE 'OPERATOR') OR :capo.ruolo LIKE 'MANAGER'", nativeQuery = true)
-    void assegnaRisorsa(@Param("capo") Dipendente capo, @Param("dipendente") Dipendente d, @Param("risorsa") String risorsa);
+    @Query(value= "INSERT INTO risorsa r VALUES risorsa", nativeQuery = true)
+    void assegnaRisorsa(@Param("capo") Dipendente capo, @Param("dipendente") Dipendente dip, @Param("risorsa") String risorsa);
+
 }

@@ -12,6 +12,6 @@ public class ClienteResponseDTO {
     private Long id;
     private String nome;
     private String PI;
-    private List<Contatto> listaContatti;
-    private List<Ordine> listaOrdini;
+    private List<ContattoResponseDTO> listaContattoResponseDTO;
+    private List<OrdineResponseDTO> listaOrdineResponseDTO;
 }

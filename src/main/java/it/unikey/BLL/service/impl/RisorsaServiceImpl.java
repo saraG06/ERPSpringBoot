@@ -1,5 +1,6 @@
 package it.unikey.BLL.service.impl;
 
+import it.unikey.BLL.Exception.LowRoleException;
 import it.unikey.BLL.mapper.dto.request.DipendenteRequestDTO;
 import it.unikey.BLL.mapper.dto.request.RisorsaRequestDTO;
 import it.unikey.BLL.mapper.dto.response.RisorsaResponseDTO;
@@ -21,12 +22,6 @@ public class RisorsaServiceImpl implements RisorsaService {
     private final RisorsaRepository risorsaRepository;
     private final RisorsaRequestMapper risorsaRequestMapper;
     private final RisorsaResponseMapper risorsaResponseMapper;
-
-    @Override
-    public void saveRisorsa(RisorsaRequestDTO risorsaRequestDTO) {
-        Risorsa r= risorsaRequestMapper.asEntity(risorsaRequestDTO);
-        risorsaRepository.save(r);
-    }
 
     @Override
     public RisorsaResponseDTO findById(Long id) {
@@ -52,8 +47,12 @@ public class RisorsaServiceImpl implements RisorsaService {
     }
 
     @Override
-    public void assegnaRisorsa(DipendenteRequestDTO capo, DipendenteRequestDTO dip, RisorsaRequestDTO risorsaRequestDTO) {
-        Risorsa r= risorsaRequestMapper.asEntity(risorsaRequestDTO);
-        risorsaRepository.save(r);
+    public void assegnaRisorsa(DipendenteRequestDTO capo, DipendenteRequestDTO dip, RisorsaRequestDTO risorsaRequestDTO) throws LowRoleException {
+        if((capo.getRuoloResponseDTO().equals("PROJECTMANAGER") && dip.getRuoloResponseDTO().equals("OPERATOR")) || capo.getRuoloResponseDTO().equals("MANAGER")){
+            Risorsa r= risorsaRequestMapper.asEntity(risorsaRequestDTO);
+            risorsaRepository.save(r);
+        } else {
+            throw new LowRoleException();
+        }
     }
 }

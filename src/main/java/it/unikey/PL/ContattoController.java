@@ -17,7 +17,7 @@ import java.util.List;
 @CrossOrigin("http://localhost:8080")
 public class ContattoController {
 
-    private ContattoService contattoService;
+    private final ContattoService contattoService;
 
     @PostMapping
     public ResponseEntity<Void> save(@RequestBody ContattoRequestDTO contattoRequestDTO){
@@ -35,7 +35,7 @@ public class ContattoController {
         }
     }
 
-    @DeleteMapping(path="/{id}")
+    @PutMapping(path="/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id){
         try{
             contattoService.deleteById(id);

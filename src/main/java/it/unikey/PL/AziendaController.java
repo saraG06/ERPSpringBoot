@@ -17,7 +17,7 @@ import java.util.List;
 @CrossOrigin("http://localhost:8080")
 public class AziendaController {
 
-    private AziendaService aziendaService;
+    private final AziendaService aziendaService;
 
     @PostMapping
     public ResponseEntity<Void> save(@RequestBody AziendaRequestDTO aziendaRequestDTO){
@@ -35,7 +35,7 @@ public class AziendaController {
         }
     }
 
-    @DeleteMapping(path="/{id}")
+    @PutMapping(path="/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id){
         try{
             aziendaService.deleteById(id);
@@ -51,8 +51,4 @@ public class AziendaController {
         return new ResponseEntity<>(aziendaService.findAllAzienda(), HttpStatus.OK);
     }
 
-    @GetMapping()
-    public ResponseEntity<Integer> getNDipendenti(){
-        return new ResponseEntity<>(aziendaService.numeroDipendenti(), HttpStatus.OK);
-    }
 }

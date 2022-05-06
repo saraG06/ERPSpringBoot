@@ -15,8 +15,6 @@ public interface OperatoreService {
 
     List<OperatoreResponseDTO> findAllOperatore();
 
-    List<OperatoreResponseDTO> findDipendentiMacchina();
-
     Long contaOperatori();
 
 }

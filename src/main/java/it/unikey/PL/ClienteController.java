@@ -17,7 +17,7 @@ import java.util.List;
 @CrossOrigin("http://localhost:8080")
 public class ClienteController {
 
-    private ClienteService clienteService;
+    private final ClienteService clienteService;
 
     @PostMapping
     public ResponseEntity<Void> save(@RequestBody ClienteRequestDTO clienteRequestDTO){
@@ -35,7 +35,7 @@ public class ClienteController {
         }
     }
 
-    @DeleteMapping(path="/{id}")
+    @PutMapping(path="/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id){
         try{
             clienteService.deleteById(id);
@@ -51,8 +51,4 @@ public class ClienteController {
         return new ResponseEntity<>(clienteService.findAllCliente(), HttpStatus.OK);
     }
 
-    @GetMapping()
-    public ResponseEntity<List<ClienteResponseDTO>> getclienti10Contatti(){
-        return new ResponseEntity<>(clienteService.clienti10Contatti(), HttpStatus.OK);
-    }
 }

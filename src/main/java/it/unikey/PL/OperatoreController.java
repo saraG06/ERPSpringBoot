@@ -17,7 +17,7 @@ import java.util.List;
 @CrossOrigin("http://localhost:8080")
 public class OperatoreController {
 
-    private OperatoreService operatoreService;
+    private final OperatoreService operatoreService;
 
     @PostMapping
     public ResponseEntity<Void> save(@RequestBody OperatoreRequestDTO operatoreRequestDTO){
@@ -35,7 +35,7 @@ public class OperatoreController {
         }
     }
 
-    @DeleteMapping(path="/{id}")
+    @PutMapping(path="/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id){
         try{
             operatoreService.deleteById(id);
@@ -51,13 +51,4 @@ public class OperatoreController {
         return new ResponseEntity<>(operatoreService.findAllOperatore(), HttpStatus.OK);
     }
 
-    @GetMapping()
-    public ResponseEntity<List<OperatoreResponseDTO>> getDipendentiMacchina(){
-        return new ResponseEntity<>(operatoreService.findDipendentiMacchina(), HttpStatus.OK);
-    }
-
-    @GetMapping()
-    public ResponseEntity<Long> getContaOperatori(){
-        return new ResponseEntity<>(operatoreService.contaOperatori(), HttpStatus.OK);
-    }
 }

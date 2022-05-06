@@ -1,5 +1,6 @@
 package it.unikey.BLL.mapper.dto.request;
 
+import it.unikey.BLL.mapper.dto.response.DipendenteResponseDTO;
 import it.unikey.DAL.Entity.Dipendente;
 import lombok.Data;
 
@@ -7,5 +8,5 @@ import lombok.Data;
 public class RuoloRequestDTO {
 
     private String ruolo;
-    private Dipendente dipendente;
+    private DipendenteResponseDTO dipendenteResponseDTO;
 }

@@ -18,7 +18,7 @@ import java.util.List;
 @CrossOrigin("http://localhost:8080")
 public class FatturaController {
 
-    private FatturaService fatturaService;
+    private final FatturaService fatturaService;
 
     @PostMapping
     public ResponseEntity<Void> save(@RequestBody FatturaRequestDTO fatturaRequestDTO){
@@ -36,7 +36,7 @@ public class FatturaController {
         }
     }
 
-    @DeleteMapping(path="/{id}")
+    @PutMapping(path="/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id){
         try{
             fatturaService.deleteById(id);
@@ -52,18 +52,4 @@ public class FatturaController {
         return new ResponseEntity<>(fatturaService.findAllFattura(), HttpStatus.OK);
     }
 
-    @GetMapping()
-    public ResponseEntity<List<FatturaResponseDTO>> getAfter31122019(){
-        return new ResponseEntity<>(fatturaService.findAfter31122019(), HttpStatus.OK);
-    }
-
-    @GetMapping()
-    public ResponseEntity<List<FatturaResponseDTO>> getFattureReply(){
-        return new ResponseEntity<>(fatturaService.findFattureReply(), HttpStatus.OK);
-    }
-
-    @GetMapping()
-    public ResponseEntity<List<FatturaResponseDTO>> getAllFatturaContatto(ContattoRequestDTO contattoRequestDTO){
-        return new ResponseEntity<>(fatturaService.findAllFatturaContatto(contattoRequestDTO), HttpStatus.OK);
-    }
 }

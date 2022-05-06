@@ -21,6 +21,6 @@ public class Ruolo {
     @Column(name= "ruoloAssegnato", nullable = false)
     private String ruoloAssegnato;
 
-    @OneToOne(mappedBy = "fattura")
+    @OneToOne(mappedBy = "ruolo")
     private Dipendente dipendente;
 }

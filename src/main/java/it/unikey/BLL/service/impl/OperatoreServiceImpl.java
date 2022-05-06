@@ -51,12 +51,6 @@ public class OperatoreServiceImpl implements OperatoreService {
     }
 
     @Override
-    public List<OperatoreResponseDTO> findDipendentiMacchina() {
-        List<Operatore> operatoreList= operatoreRepository.dipendentiMacchina();
-        return operatoreResponseMapper.asDTOList(operatoreList);
-    }
-
-    @Override
     public Long contaOperatori() {
         Long nOperatori= operatoreRepository.contaOperatori();
         return nOperatori;

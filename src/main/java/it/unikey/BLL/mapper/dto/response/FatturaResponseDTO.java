@@ -11,6 +11,6 @@ public class FatturaResponseDTO {
 
     private Long id;
     private LocalDate data;
-    private Contatto contatto;
-    private Ordine ordine;
+    private ContattoResponseDTO contattoResponseDTO;
+    private OrdineResponseDTO ordineResponseDTO;
 }

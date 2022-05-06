@@ -13,7 +13,7 @@ public class OrdineResponseDTO {
     private Long id;
     private String dettaglio;
     private LocalDate dataImporto;
-    private Operatore operatore;
-    private Cliente cliente;
-    private Fattura fattura;
+    private OperatoreResponseDTO operatoreResponseDTO;
+    private ClienteResponseDTO clienteResponseDTO;
+    private FatturaResponseDTO fatturaResponseDTO;
 }

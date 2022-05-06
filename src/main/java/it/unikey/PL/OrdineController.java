@@ -17,7 +17,7 @@ import java.util.List;
 @CrossOrigin("http://localhost:8080")
 public class OrdineController {
 
-    private OrdineService ordineService;
+    private final OrdineService ordineService;
 
     @PostMapping
     public ResponseEntity<Void> save(@RequestBody OrdineRequestDTO ordineRequestDTO){
@@ -35,7 +35,7 @@ public class OrdineController {
         }
     }
 
-    @DeleteMapping(path="/{id}")
+    @PutMapping(path="/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id){
         try{
             ordineService.deleteById(id);
@@ -51,8 +51,4 @@ public class OrdineController {
         return new ResponseEntity<>(ordineService.findAllOrdine(), HttpStatus.OK);
     }
 
-    @GetMapping()
-    public ResponseEntity<List<OrdineResponseDTO>> getOrdiniSenzaFattura(){
-        return new ResponseEntity<>(ordineService.findOrdiniSenzaFattura(), HttpStatus.OK);
-    }
 }
