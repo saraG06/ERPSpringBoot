@@ -16,8 +16,17 @@ public class Invoice implements Serializable {
 
     @Column(name = "date", nullable = false)
     private LocalDate date;
-    @OneToOne(mappedBy = "invoice")
+    @OneToOne
     private Order order;
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+
     @ManyToOne
     @JoinTable(name = "contact", joinColumns = @JoinColumn(name = "id"))
     private Contact contact;

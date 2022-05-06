@@ -6,6 +6,7 @@ import lombok.Data;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Collection;
 import java.util.List;
 
 @Data
@@ -22,6 +23,14 @@ public class Collaborator implements Serializable {
 
     @OneToMany(mappedBy = "collaborator")
     private List<Order> orders;
+
+    public Collection<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
 
     @OneToOne
     @JoinColumn(name = "operatore_id", referencedColumnName = "id", nullable = false)
