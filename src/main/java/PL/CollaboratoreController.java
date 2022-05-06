@@ -2,6 +2,7 @@ package PL;
 
 import BLL.dto.request.CollaboratoreRequestDTO;
 import BLL.dto.response.AziendaResponseDTO;
+import BLL.dto.response.ClienteResponseDTO;
 import BLL.dto.response.CollaboratoreResponseDTO;
 import BLL.service.astratti.CollaboratoreService;
 import lombok.RequiredArgsConstructor;
@@ -29,5 +30,11 @@ public class CollaboratoreController {
         } catch (NullPointerException e){
             return new ResponseEntity<>(collaboratoreService.findbyId(id),HttpStatus.NOT_FOUND);
         }
+    }
+
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<CollaboratoreResponseDTO> deleteCollaboratoreById(@PathVariable Long id){
+        collaboratoreService.deleteById(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

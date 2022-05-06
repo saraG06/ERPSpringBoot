@@ -2,6 +2,7 @@ package PL;
 
 import BLL.dto.request.ContattoRequestDTO;
 import BLL.dto.response.AziendaResponseDTO;
+import BLL.dto.response.ClienteResponseDTO;
 import BLL.dto.response.ContattoResponseDTO;
 import BLL.service.astratti.ContattoService;
 import lombok.RequiredArgsConstructor;
@@ -29,5 +30,11 @@ public class ContattoController {
         } catch (NullPointerException e){
             return new ResponseEntity<>(contattoService.findbyId(id),HttpStatus.NOT_FOUND);
         }
+    }
+
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<ContattoResponseDTO> deleteContattoById(@PathVariable Long id){
+        contattoService.deleteById(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

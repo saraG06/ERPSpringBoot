@@ -2,6 +2,7 @@ package PL;
 
 import BLL.dto.request.DipendenteRequestDTO;
 import BLL.dto.response.AziendaResponseDTO;
+import BLL.dto.response.ClienteResponseDTO;
 import BLL.dto.response.DipendenteResponseDTO;
 import BLL.service.astratti.DipendenteService;
 import lombok.RequiredArgsConstructor;
@@ -29,5 +30,11 @@ public class DipendenteController {
         } catch (NullPointerException e){
             return new ResponseEntity<>(dipendenteService.findbyId(id),HttpStatus.NOT_FOUND);
         }
+    }
+
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<DipendenteResponseDTO> deleteDipendenteById(@PathVariable Long id){
+        dipendenteService.deleteById(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

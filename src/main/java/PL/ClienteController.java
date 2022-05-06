@@ -17,17 +17,23 @@ public class ClienteController {
     private final ClienteService clienteService;
 
     @PostMapping
-    public ResponseEntity<Void> save(@RequestBody ClienteRequestDTO clienteRequestDTO) {
+    public ResponseEntity<Void> saveCliente(@RequestBody ClienteRequestDTO clienteRequestDTO) {
         clienteService.saveCliente(clienteRequestDTO);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<ClienteResponseDTO> getById(@PathVariable Long id){
+    public ResponseEntity<ClienteResponseDTO> getClienteById(@PathVariable Long id){
         try {
             return new ResponseEntity<>(clienteService.findbyId(id),HttpStatus.OK);
         } catch (NullPointerException e){
             return new ResponseEntity<>(clienteService.findbyId(id),HttpStatus.NOT_FOUND);
         }
+    }
+
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<ClienteResponseDTO> deleteClienteById(@PathVariable Long id){
+        clienteService.deleteById(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

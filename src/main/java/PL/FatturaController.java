@@ -2,6 +2,7 @@ package PL;
 
 import BLL.dto.request.FatturaRequestDTO;
 import BLL.dto.response.AziendaResponseDTO;
+import BLL.dto.response.ClienteResponseDTO;
 import BLL.dto.response.FatturaResponseDTO;
 import BLL.service.astratti.FatturaService;
 import lombok.RequiredArgsConstructor;
@@ -29,5 +30,11 @@ public class FatturaController {
         } catch (NullPointerException e){
             return new ResponseEntity<>(fatturaService.findbyId(id),HttpStatus.NOT_FOUND);
         }
+    }
+
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<FatturaResponseDTO> deleteFatturaById(@PathVariable Long id){
+        fatturaService.deleteById(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

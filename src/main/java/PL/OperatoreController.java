@@ -2,6 +2,7 @@ package PL;
 
 import BLL.dto.request.OperatoreRequestDTO;
 import BLL.dto.response.AziendaResponseDTO;
+import BLL.dto.response.ClienteResponseDTO;
 import BLL.dto.response.OperatoreResponseDTO;
 import BLL.service.astratti.OperatoreService;
 import lombok.RequiredArgsConstructor;
@@ -29,5 +30,11 @@ public class OperatoreController {
         } catch (NullPointerException e){
             return new ResponseEntity<>(operatoreService.findbyId(id),HttpStatus.NOT_FOUND);
         }
+    }
+
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<OperatoreResponseDTO> deleteOperatoreById(@PathVariable Long id){
+        operatoreService.deleteById(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

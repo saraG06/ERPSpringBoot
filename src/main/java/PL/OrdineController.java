@@ -2,6 +2,7 @@ package PL;
 
 import BLL.dto.request.OrdineRequestDTO;
 import BLL.dto.response.AziendaResponseDTO;
+import BLL.dto.response.ClienteResponseDTO;
 import BLL.dto.response.OrdineResponseDTO;
 import BLL.service.astratti.OrdineService;
 import lombok.RequiredArgsConstructor;
@@ -29,5 +30,11 @@ public class OrdineController {
         } catch (NullPointerException e){
             return new ResponseEntity<>(ordineService.findbyId(id),HttpStatus.NOT_FOUND);
         }
+    }
+
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<OrdineResponseDTO> deleteOrdineById(@PathVariable Long id){
+        ordineService.deleteById(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
