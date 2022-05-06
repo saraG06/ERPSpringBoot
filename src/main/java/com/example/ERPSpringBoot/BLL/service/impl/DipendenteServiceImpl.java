@@ -2,9 +2,14 @@ package com.example.ERPSpringBoot.BLL.service.impl;
 
 import com.example.ERPSpringBoot.BLL.dto.request.DipendenteRequestDTO;
 import com.example.ERPSpringBoot.BLL.dto.response.DipendenteResponseDTO;
+
 import com.example.ERPSpringBoot.BLL.mapper.implementation.*;
 import com.example.ERPSpringBoot.BLL.service.abstraction.DipendenteService;
-import com.example.ERPSpringBoot.DAL.Entity.*;
+
+import com.example.ERPSpringBoot.DAL.Entity.Azienda;
+import com.example.ERPSpringBoot.DAL.Entity.Dipendente;
+import com.example.ERPSpringBoot.DAL.Entity.Operatore;
+import com.example.ERPSpringBoot.DAL.Entity.Risorsa;
 import com.example.ERPSpringBoot.DAL.Exception.IdNotFound;
 import com.example.ERPSpringBoot.DAL.Repository.DipendenteRepository;
 import lombok.RequiredArgsConstructor;
@@ -54,6 +59,12 @@ public class DipendenteServiceImpl implements DipendenteService {
     @Override
     public List<DipendenteResponseDTO> findAllDipendente() {
         List<Dipendente> list = dipendenteRepository.findAll();
+        return dipendenteResponseMapper.asDTOList(list);
+    }
+
+    @Override
+    public List<DipendenteResponseDTO> dipendeteMacchina() {
+        List<Dipendente> list = dipendenteRepository.dipendeteMacchina();
         return dipendenteResponseMapper.asDTOList(list);
     }
 }

@@ -56,4 +56,16 @@ public class FatturaServiceImpl implements FatturaService {
         List<Fattura> list = fatturaRepository.findAll();
         return fatturaResponseMapper.asDTOList(list);
     }
+
+    @Override
+    public List<FatturaResponseDTO> fatturaAfterDate() {
+        List<Fattura> list = fatturaRepository.fatturaAfterDate();
+        return fatturaResponseMapper.asDTOList(list);
+    }
+
+    @Override
+    public List<FatturaResponseDTO> fatturaReply(String azienda) {
+        List<Fattura> list = fatturaRepository.fatturaReply("Reply");
+        return fatturaResponseMapper.asDTOList(list);
+    }
 }

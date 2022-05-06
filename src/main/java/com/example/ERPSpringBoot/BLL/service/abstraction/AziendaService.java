@@ -11,4 +11,5 @@ public interface AziendaService {
     AziendaResponseDTO findByid(Long id) throws IdNotFound;
     void deleteByid(Long id) throws IdNotFound;
     List<AziendaResponseDTO> findAllAzienda();
+    Integer nDipendenti();
 }

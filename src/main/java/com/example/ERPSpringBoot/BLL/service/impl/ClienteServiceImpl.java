@@ -53,4 +53,10 @@ public class ClienteServiceImpl implements ClienteService {
         List<Cliente> list = clienteRepository.findAll();
         return clienteResponseMapper.asDTOList(list);
     }
+
+    @Override
+    public List<ClienteResponseDTO> contattoMaggiore10() {
+        List<Cliente> list = clienteRepository.contattoMaggiore10();
+        return clienteResponseMapper.asDTOList(list);
+    }
 }

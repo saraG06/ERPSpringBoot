@@ -12,14 +12,12 @@ public class Fattura {
     private Long id;
     @Column(name = "data", nullable = false)
     private LocalDate data;
-    @ManyToOne
-    @JoinTable(name = "contatto", joinColumns = @JoinColumn(name = "id"))
+    @ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.MERGE,CascadeType.PERSIST})
     private Contatto contatto;
     @OneToOne
     private Ordine ordine;
 
     @ManyToOne
-    @JoinTable(name = "azienda", joinColumns = @JoinColumn(name = "id"))
     private Azienda azienda;
 
     public LocalDate getData() {

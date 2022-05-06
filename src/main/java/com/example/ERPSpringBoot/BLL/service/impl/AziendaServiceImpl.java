@@ -65,4 +65,10 @@ public class AziendaServiceImpl implements AziendaService {
         List<Azienda> list = aziendaRepository.findAll();
         return aziendaResponseMapper.asDTOList(list);
     }
+
+    @Override
+    public Integer nDipendenti() {
+        Integer nDipendenti = aziendaRepository.nDipendenti();
+        return nDipendenti;
+    }
 }

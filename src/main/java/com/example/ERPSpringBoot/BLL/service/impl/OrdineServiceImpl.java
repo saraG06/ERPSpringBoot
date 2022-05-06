@@ -59,4 +59,10 @@ public class OrdineServiceImpl implements OrdineService {
         List<Ordine> list = ordineRepository.findAll();
         return ordineResponseMapper.asDTOList(list);
     }
+
+    @Override
+    public List<OrdineResponseDTO> noFattura() {
+        List<Ordine> list = ordineRepository.noFattura();
+        return ordineResponseMapper.asDTOList(list);
+    }
 }

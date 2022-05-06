@@ -7,6 +7,7 @@ import com.example.ERPSpringBoot.BLL.service.abstraction.ContattoService;
 import com.example.ERPSpringBoot.DAL.Entity.*;
 import com.example.ERPSpringBoot.DAL.Exception.IdNotFound;
 import com.example.ERPSpringBoot.DAL.Repository.ContattoRepository;
+import com.example.ERPSpringBoot.DAL.Repository.FatturaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ContattoServiceImpl implements ContattoService {
     private final ContattoRepository contattoRepository;
+    private final FatturaRepository fatturaRepository;
     private final ContattoRequestMapper contattoRequestMapper;
     private final ContattoResponseMapper contattoResponseMapper;
     private final AziendaRequestMapper aziendaRequestMapper;
@@ -26,11 +28,21 @@ public class ContattoServiceImpl implements ContattoService {
         Azienda azienda= aziendaRequestMapper.asEntity(contattoRequestDTO.getAziendaRequestDTO());
         Cliente cliente= clienteRequestMapper.asEntity(contattoRequestDTO.getClienteRequestDTO());
         List<Fattura> fatturaList= fatturaRequestMapper.asEntityList(contattoRequestDTO.getFatturaRequestDTOList());
+
+        c.setFattura(fatturaList);
+        contattoRepository.save(c);
+        for(Fattura f: fatturaList){
+        fatturaRepository.save(f);
+            f.setContatto(c);
+        }
         c.setAzienda(azienda);
         c.setCliente(cliente);
-        c.setFattura(fatturaList);
 
-        contattoRepository.save(c);
+
+
+
+
+
     }
 
     @Override

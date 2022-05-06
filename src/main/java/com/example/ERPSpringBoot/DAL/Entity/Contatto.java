@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
-@Table(name = "contatto")
+
 @Entity
 public class Contatto{
 
@@ -15,15 +15,13 @@ public class Contatto{
     private String nome;
     @Column(name = "cognome", nullable = false)
     private String cognome;
-    @Column(name = "nascita", nullable = false)
+    @Column(name = "nascita")
     private LocalDate nascita;
     @ManyToOne
-    @JoinTable(name = "cliente", joinColumns = @JoinColumn(name = "id"))
     private Cliente cliente;
-    @ManyToOne
-    @JoinTable(name = "azienda", joinColumns = @JoinColumn(name = "id"))
+    @ManyToOne()
     private Azienda azienda;
-    @OneToMany(mappedBy = "contatto")
+    @OneToMany(mappedBy = "contatto",cascade = {CascadeType.MERGE,CascadeType.PERSIST})
     private List<Fattura> fattura;
     public Long getId() {
         return id;

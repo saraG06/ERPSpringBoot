@@ -10,6 +10,7 @@ import com.example.ERPSpringBoot.DAL.Repository.OperatoreRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 @Service
 @RequiredArgsConstructor
@@ -51,6 +52,12 @@ public class OperatoreServiceImpl implements OperatoreService {
     @Override
     public List<OperatoreResponseDTO> findAllOperatore() {
         List<Operatore> list = operatoreRepository.findAll();
+        return operatoreResponseMapper.asDTOList(list);
+    }
+
+    @Override
+    public List<OperatoreResponseDTO> operatorLastMonth(LocalDate now) {
+        List<Operatore> list = operatoreRepository.operatorLastMonth(now);
         return operatoreResponseMapper.asDTOList(list);
     }
 }

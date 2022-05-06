@@ -15,16 +15,14 @@ public class Ordine {
     @Column(name = "dataImporto", nullable = false)
     private LocalDate dataImporto;
     @ManyToOne
-    @JoinTable(name = "operatore", joinColumns = @JoinColumn(name = "id"))
     private Operatore operatore;
 
-    @OneToOne(mappedBy = "ordine")
+    @JoinColumn(name = "fattura_id")
+    @OneToOne
     private Fattura fattura;
     @ManyToOne
-    @JoinTable(name = "cliente", joinColumns = @JoinColumn(name = "id"))
     private Cliente cliente;
     @ManyToOne
-    @JoinTable(name = "azienda", joinColumns = @JoinColumn(name = "id"))
     private Azienda azienda;
 
 

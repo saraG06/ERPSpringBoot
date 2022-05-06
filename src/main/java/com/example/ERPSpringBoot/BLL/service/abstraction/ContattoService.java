@@ -3,6 +3,7 @@ package com.example.ERPSpringBoot.BLL.service.abstraction;
 
 import com.example.ERPSpringBoot.BLL.dto.request.ContattoRequestDTO;
 import com.example.ERPSpringBoot.BLL.dto.response.ContattoResponseDTO;
+import com.example.ERPSpringBoot.DAL.Entity.Contatto;
 import com.example.ERPSpringBoot.DAL.Exception.IdNotFound;
 
 import java.util.List;

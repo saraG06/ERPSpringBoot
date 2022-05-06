@@ -1,5 +1,6 @@
 package com.example.ERPSpringBoot.BLL.dto.request;
 
+import com.example.ERPSpringBoot.BLL.dto.response.FatturaResponseDTO;
 import lombok.Data;
 import java.time.LocalDate;
 import java.util.List;
