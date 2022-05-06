@@ -1,0 +1,56 @@
+package it.unikey.erpspring.BLL.service.implementazioni;
+
+import it.unikey.erpspring.BLL.dto.request.AziendaRequestDTO;
+import it.unikey.erpspring.BLL.dto.response.AziendaResponseDTO;
+import it.unikey.erpspring.BLL.mapper.implementazioni.request.AziendaRequestMapper;
+import it.unikey.erpspring.BLL.mapper.implementazioni.response.AziendaResponseMapper;
+import it.unikey.erpspring.BLL.service.astratti.AziendaService;
+import it.unikey.erpspring.DAL.Entity.Azienda;
+import it.unikey.erpspring.DAL.Repository.AziendaRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+@RequiredArgsConstructor
+public class AziendaServiceImplementazioni implements AziendaService {
+
+    private final AziendaRepository aziendaRepository;
+    private final AziendaRequestMapper aziendaRequestMapper;
+    private final AziendaResponseMapper aziendaResponseMapper;
+
+    @Override
+    public void saveAzienda(AziendaRequestDTO aziendaRequestDTO) {
+        Azienda a = aziendaRequestMapper.asEntity(aziendaRequestDTO);
+        aziendaRepository.save(a);
+    }
+
+    @Override
+    public AziendaResponseDTO findbyId(Long id) {
+        Azienda a = aziendaRepository.findById(id).get();
+        return aziendaResponseMapper.asDTO(a);
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        Azienda a = aziendaRepository.findById(id).get();
+        aziendaRepository.delete(a);
+    }
+
+    @Override
+    public List<AziendaResponseDTO> findAllAziende() {
+        List<Azienda> aziendas = aziendaRepository.findAll();
+        return aziendaResponseMapper.asDTOList(aziendas);
+    }
+
+    @Override
+    public List<AziendaResponseDTO> findDipendentiTotali() {
+        return findDipendentiTotali();
+    }
+
+    @Override
+    public List<AziendaResponseDTO> findDipendentiAzienda() {
+        return findDipendentiTotali();
+    }
+}
