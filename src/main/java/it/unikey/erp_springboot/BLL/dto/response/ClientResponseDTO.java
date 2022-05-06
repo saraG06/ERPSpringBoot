@@ -8,7 +8,7 @@ import java.util.List;
 public class ClientResponseDTO {
 
     private Long id;
-    private String nome;
+    private String name;
     private String partitaIva;
     private List<ContactResponseDTO> contactResponseDTOList;
     private List<OrderResponseDTO> orderResponseDTOList;

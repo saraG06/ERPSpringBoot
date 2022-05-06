@@ -19,17 +19,17 @@ public class Order implements Serializable {
     @Column(name = "price", nullable = false)
     private double price;
     @ManyToOne
-    @JoinTable(name = "client", joinColumns = @JoinColumn(name = "id"))
+    @JoinColumn(name = "client")
     private Client client;
     @ManyToOne
-    @JoinTable(name = "operator", joinColumns = @JoinColumn(name = "id"))
+    @JoinColumn(name = "operator")
     private Operator operator;
     @OneToOne(mappedBy = "order")
     Invoice invoice;
     @ManyToOne
     Collaborator collaborator;
     @ManyToOne
-    @JoinTable(name = "contact", joinColumns = @JoinColumn(name = "id"))
+    @JoinColumn(name = "contact")
     private Company company;
     @ManyToOne
     Employee employee;

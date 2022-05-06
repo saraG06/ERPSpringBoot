@@ -11,7 +11,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
+@Data
 @Entity
 @Table(name = "company")
 public class Company implements Serializable {
@@ -32,6 +32,4 @@ public class Company implements Serializable {
     @OneToMany(mappedBy = "company")
     private List<Operator> operators;
 
-    public void setName(String name) {
-    }
 }

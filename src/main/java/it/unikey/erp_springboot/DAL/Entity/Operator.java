@@ -17,7 +17,7 @@ public class Operator {
     @Column(name = "birth", nullable = false)
     private LocalDate birth;
     @ManyToOne
-    @JoinTable(name = "company", joinColumns = @JoinColumn(name = "id"))
+    @JoinColumn(name = "company")
     private Company company;
 
 }

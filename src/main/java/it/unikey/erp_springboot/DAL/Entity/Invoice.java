@@ -18,11 +18,11 @@ public class Invoice implements Serializable {
     @OneToOne
     private Order order;
     @ManyToOne
-    @JoinTable(name = "contact", joinColumns = @JoinColumn(name = "id"))
+    @JoinColumn(name = "contact")
     private Contact contact;
 
     @ManyToOne
-    @JoinTable(name = "company", joinColumns = @JoinColumn(name = "id"))
+    @JoinColumn(name = "company")
     private Company company;
 
 }
