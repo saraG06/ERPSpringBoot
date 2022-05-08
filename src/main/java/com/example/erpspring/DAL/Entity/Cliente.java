@@ -1,10 +1,11 @@
 package com.example.erpspring.DAL.Entity;
 
 import com.example.erpspring.DAL.Entity.persone.Contatto;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.util.List;
-
+@Data
 @Table(name = "cliente")
 @Entity
 public class Cliente {
@@ -16,12 +17,12 @@ public class Cliente {
     private String nome;
     @Column(name = "pIva")
     String pIva ;
-    @OneToMany(mappedBy = "cliente" , fetch= FetchType.LAZY)
+    @OneToMany(mappedBy = "cliente" , fetch= FetchType.LAZY, cascade=CascadeType.ALL)
     private List<Contatto> contatti ;
-    @OneToMany(mappedBy = "cliente" , fetch= FetchType.LAZY)
+    @OneToMany(mappedBy = "cliente" , fetch= FetchType.LAZY, cascade=CascadeType.ALL)
     private List<Ordine> ordini ;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "azienda_id")
     Azienda azienda ;
 

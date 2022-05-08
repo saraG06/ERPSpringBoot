@@ -48,20 +48,22 @@ public class FatturaServiceImpl implements FatturaService {
         return fatturaResponseMapper.asDTOList(fatturaRepository.findAll());
     }
 
+    @Override
     public List<FatturaResponseDTO> findFattureDopo2019() {
         return fatturaResponseMapper.asDTOList(fatturaRepository.dopo2019(LocalDate.parse("2019-12-31")));
     }
 
+    @Override
     public List<FatturaResponseDTO> findFattureReply() {
         List<Fattura> list = fatturaRepository.fattureCliente("Reply");
         return  fatturaResponseMapper.asDTOList(list);
     }
-
+    @Override
     public List<FatturaResponseDTO> findFattureAziendaContatto(ContattoRequestDTO c) {
         List<Fattura> list = fatturaRepository.fattureCliente(c.getClienteRequestDTO().getNome());
         return  fatturaResponseMapper.asDTOList(list);
     }
-
+    @Override
     public void fatturaDaContatto(ContattoRequestDTO c, OrdineRequestDTO o, LocalDate date) {
         FatturaRequestDTO f = new FatturaRequestDTO();
         f.setContattoRequestDTO(c);

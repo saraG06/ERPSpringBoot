@@ -5,6 +5,7 @@ import com.example.erpspring.BLL.dto.response.OperatoreResponseDTO;
 import com.example.erpspring.BLL.mapper.implementation.OperatoreRequestMapper;
 import com.example.erpspring.BLL.mapper.implementation.OperatoreResponseMapper;
 import com.example.erpspring.BLL.service.abstraction.OperatoreService;
+import com.example.erpspring.DAL.Entity.persone.Operatore;
 import com.example.erpspring.DAL.Repository.OperatoreRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,8 @@ public class OperatoreServiceImpl implements OperatoreService {
 
     @Override
     public void saveOperatore(OperatoreRequestDTO operatoreRequestDTO) {
-        operatoreRepository.save(operatoreRequestMapper.asEntity(operatoreRequestDTO));
+        Operatore o = operatoreRequestMapper.asEntity(operatoreRequestDTO) ;
+        operatoreRepository.save(o);
     }
 
     @Override

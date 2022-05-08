@@ -2,9 +2,11 @@ package com.example.erpspring.DAL.Entity;
 
 
 import com.example.erpspring.DAL.Entity.persone.Operatore;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+@Data
 @Table(name = "ordine")
 @Entity
 public class Ordine {
@@ -18,11 +20,11 @@ public class Ordine {
     double importo ;
     @Column(name = "dettaglio")
     String dettaglio ;
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "operatore_id")
     Operatore operatore ;
 
-   @ManyToOne
+   @ManyToOne(cascade=CascadeType.ALL)
    @JoinColumn(name = "cliente_id")
     Cliente cliente ;
 

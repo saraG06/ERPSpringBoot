@@ -2,26 +2,27 @@ package com.example.erpspring.DAL.Entity;
 
 import com.example.erpspring.DAL.Entity.persone.Collaboratore;
 import com.example.erpspring.DAL.Entity.persone.Dipendente;
+import lombok.Data;
 
 
 import javax.persistence.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-
+@Data
 @Table(name = "azienda")
 @Entity
 public class Azienda {
 
-    @OneToMany(mappedBy = "azienda")
+    @OneToMany(mappedBy = "azienda", cascade=CascadeType.ALL)
     List<Collaboratore> collaboratori ;
-    @OneToMany(mappedBy = "azienda")
+    @OneToMany(mappedBy = "azienda", cascade=CascadeType.ALL)
     List<Dipendente> dipendenti ;
-    @OneToMany(mappedBy = "azienda")
+    @OneToMany(mappedBy = "azienda", cascade=CascadeType.ALL)
     List<Cliente> clienti ;
-    @OneToMany(mappedBy = "azienda")
+    @OneToMany(mappedBy = "azienda", cascade=CascadeType.ALL)
     List<Fattura> fatture ;
-    @OneToMany(mappedBy = "azienda")
+    @OneToMany(mappedBy = "azienda", cascade=CascadeType.ALL)
     List<Ordine> ordini ;
     private static final String pathfile = "ERP/Resources/Dipendenti";
     @Id

@@ -6,7 +6,8 @@ import java.util.List;
 
 import com.example.erpspring.DAL.Entity.Cliente;
 import com.example.erpspring.DAL.Entity.Fattura;
-
+import lombok.Data;
+@Data
 @Table(name = "contatto")
 @Entity
 public class Contatto  {
@@ -20,10 +21,10 @@ public class Contatto  {
     private String cognome;
     @Column(name = "dataNascita")
     private LocalDate dataNascita ;
-    @ManyToOne
-    @JoinColumn(name="cliente_id")
+    @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="cliente_id" )
     private Cliente cliente ;
-    @OneToMany(mappedBy = "contatto")
+    @OneToMany(mappedBy = "contatto", cascade=CascadeType.ALL)
     private List<Fattura> fatture;
 
     public Contatto() {

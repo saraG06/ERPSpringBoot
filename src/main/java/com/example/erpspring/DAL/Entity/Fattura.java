@@ -2,10 +2,11 @@ package com.example.erpspring.DAL.Entity;
 
 
 import com.example.erpspring.DAL.Entity.persone.Contatto;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-
+@Data
 @Table(name = "fattura")
 @Entity
 public class Fattura {
@@ -15,13 +16,13 @@ public class Fattura {
     private Long id ;
     @Column(name = "data")
     LocalDate data ;
-    @OneToOne
+    @OneToOne(cascade=CascadeType.ALL)
     Ordine ordine ;
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="contatto_id")
     Contatto contatto ;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "azienda_id")
     Azienda azienda ;
 
