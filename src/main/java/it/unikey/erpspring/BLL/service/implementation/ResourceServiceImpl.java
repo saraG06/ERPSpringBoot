@@ -45,4 +45,10 @@ public class ResourceServiceImpl implements ResourceService {
             throw new NullPointerException();
         }
     }
+
+    @Override
+    public void saveResource(ResourceRequestDTO resourceRequestDTO) {
+        Resource r = resourceRequestMapper.asEntity(resourceRequestDTO);
+        resourceRepository.save(r);
+    }
 }

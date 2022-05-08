@@ -10,4 +10,6 @@ public interface ResourceService {
     void assignResource(EmployeeRequestDTO one, EmployeeRequestDTO two, ResourceRequestDTO resource);
 
     ResourceResponseDTO findResourceById(Long id);
+
+    void saveResource(ResourceRequestDTO resourceRequestDTO);
 }

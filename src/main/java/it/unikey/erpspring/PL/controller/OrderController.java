@@ -1,7 +1,6 @@
 package it.unikey.erpspring.PL.controller;
 
 import it.unikey.erpspring.BLL.DTO.request.OrderRequestDTO;
-import it.unikey.erpspring.BLL.DTO.response.InvoiceResponseDTO;
 import it.unikey.erpspring.BLL.DTO.response.OrderResponseDTO;
 import it.unikey.erpspring.BLL.service.abstraction.OrderService;
 import lombok.RequiredArgsConstructor;
@@ -34,4 +33,5 @@ public class OrderController {
     public ResponseEntity<List<OrderResponseDTO>> getOrderWithoutInvoice(){
         return new ResponseEntity<>(orderService.getOrderWithoutInvoice(), HttpStatus.OK);
     }
+
 }

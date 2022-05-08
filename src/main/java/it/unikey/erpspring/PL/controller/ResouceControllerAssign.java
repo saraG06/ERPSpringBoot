@@ -11,23 +11,15 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/resource")
+@RequestMapping("/api/v1/resource/assign")
 @CrossOrigin("http://localhost:8080")
-public class ResourceController {
+public class ResouceControllerAssign {
 
     private final ResourceService resourceService;
 
     @PostMapping
-    public ResponseEntity<Void> save(@RequestBody ResourceRequestDTO resourceRequestDTO){
-        resourceService.saveResource(resourceRequestDTO);
+    public ResponseEntity<Void> assignResource(EmployeeRequestDTO one, EmployeeRequestDTO two, ResourceRequestDTO resource){
+        resourceService.assignResource(one,two,resource);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
-
-    @GetMapping(path = "/{id}")
-    public ResponseEntity<ResourceResponseDTO> findById(@PathVariable Long id){
-        return new ResponseEntity<>(resourceService.findResourceById(id), HttpStatus.OK);
-    }
-
-
-
 }
