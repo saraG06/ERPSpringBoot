@@ -14,11 +14,11 @@ public class Fattura {
     @Column(name = "data",nullable = false)
     private LocalDate data;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "contatto_id",nullable = false)
     private Contatto contatto;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ordine_id")
     private Ordine ordine;
 

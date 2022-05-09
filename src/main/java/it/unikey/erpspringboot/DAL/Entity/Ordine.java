@@ -17,15 +17,15 @@ public class Ordine {
     @Column(name = "dataImporto",nullable = false)
     private LocalDate dataImporto;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "operatore_id",nullable = false)
     private Operatore operatore;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cliente_id",nullable = false)
     private Cliente cliente;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "fattura_id")
     private Fattura fattura;
 

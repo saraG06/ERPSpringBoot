@@ -10,7 +10,7 @@ public class Contatto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cliente_id",nullable = false)
     private Cliente cliente;
 

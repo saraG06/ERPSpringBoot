@@ -22,7 +22,7 @@ public class Operatore {
     @Column(name = "dataNascita")
     private LocalDate dataNascita;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "azienda_id")
     private Azienda azienda;
 

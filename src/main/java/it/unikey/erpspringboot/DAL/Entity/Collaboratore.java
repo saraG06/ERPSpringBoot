@@ -10,11 +10,11 @@ public class Collaboratore {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "operatore_id", referencedColumnName = "id")
     private Operatore operatore;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "risorsa_id",nullable = false)
     private Risorsa risorsa;
 

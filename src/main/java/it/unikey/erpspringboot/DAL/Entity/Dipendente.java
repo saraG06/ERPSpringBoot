@@ -14,15 +14,15 @@ public class Dipendente {
     @Column(name = "assunzione",nullable = false)
     private LocalDate assunzione;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ruolo_id",nullable = false)
     private Ruolo ruolo;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "risorsa_id")
     private Risorsa risorsa;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "operatore_id", referencedColumnName = "id")
     private Operatore operatore;
 

@@ -15,4 +15,6 @@ public interface OperatoreRepository extends JpaRepository<Operatore,Long> {
     //trovare tutti gli Operator che sono stati assunti nell ultimo mese
     @Query("SELECT d.operatore FROM Dipendente d WHERE d.assunzione=:now")
     List<Operatore> getAllAssuntiUltimoMese(@Param("now") LocalDate now);
+
+
 }
