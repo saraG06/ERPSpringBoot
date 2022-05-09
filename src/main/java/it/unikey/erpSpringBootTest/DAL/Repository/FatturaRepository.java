@@ -1,5 +1,6 @@
 package it.unikey.erpSpringBootTest.DAL.Repository;
 
+import it.unikey.erpSpringBootTest.BLL.dto.response.FatturaResponseDTO;
 import it.unikey.erpSpringBootTest.DAL.Entity.Cliente;
 import it.unikey.erpSpringBootTest.DAL.Entity.Fattura;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -11,7 +12,7 @@ import java.util.List;
 @Repository
 public interface FatturaRepository extends JpaRepository<Fattura, Long> {
     @Query("select f from Fattura f where f.cliente = :cliente")
-    List<Fattura> findAllFattureByCliente(@Param("cliente") Cliente cliente);
+    List<FatturaResponseDTO> findAllFattureByCliente(@Param("cliente") Cliente cliente);
     @Query("select f from Fattura f where f.data > '2019-12-31'")
-    List<Fattura> findAllFattureAfter2019();
+    List<FatturaResponseDTO> findAllFattureAfter2019();
 }

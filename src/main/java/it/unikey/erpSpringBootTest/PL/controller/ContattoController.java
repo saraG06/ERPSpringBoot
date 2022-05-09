@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/contact")
-public class ContactController {
+@RequestMapping("/api/contatto")
+public class ContattoController {
 
     private final ContattoService contattoService;
 

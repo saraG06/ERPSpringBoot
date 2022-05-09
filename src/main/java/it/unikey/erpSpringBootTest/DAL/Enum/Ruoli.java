@@ -1,5 +1,9 @@
 package it.unikey.erpSpringBootTest.DAL.Enum;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonValue;
+
+
 public enum Ruoli {
 
     MANAGER("manager",1),
@@ -7,13 +11,17 @@ public enum Ruoli {
     OPERATOR("operator",3);
 
     private String ruolo;
-    private int i;
+    private Integer i;
+    @JsonValue
+    public String getRuolo() {
+        return ruolo;
+    }
 
     public int getI() {
         return i;
     }
 
-    Ruoli(String ruolo, int i) {
+    Ruoli(String ruolo, Integer i) {
         this.ruolo = ruolo;
         this.i=i;
     }

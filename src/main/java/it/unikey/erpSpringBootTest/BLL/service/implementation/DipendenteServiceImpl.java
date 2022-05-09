@@ -2,6 +2,7 @@ package it.unikey.erpSpringBootTest.BLL.service.implementation;
 
 import it.unikey.erpSpringBootTest.BLL.dto.request.AziendaRequestDTO;
 import it.unikey.erpSpringBootTest.BLL.dto.request.DipendenteRequestDTO;
+import it.unikey.erpSpringBootTest.BLL.dto.response.DipendenteResponseDTO;
 import it.unikey.erpSpringBootTest.BLL.mapper.implementation.request.AziendaRequestMapper;
 import it.unikey.erpSpringBootTest.BLL.mapper.implementation.request.DipendenteRequestMapper;
 import it.unikey.erpSpringBootTest.BLL.mapper.implementation.request.OperatoreRequestMapper;
@@ -12,6 +13,7 @@ import it.unikey.erpSpringBootTest.BLL.service.abstraction.DipendenteService;
 import it.unikey.erpSpringBootTest.DAL.Entity.Azienda;
 import it.unikey.erpSpringBootTest.DAL.Entity.Dipendente;
 import it.unikey.erpSpringBootTest.DAL.Entity.Operatore;
+import it.unikey.erpSpringBootTest.DAL.Enum.Risorse;
 import it.unikey.erpSpringBootTest.DAL.Repository.DipendenteRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -44,13 +46,23 @@ public class DipendenteServiceImpl implements DipendenteService {
     }
 
     @Override
-    public List<Dipendente> findAllDipendentiByAzienda(AziendaRequestDTO aziendaRequestDTO) {
+    public List<DipendenteResponseDTO> findAllDipendentiByAzienda(AziendaRequestDTO aziendaRequestDTO) {
         Azienda a = aziendaRequestMapper.asEntity(aziendaRequestDTO);
         return dipendenteRepository.findAllDipendentiByAzienda(a);
     }
 
     @Override
-    public List<Dipendente> findAllDipendentiWithRisorsaAsMacchina() {
+    public List<DipendenteResponseDTO> findAllDipendentiWithRisorsaAsMacchina() {
         return dipendenteRepository.findAllDipendentiWithRisorsaAsMacchina();
     }
+
+    @Override
+    public void assegnaRisorsa(Long id,Risorse risorse) {
+        dipendenteRepository.assegnaRisorsa(id,risorse);
+    }
+
+   /* @Override
+    public List<DipendenteResponseDTO> findDipendentiEmployedLastMonth() {
+        return dipendenteRepository.findDipendentiEmployedLastMonth();
+    }*/
 }

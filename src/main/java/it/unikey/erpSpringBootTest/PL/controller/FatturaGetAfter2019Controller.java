@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/fattura")
+@RequestMapping("/api/fattura/date")
 @CrossOrigin("http://localhost:8080")
 public class FatturaGetAfter2019Controller {
 
@@ -23,7 +23,6 @@ public class FatturaGetAfter2019Controller {
 
     @GetMapping
     public ResponseEntity<List<FatturaResponseDTO>> findFattureAfter2019(){
-        fatturaService.findAllFattureAfter2019();
-        return new ResponseEntity<>(HttpStatus.FOUND);
+        return new ResponseEntity<>(fatturaService.findAllFattureAfter2019(),HttpStatus.FOUND);
     }
 }

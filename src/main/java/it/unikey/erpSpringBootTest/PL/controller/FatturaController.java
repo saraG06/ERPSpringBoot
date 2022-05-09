@@ -3,6 +3,7 @@ package it.unikey.erpSpringBootTest.PL.controller;
 import it.unikey.erpSpringBootTest.BLL.dto.request.ClienteRequestDTO;
 import it.unikey.erpSpringBootTest.BLL.dto.request.FatturaRequestDTO;
 import it.unikey.erpSpringBootTest.BLL.dto.response.ClienteResponseDTO;
+import it.unikey.erpSpringBootTest.BLL.dto.response.FatturaResponseDTO;
 import it.unikey.erpSpringBootTest.BLL.service.abstraction.FatturaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -26,8 +27,7 @@ public class FatturaController {
     }
 
     @GetMapping
-    public ResponseEntity<List<ClienteResponseDTO>> findFattureByCliente(@RequestBody ClienteRequestDTO clienteRequestDTO){
-        fatturaService.findAllFattureByCliente(clienteRequestDTO);
-        return new ResponseEntity<>(HttpStatus.FOUND);
+    public ResponseEntity<List<FatturaResponseDTO>> findFattureByCliente(@RequestBody ClienteRequestDTO clienteRequestDTO){
+        return new ResponseEntity<>(fatturaService.findAllFattureByCliente(clienteRequestDTO),HttpStatus.FOUND);
     }
 }

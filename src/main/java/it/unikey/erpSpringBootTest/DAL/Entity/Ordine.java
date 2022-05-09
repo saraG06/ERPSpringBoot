@@ -19,6 +19,9 @@ public class Ordine {
     private String dettaglio;
     @OneToMany(mappedBy = "ordine")
     private List<Cliente> cliente;
+    @OneToOne
+    @JoinColumn(name = "id_fattura")
+    private Fattura fattura;
     @ManyToOne
     private Operatore operatore ;
     @ManyToOne
@@ -87,6 +90,14 @@ public class Ordine {
 
     public void setAzienda(Azienda azienda) {
         this.azienda = azienda;
+    }
+
+    public Fattura getFattura() {
+        return fattura;
+    }
+
+    public void setFattura(Fattura fattura) {
+        this.fattura = fattura;
     }
 
     @Override

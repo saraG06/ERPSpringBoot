@@ -27,7 +27,6 @@ public class DipendenteController{
 
     @GetMapping(path = "/{id}")
     public ResponseEntity<List<DipendenteResponseDTO>> findDipendentiByAzienda(@RequestBody AziendaRequestDTO aziendaRequestDTO){
-        dipendenteService.findAllDipendentiByAzienda(aziendaRequestDTO);
-        return new ResponseEntity<>(HttpStatus.FOUND);
+        return new ResponseEntity<>(dipendenteService.findAllDipendentiByAzienda(aziendaRequestDTO),HttpStatus.FOUND);
     }
 }

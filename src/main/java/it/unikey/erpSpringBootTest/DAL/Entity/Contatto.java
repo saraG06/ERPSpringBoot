@@ -1,6 +1,9 @@
 package it.unikey.erpSpringBootTest.DAL.Entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
@@ -19,12 +22,6 @@ public class Contatto {
     private Cliente cliente;
 
     public Contatto() {
-    }
-
-    public Contatto(String nome, String cognome, String dataNascita) {
-        this.nome=nome;
-        this.cognome=cognome;
-        this.dataNascita= LocalDate.parse(dataNascita);
     }
 
     public Long getId() {

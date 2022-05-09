@@ -1,6 +1,7 @@
 package it.unikey.erpSpringBootTest.BLL.service.implementation;
 
 import it.unikey.erpSpringBootTest.BLL.dto.request.OrdineRequestDTO;
+import it.unikey.erpSpringBootTest.BLL.dto.response.OrdineResponseDTO;
 import it.unikey.erpSpringBootTest.BLL.mapper.implementation.request.ClienteRequestMapper;
 import it.unikey.erpSpringBootTest.BLL.mapper.implementation.request.OrdineRequestMapper;
 import it.unikey.erpSpringBootTest.BLL.mapper.implementation.response.ClienteResponseMapper;
@@ -35,5 +36,10 @@ public class OrdineServiceImpl implements OrdineService {
     @Override
     public void deleteOrdineById(Long id) {
 
+    }
+
+    @Override
+    public List<OrdineResponseDTO> ordiniWithoutfattura() {
+        return ordineRepository.ordiniWithoutfattura();
     }
 }

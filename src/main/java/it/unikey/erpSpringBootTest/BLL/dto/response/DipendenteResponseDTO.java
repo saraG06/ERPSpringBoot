@@ -15,6 +15,6 @@ public class DipendenteResponseDTO {
     private OperatoreResponseDTO operatoreResponseDTO;
     private LocalDate dataAssunzione;
     private Ruoli ruolo;
-    private Risorse risorse ;
+    private Risorse risorse;
 
 }

@@ -12,7 +12,6 @@ public class Fattura {
     @Column(name = "data")
     private LocalDate data;
     @OneToOne
-    @JoinColumn(name = "id_ordine")
     private Ordine ordine;
     @OneToOne
     @JoinColumn(name = "id_contatto")

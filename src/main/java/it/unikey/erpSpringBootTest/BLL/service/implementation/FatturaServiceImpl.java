@@ -2,6 +2,7 @@ package it.unikey.erpSpringBootTest.BLL.service.implementation;
 
 import it.unikey.erpSpringBootTest.BLL.dto.request.ClienteRequestDTO;
 import it.unikey.erpSpringBootTest.BLL.dto.request.FatturaRequestDTO;
+import it.unikey.erpSpringBootTest.BLL.dto.response.FatturaResponseDTO;
 import it.unikey.erpSpringBootTest.BLL.mapper.implementation.request.ClienteRequestMapper;
 import it.unikey.erpSpringBootTest.BLL.mapper.implementation.request.ContattoRequestMapper;
 import it.unikey.erpSpringBootTest.BLL.mapper.implementation.request.FatturaRequestMapper;
@@ -51,13 +52,13 @@ public class FatturaServiceImpl implements FatturaService {
     }
 
     @Override
-    public List<Fattura> findAllFattureByCliente(ClienteRequestDTO clienteRequestDTO) {
+    public List<FatturaResponseDTO> findAllFattureByCliente(ClienteRequestDTO clienteRequestDTO) {
         Cliente c = clienteRequestMapper.asEntity(clienteRequestDTO);
         return fatturaRepository.findAllFattureByCliente(c);
     }
 
     @Override
-    public List<Fattura> findAllFattureAfter2019() {
+    public List<FatturaResponseDTO> findAllFattureAfter2019() {
         return fatturaRepository.findAllFattureAfter2019();
     }
 

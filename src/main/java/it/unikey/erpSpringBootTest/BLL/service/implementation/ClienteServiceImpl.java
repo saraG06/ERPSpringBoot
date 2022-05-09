@@ -1,6 +1,7 @@
 package it.unikey.erpSpringBootTest.BLL.service.implementation;
 
 import it.unikey.erpSpringBootTest.BLL.dto.request.ClienteRequestDTO;
+import it.unikey.erpSpringBootTest.BLL.dto.response.ClienteResponseDTO;
 import it.unikey.erpSpringBootTest.BLL.mapper.implementation.request.ClienteRequestMapper;
 import it.unikey.erpSpringBootTest.BLL.mapper.implementation.request.ContattoRequestMapper;
 import it.unikey.erpSpringBootTest.BLL.mapper.implementation.response.ClienteResponseMapper;
@@ -38,7 +39,7 @@ public class ClienteServiceImpl implements ClienteService {
     }
 
     @Override
-    public List<Cliente> findAllClientiWithMoreThan10Contatti() {
+    public List<ClienteResponseDTO> findAllClientiWithMoreThan10Contatti() {
         return clienteRepository.findAllClientiWithMoreThan10Contatti();
     }
 }

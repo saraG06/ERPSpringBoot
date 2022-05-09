@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/cliente")
@@ -23,8 +25,7 @@ public class ClienteController {
     }
 
     @GetMapping()
-    public ResponseEntity<ClienteResponseDTO> findClientiWithMoreThan10Contatti(){
-        clienteService.findAllClientiWithMoreThan10Contatti();
-        return new ResponseEntity<>(HttpStatus.FOUND);
+    public ResponseEntity<List<ClienteResponseDTO>> findClientiWithMoreThan10Contatti(){
+        return new ResponseEntity<>(clienteService.findAllClientiWithMoreThan10Contatti(),HttpStatus.FOUND);
     }
 }
