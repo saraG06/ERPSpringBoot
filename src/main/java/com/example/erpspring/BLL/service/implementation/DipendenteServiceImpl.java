@@ -18,10 +18,10 @@ import java.util.List;
 @RequiredArgsConstructor
 public class DipendenteServiceImpl implements DipendenteService {
 
-    DipendenteRepository dipendenteRepository;
-    DipendenteRequestMapper dipendenteRequestMapper;
-    DipendenteResponseMapper dipendenteResponseMapper;
-    OperatoreRequestMapper operatoreRequestMapper;
+    private final DipendenteRepository dipendenteRepository;
+    private final DipendenteRequestMapper dipendenteRequestMapper;
+    private final DipendenteResponseMapper dipendenteResponseMapper;
+    private final OperatoreRequestMapper operatoreRequestMapper;
 
     @Override
     public void saveDipendete(DipendenteRequestDTO dipendenteRequestDTO) {

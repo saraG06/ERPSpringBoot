@@ -1,8 +1,11 @@
 package com.example.erpspring.BLL.dto.response;
 
-import java.time.LocalDate;
+import lombok.Data;
 
-public class OrdineResponseDTO {
+import java.io.Serializable;
+import java.time.LocalDate;
+@Data
+public class OrdineResponseDTO implements Serializable {
 
     private Long id;
     LocalDate data ;

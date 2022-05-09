@@ -2,7 +2,9 @@ package com.example.erpspring.BLL.dto.request;
 
 import com.example.erpspring.DAL.Entity.Enum.Risorse;
 
-public class CollaboratoreRequestDTO {
+import java.io.Serializable;
+
+public class CollaboratoreRequestDTO implements Serializable {
 
     OperatoreRequestDTO operatoreRequestDTO ;
     Risorse risorsa;

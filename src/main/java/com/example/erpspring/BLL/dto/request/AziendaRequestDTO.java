@@ -1,4 +1,6 @@
 package com.example.erpspring.BLL.dto.request;
 
-public class AziendaRequestDTO {
+import java.io.Serializable;
+
+public class AziendaRequestDTO implements Serializable {
 }

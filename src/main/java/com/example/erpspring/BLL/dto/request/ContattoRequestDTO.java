@@ -2,11 +2,12 @@ package com.example.erpspring.BLL.dto.request;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
 @Data
-public class ContattoRequestDTO {
+public class ContattoRequestDTO implements Serializable {
 
     private String nome;
 

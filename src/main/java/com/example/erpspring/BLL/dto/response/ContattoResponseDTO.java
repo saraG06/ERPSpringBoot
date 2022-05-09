@@ -1,9 +1,12 @@
 package com.example.erpspring.BLL.dto.response;
 
+import lombok.Data;
+
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
-
-public class ContattoResponseDTO {
+@Data
+public class ContattoResponseDTO implements Serializable {
     private Long id;
     private String nome;
 

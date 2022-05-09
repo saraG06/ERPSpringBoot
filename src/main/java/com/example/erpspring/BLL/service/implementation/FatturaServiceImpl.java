@@ -20,11 +20,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class FatturaServiceImpl implements FatturaService {
 
-    FatturaRepository fatturaRepository;
-    FatturaRequestMapper fatturaRequestMapper;
-    FatturaResponseMapper fatturaResponseMapper;
-    OrdineRequestMapper ordineRequestMapper;
-    ContattoRequestMapper contattoRequestMapper;
+    private final FatturaRepository fatturaRepository;
+    private final FatturaRequestMapper fatturaRequestMapper;
+    private final FatturaResponseMapper fatturaResponseMapper;
+    private final OrdineRequestMapper ordineRequestMapper;
+    private final ContattoRequestMapper contattoRequestMapper;
     @Override
     public void saveFattura(FatturaRequestDTO fatturaRequestDTO) {
         Fattura f = fatturaRequestMapper.asEntity(fatturaRequestDTO);

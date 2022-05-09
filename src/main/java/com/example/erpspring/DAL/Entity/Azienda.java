@@ -12,8 +12,12 @@ import java.util.List;
 @Data
 @Table(name = "azienda")
 @Entity
-public class Azienda {
+public class Azienda implements Serializable{
 
+    private static final String pathfile = "ERP/Resources/Dipendenti";
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @OneToMany(mappedBy = "azienda", cascade=CascadeType.ALL)
     List<Collaboratore> collaboratori ;
     @OneToMany(mappedBy = "azienda", cascade=CascadeType.ALL)
@@ -24,23 +28,20 @@ public class Azienda {
     List<Fattura> fatture ;
     @OneToMany(mappedBy = "azienda", cascade=CascadeType.ALL)
     List<Ordine> ordini ;
-    private static final String pathfile = "ERP/Resources/Dipendenti";
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
-    public Azienda(){
-        this.collaboratori = new ArrayList<>();
-        try(FileInputStream f= new FileInputStream(pathfile);
-            ObjectInputStream i= new ObjectInputStream(f);){
-            dipendenti = (ArrayList<Dipendente>) i.readObject();
-        }catch(IOException | ClassNotFoundException c){
-            System.out.println(c.getMessage());
-        }
-        this.clienti = new ArrayList<>();
-        this.fatture = new ArrayList<>();
-        this.ordini = new ArrayList<>();
-    }
+
+//    public Azienda(){
+//        this.collaboratori = new ArrayList<>();
+//        try(FileInputStream f= new FileInputStream(pathfile);
+//            ObjectInputStream i= new ObjectInputStream(f);){
+//            dipendenti = (ArrayList<Dipendente>) i.readObject();
+//        }catch(IOException | ClassNotFoundException c){
+//            System.out.println(c.getMessage());
+//        }
+//        this.clienti = new ArrayList<>();
+//        this.fatture = new ArrayList<>();
+//        this.ordini = new ArrayList<>();
+//    }
 
 //    public int numDipendenti(){
 //        return this.dipendenti.size() ;

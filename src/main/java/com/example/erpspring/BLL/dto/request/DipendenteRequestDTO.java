@@ -3,9 +3,10 @@ package com.example.erpspring.BLL.dto.request;
 import com.example.erpspring.DAL.Entity.Enum.Risorse;
 import com.example.erpspring.DAL.Entity.Enum.Ruoli;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class DipendenteRequestDTO {
+public class DipendenteRequestDTO implements Serializable {
 
     OperatoreRequestDTO operatoreRequestDTO ;
     private LocalDate dataAssunzione ;

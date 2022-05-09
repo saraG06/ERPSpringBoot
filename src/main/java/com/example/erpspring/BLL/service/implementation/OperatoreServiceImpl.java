@@ -15,9 +15,9 @@ import java.util.List;
 @RequiredArgsConstructor
 public class OperatoreServiceImpl implements OperatoreService {
 
-    OperatoreRepository operatoreRepository;
-    OperatoreResponseMapper operatoreResponseMapper;
-    OperatoreRequestMapper operatoreRequestMapper;
+    private final OperatoreRepository operatoreRepository;
+    private final OperatoreResponseMapper operatoreResponseMapper;
+    private final OperatoreRequestMapper operatoreRequestMapper;
 
     @Override
     public void saveOperatore(OperatoreRequestDTO operatoreRequestDTO) {

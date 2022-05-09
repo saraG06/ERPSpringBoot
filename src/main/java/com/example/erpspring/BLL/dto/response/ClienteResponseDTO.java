@@ -1,8 +1,11 @@
 package com.example.erpspring.BLL.dto.response;
 
-import java.util.List;
+import lombok.Data;
 
-public class ClienteResponseDTO {
+import java.io.Serializable;
+import java.util.List;
+@Data
+public class ClienteResponseDTO implements Serializable {
 
     private Long id;
     private String nome;

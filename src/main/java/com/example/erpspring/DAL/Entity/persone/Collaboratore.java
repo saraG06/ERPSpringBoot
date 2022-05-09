@@ -5,10 +5,12 @@ import com.example.erpspring.DAL.Entity.Enum.Risorse;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
+
 @Data
 @Table(name = "collaboratore")
 @Entity
-public class Collaboratore  {
+public class Collaboratore implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,31 +27,5 @@ public class Collaboratore  {
     @JoinColumn(name = "azienda_id")
     Azienda azienda ;
 
-    public Collaboratore() {
 
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Risorse getRisorsa() {
-        return risorsa;
-    }
-
-    public void setRisorsa(Risorse risorsa) {
-        this.risorsa = risorsa;
-    }
-
-    public Operatore getOperatore() {
-        return operatore;
-    }
-
-    public void setOperatore(Operatore operatore) {
-        this.operatore = operatore;
-    }
 }

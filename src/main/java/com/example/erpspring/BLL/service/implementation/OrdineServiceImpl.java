@@ -18,10 +18,10 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class OrdineServiceImpl implements OrdineService {
 
-    OrdineRepository ordineRepository;
-    OrdineRequestMapper ordineRequestMapper;
-    OrdineResponseMapper ordineResponseMapper;
-    OperatoreRequestMapper operatoreRequestMapper;
+    private final OrdineRepository ordineRepository;
+    private final OrdineRequestMapper ordineRequestMapper;
+    private final OrdineResponseMapper ordineResponseMapper;
+    private final OperatoreRequestMapper operatoreRequestMapper;
     @Override
     public void saveOrdine(OrdineRequestDTO autoRequestDTO) {
         Ordine o = ordineRequestMapper.asEntity(autoRequestDTO);

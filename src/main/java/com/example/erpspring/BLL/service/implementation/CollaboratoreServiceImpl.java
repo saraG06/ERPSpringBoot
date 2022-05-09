@@ -16,10 +16,10 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CollaboratoreServiceImpl implements CollaboratoreService {
 
-    CollaboratoreRequestMapper collaboratoreRequestMapper;
-    CollaboratoreResponseMapper collaboratoreResponseMapper;
-    CollaboratoreRepository collaboratoreRepository;
-    OperatoreRequestMapper operatoreRequestMapper;
+    private final CollaboratoreRequestMapper collaboratoreRequestMapper;
+    private final CollaboratoreResponseMapper collaboratoreResponseMapper;
+    private final CollaboratoreRepository collaboratoreRepository;
+    private final OperatoreRequestMapper operatoreRequestMapper;
 
 
     @Override

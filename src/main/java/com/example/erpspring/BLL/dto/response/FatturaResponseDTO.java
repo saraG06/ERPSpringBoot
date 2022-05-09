@@ -1,8 +1,11 @@
 package com.example.erpspring.BLL.dto.response;
 
-import java.time.LocalDate;
+import lombok.Data;
 
-public class FatturaResponseDTO {
+import java.io.Serializable;
+import java.time.LocalDate;
+@Data
+public class FatturaResponseDTO implements Serializable {
 
     private Long id;
     LocalDate data ;

@@ -1,8 +1,9 @@
 package com.example.erpspring.BLL.dto.request;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class ClienteRequestDTO {
+public class ClienteRequestDTO implements Serializable {
     private List<ContattoRequestDTO> contattoRequestDTOList ;
 //    private List<OrdineRequestDTO> ordineRequestDTOList ;
     private String nome;

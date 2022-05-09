@@ -1,8 +1,9 @@
 package com.example.erpspring.BLL.dto.request;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class FatturaRequestDTO {
+public class FatturaRequestDTO implements Serializable {
 
     LocalDate data ;
     OrdineRequestDTO ordineRequestDTO ;

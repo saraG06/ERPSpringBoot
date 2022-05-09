@@ -4,11 +4,12 @@ import com.example.erpspring.DAL.Entity.persone.Contatto;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 @Data
 @Table(name = "cliente")
 @Entity
-public class Cliente {
+public class Cliente implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,69 +18,19 @@ public class Cliente {
     private String nome;
     @Column(name = "pIva")
     String pIva ;
-    @OneToMany(mappedBy = "cliente" , fetch= FetchType.LAZY, cascade=CascadeType.ALL)
+    @OneToMany(mappedBy = "cliente" , cascade=CascadeType.ALL)
     private List<Contatto> contatti ;
-    @OneToMany(mappedBy = "cliente" , fetch= FetchType.LAZY, cascade=CascadeType.ALL)
+    @OneToMany(mappedBy = "cliente" , cascade=CascadeType.ALL)
     private List<Ordine> ordini ;
 
     @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "azienda_id")
     Azienda azienda ;
 
-    public Cliente() {
-         }
+//    public Cliente() {
+//         }
 
-    public boolean hasContatto(Contatto c){
-        return contatti.contains(c);
-    }
 
-    public List<Contatto> getContatti() {
-        return contatti;
-    }
-
-    public void setContatti(List<Contatto> contatti) {
-        this.contatti = contatti;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public List<Ordine> getOrdini() {
-        return ordini;
-    }
-
-    public void setOrdini(List<Ordine> ordini) {
-        this.ordini = ordini;
-    }
-
-    public Azienda getAzienda() {
-        return azienda;
-    }
-
-    public void setAzienda(Azienda azienda) {
-        this.azienda = azienda;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getpIva() {
-        return pIva;
-    }
-
-    public void setpIva(String pIva) {
-        this.pIva = pIva;
-    }
 
 
 
