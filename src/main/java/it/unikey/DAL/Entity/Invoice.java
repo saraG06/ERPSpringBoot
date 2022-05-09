@@ -28,11 +28,9 @@ public class Invoice implements Serializable {
     }
 
     @ManyToOne
-    @JoinTable(name = "contact", joinColumns = @JoinColumn(name = "id"))
     private Contact contact;
 
     @ManyToOne
-    @JoinTable(name = "company", joinColumns = @JoinColumn(name = "id"))
     private Company company;
 
     public Invoice(String date, Order o, Contact c) {

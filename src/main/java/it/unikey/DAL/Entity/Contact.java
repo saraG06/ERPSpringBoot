@@ -21,7 +21,6 @@ public class Contact implements Serializable {
     @Column(name = "birth", nullable = false)
     private LocalDate birth;
     @ManyToOne
-    @JoinTable(name = "client", joinColumns = @JoinColumn(name = "id"))
     private Client client;
     @OneToMany(mappedBy = "contact")
     private List<Invoice> invoices;

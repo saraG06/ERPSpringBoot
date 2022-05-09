@@ -19,16 +19,4 @@ class ErpSpringApplicationTests {
     @Test
     void contextLoads() {
     }
-
-    @Test
-    void addClient(){
-        Client c = new Client();
-        c.setName("a");
-        clientRepository.save(c);
-    }
-    @Test
-    void addCollaborator(){
-        Collaborator c = new Collaborator();
-        collaboratorRepository.save(c);
-    }
 }

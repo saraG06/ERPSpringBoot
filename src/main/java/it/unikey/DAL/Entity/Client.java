@@ -25,7 +25,6 @@ public class Client implements Serializable {
     private List<Order> orders;
 
     @ManyToOne
-    @JoinTable(name = "company", joinColumns = @JoinColumn(name = "id"))
     private Company company;
 
     public Client(String name, String partitaIVA) {

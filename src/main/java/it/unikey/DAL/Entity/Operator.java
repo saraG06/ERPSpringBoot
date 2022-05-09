@@ -18,7 +18,6 @@ public class Operator {
     @Column(name = "birth", nullable = false)
     private LocalDate birth;
     @ManyToOne
-    @JoinTable(name = "company", joinColumns = @JoinColumn(name = "id"))
     private Company company;
 
     public Invoice generateInvoice(Order o, Contact contact, Company c){

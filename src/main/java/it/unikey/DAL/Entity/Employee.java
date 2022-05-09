@@ -27,7 +27,6 @@ public class Employee implements Serializable {
     @Column(name = "role", nullable = false)
     private Roles role;
     @ManyToOne
-    @JoinTable(name = "company", joinColumns = @JoinColumn(name = "id"))
     private Company company;
 
     @OneToMany(mappedBy = "employee")

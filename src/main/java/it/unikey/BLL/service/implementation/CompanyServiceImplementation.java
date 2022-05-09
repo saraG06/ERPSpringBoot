@@ -27,6 +27,8 @@ public class CompanyServiceImplementation implements CompanyService {
     private final InvoiceRequestMapper invoiceRequestMapper;
     private final EmployeeRequestMapper employeeRequestMapper;
 
+    private final OperatorRequestMapper operatorRequestMapper;
+
     @Override
     public void saveCompany(CompanyRequestDTO companyRequestDTO) {
         Company c = companyRequestMapper.asEntity(companyRequestDTO);
@@ -34,10 +36,12 @@ public class CompanyServiceImplementation implements CompanyService {
         List<Invoice> invoiceList = invoiceRequestMapper.asEntityList(companyRequestDTO.getInvoiceRequestDTOList());
         List<Order> orderList = orderRequestMapper.asEntityList(companyRequestDTO.getOrderRequestDTOList());
         List<Employee> employeeList = employeeRequestMapper.asEntityList(companyRequestDTO.getEmployeeRequestDTOList());
+        List<Operator> operatorList = operatorRequestMapper.asEntityList(companyRequestDTO.getOperatorRequestDTOList());
         c.setClients(clientList);
         c.setEmployees(employeeList);
         c.setInvoices(invoiceList);
         c.setOrders(orderList);
+        c.setOperator(operatorList);
         companyRepository.save(c);
     }
 

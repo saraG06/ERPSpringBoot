@@ -21,14 +21,11 @@ public class Order implements Serializable {
     @Column(name = "price", nullable = false)
     private double price;
     @ManyToOne
-    @JoinTable(name = "client", joinColumns = @JoinColumn(name = "id"))
     private Client client;
     @ManyToOne
-    @JoinTable(name = "operator", joinColumns = @JoinColumn(name = "id"))
     private Operator operator;
 
     @ManyToOne
-    @JoinTable(name = "contact", joinColumns = @JoinColumn(name = "id"))
     private Company company;
 
     @ManyToOne

@@ -12,4 +12,5 @@ public class CompanyRequestDTO {
     private List<InvoiceRequestDTO> invoiceRequestDTOList;
     private List<OrderRequestDTO> orderRequestDTOList;
     private List<EmployeeRequestDTO> employeeRequestDTOList;
+    private List<OperatorRequestDTO> operatorRequestDTOList;
 }
