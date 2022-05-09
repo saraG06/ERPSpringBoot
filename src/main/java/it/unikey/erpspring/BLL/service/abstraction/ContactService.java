@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface ContactService {
 
-    List<InvoiceResponseDTO> getInvoiceFromClient(ContactRequestDTO contactRequestDTO);
+    List<InvoiceResponseDTO> getInvoiceFromClient(Contact contact);
 
     void saveContact (ContactRequestDTO contactRequestDTO);
 

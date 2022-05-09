@@ -5,7 +5,6 @@ import it.unikey.erpspring.BLL.DTO.response.ContactResponseDTO;
 import it.unikey.erpspring.BLL.DTO.response.InvoiceResponseDTO;
 import it.unikey.erpspring.BLL.mapper.implementation.*;
 import it.unikey.erpspring.BLL.service.abstraction.ContactService;
-import it.unikey.erpspring.DAL.entity.Collaborator;
 import it.unikey.erpspring.DAL.entity.Contact;
 import it.unikey.erpspring.DAL.entity.Invoice;
 import it.unikey.erpspring.DAL.repository.ContactRepository;
@@ -21,14 +20,12 @@ public class ContactServiceImpl implements ContactService {
     private final ContactRepository contactRepository;
     private final ContactRequestMapper contactRequestMapper;
     private final ContactResponseMapper contactResponseMapper;
-    private final ClientRequestMapper clientRequestMapper;
-    private final InvoiceRequestMapper invoiceRequestMapper;
     private final InvoiceResponseMapper invoiceResponseMapper;
 
 
     @Override
-    public List<InvoiceResponseDTO> getInvoiceFromClient(ContactRequestDTO contactRequestDTO) {
-        List<Invoice> i = contactRepository.getInvoiceFromClient(contactRequestDTO);
+    public List<InvoiceResponseDTO> getInvoiceFromClient(Contact contact) {
+        List<Invoice> i = contactRepository.getInvoiceFromClient(contact);
         List<InvoiceResponseDTO> i1 = invoiceResponseMapper.asDTOList(i);
         return i1;
     }

@@ -21,7 +21,7 @@ public class ContactControllerInvoiceFromClient {
     private final ContactService contactService;
 
     @GetMapping(path = "/{contactRequestDTO}")
-    public ResponseEntity<List<InvoiceResponseDTO>> getInvoiceFromClient(@PathVariable ContactRequestDTO contactRequestDTO){
-        return new ResponseEntity<>(contactService.getInvoiceFromClient(contactRequestDTO), HttpStatus.OK);
+    public ResponseEntity<List<InvoiceResponseDTO>> getInvoiceFromClient(@PathVariable Contact contact){
+        return new ResponseEntity<>(contactService.getInvoiceFromClient(contact), HttpStatus.OK);
     }
 }

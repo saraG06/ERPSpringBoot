@@ -29,6 +29,7 @@ public class ClientController {
         return new ResponseEntity<>(clientService.findById(id), HttpStatus.OK);
     }
 
+
     @GetMapping
     public ResponseEntity<List<ClientResponseDTO>> getClientsContactGreater10(){
         return new ResponseEntity<>(clientService.clientsContactGreater10(), HttpStatus.OK);
