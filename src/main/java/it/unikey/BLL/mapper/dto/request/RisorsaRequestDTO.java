@@ -8,5 +8,5 @@ import lombok.Data;
 public class RisorsaRequestDTO {
 
     private String risorsaAssegnata;
-    private OperatoreResponseDTO operatoreResponseDTO;
+    private OperatoreRequestDTO operatoreRequestDTO;
 }

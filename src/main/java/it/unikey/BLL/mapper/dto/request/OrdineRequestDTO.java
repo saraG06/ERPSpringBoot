@@ -15,7 +15,7 @@ public class OrdineRequestDTO {
 
     private String dettaglio;
     private LocalDate dataImporto;
-    private OperatoreResponseDTO operatoreResponseDTO;
-    private ClienteResponseDTO clienteResponseDTO;
-    private FatturaResponseDTO fatturaResponseDTO;
+    private OperatoreRequestDTO operatoreRequestDTO;
+    private ClienteRequestDTO clienteRequestDTO;
+    private FatturaRequestDTO fatturaRequesteDTO;
 }

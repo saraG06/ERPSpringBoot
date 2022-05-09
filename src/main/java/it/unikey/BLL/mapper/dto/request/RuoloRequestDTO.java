@@ -8,5 +8,5 @@ import lombok.Data;
 public class RuoloRequestDTO {
 
     private String ruolo;
-    private DipendenteResponseDTO dipendenteResponseDTO;
+    private DipendenteRequestDTO dipendenteRequestDTO;
 }

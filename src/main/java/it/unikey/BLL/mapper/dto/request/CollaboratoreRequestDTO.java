@@ -6,5 +6,5 @@ import lombok.Data;
 @Data
 public class CollaboratoreRequestDTO {
 
-    private OperatoreResponseDTO operatoreResponseDTO;
+    private OperatoreRequestDTO operatoreRequestDTO;
 }

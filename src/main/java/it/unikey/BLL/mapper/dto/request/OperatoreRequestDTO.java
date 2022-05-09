@@ -17,7 +17,7 @@ public class OperatoreRequestDTO {
     private String nome;
     private String cognome;
     private LocalDate nascita;
-    private List<RisorsaResponseDTO> listaRisorsaResponseDTO;
-    private List<OrdineResponseDTO> listaOrdineResponseDTO;
-    private AziendaResponseDTO aziendaResponseDTO;
+    private List<RisorsaRequestDTO> listaRisorsaRequestDTO;
+    private List<OrdineRequestDTO> listaOrdineRequestDTO;
+    private AziendaRequestDTO aziendaRequestDTO;
 }

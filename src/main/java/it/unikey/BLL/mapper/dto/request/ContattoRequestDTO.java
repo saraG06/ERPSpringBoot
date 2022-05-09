@@ -14,7 +14,7 @@ public class ContattoRequestDTO {
     private String nome;
     private String cognome;
     private LocalDate nascita;
-    private ClienteResponseDTO clienteResponseDTO;
-    private List<FatturaResponseDTO> listaFatturaResponseDTO;
+    private ClienteRequestDTO clienteRequestDTO;
+    private List<FatturaRequestDTO> listaFatturaRequestDTO;
 
 }

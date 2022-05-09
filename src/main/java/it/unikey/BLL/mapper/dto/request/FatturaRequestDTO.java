@@ -12,6 +12,6 @@ import java.time.LocalDate;
 public class FatturaRequestDTO {
 
     private LocalDate data;
-    private ContattoResponseDTO contattoResponseDTO;
-    private OrdineResponseDTO ordineResponseDTO;
+    private ContattoRequestDTO contattoRequestDTO;
+    private OrdineRequestDTO ordineRequestDTO;
 }

@@ -10,6 +10,6 @@ import java.time.LocalDate;
 public class DipendenteRequestDTO {
 
     private LocalDate assunzione;
-    private OperatoreResponseDTO operatoreResponseDTO;
-    private RuoloResponseDTO ruoloResponseDTO;
+    private OperatoreRequestDTO operatoreRequestDTO;
+    private RuoloRequestDTO ruoloRequestDTO;
 }
