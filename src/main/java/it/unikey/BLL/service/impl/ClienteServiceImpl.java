@@ -4,8 +4,12 @@ import it.unikey.BLL.mapper.dto.request.ClienteRequestDTO;
 import it.unikey.BLL.mapper.dto.response.ClienteResponseDTO;
 import it.unikey.BLL.mapper.implementation.ClienteRequestMapper;
 import it.unikey.BLL.mapper.implementation.ClienteResponseMapper;
+import it.unikey.BLL.mapper.implementation.ContattoRequestMapper;
+import it.unikey.BLL.mapper.implementation.OrdineRequestMapper;
 import it.unikey.BLL.service.abstraction.ClienteService;
 import it.unikey.DAL.Entity.Cliente;
+import it.unikey.DAL.Entity.Contatto;
+import it.unikey.DAL.Entity.Ordine;
 import it.unikey.DAL.Repository.ClienteRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,11 +24,16 @@ public class ClienteServiceImpl implements ClienteService {
     private final ClienteRepository clienteRepository;
     private final ClienteRequestMapper clienteRequestMapper;
     private final ClienteResponseMapper clienteResponseMapper;
-
+    private final ContattoRequestMapper contattoRequestMapper;
+    private final OrdineRequestMapper ordineRequestMapper;
     @Override
     public void saveCliente(ClienteRequestDTO clienteRequestDTO) {
-        Cliente a= clienteRequestMapper.asEntity(clienteRequestDTO);
-        clienteRepository.save(a);
+        Cliente c= clienteRequestMapper.asEntity(clienteRequestDTO);
+        List<Contatto> listaContatti= contattoRequestMapper.asEntityList(clienteRequestDTO.getListaContattoRequestDTO());
+        List<Ordine> listaOrdini= ordineRequestMapper.asEntityList(clienteRequestDTO.getListaOrdineRequestDTO());
+        c.setListaContatti(listaContatti);
+        c.setListaOrdini(listaOrdini);
+        clienteRepository.save(c);
     }
 
     @Override

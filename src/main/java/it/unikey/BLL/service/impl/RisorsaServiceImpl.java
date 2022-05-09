@@ -48,7 +48,7 @@ public class RisorsaServiceImpl implements RisorsaService {
 
     @Override
     public void assegnaRisorsa(DipendenteRequestDTO capo, DipendenteRequestDTO dip, RisorsaRequestDTO risorsaRequestDTO) throws LowRoleException {
-        if((capo.getRuoloResponseDTO().equals("PROJECTMANAGER") && dip.getRuoloResponseDTO().equals("OPERATOR")) || capo.getRuoloResponseDTO().equals("MANAGER")){
+        if((capo.getRuoloRequestDTO().equals("PROJECTMANAGER") && dip.getRuoloRequestDTO().equals("OPERATOR")) || capo.getRuoloRequestDTO().equals("MANAGER")){
             Risorsa r= risorsaRequestMapper.asEntity(risorsaRequestDTO);
             risorsaRepository.save(r);
         } else {

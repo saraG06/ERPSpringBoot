@@ -4,8 +4,10 @@ import it.unikey.BLL.mapper.dto.request.ContattoRequestDTO;
 import it.unikey.BLL.mapper.dto.response.ContattoResponseDTO;
 import it.unikey.BLL.mapper.implementation.ContattoRequestMapper;
 import it.unikey.BLL.mapper.implementation.ContattoResponseMapper;
+import it.unikey.BLL.mapper.implementation.FatturaRequestMapper;
 import it.unikey.BLL.service.abstraction.ContattoService;
 import it.unikey.DAL.Entity.Contatto;
+import it.unikey.DAL.Entity.Fattura;
 import it.unikey.DAL.Repository.ContattoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,10 +22,12 @@ public class ContattoServiceImpl implements ContattoService {
     private final ContattoRepository contattoRepository;
     private final ContattoRequestMapper contattoRequestMapper;
     private final ContattoResponseMapper contattoResponseMapper;
-
+    private final FatturaRequestMapper fatturaRequestMapper;
     @Override
     public void saveContatto(ContattoRequestDTO contattoRequestDTO) {
         Contatto c= contattoRequestMapper.asEntity(contattoRequestDTO);
+        List<Fattura> listaFatture= fatturaRequestMapper.asEntityList(contattoRequestDTO.getListaFatturaRequestDTO());
+        c.setListaFatture(listaFatture);
         contattoRepository.save(c);
     }
 

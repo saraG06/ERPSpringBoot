@@ -4,8 +4,12 @@ import it.unikey.BLL.mapper.dto.request.OperatoreRequestDTO;
 import it.unikey.BLL.mapper.dto.response.OperatoreResponseDTO;
 import it.unikey.BLL.mapper.implementation.OperatoreRequestMapper;
 import it.unikey.BLL.mapper.implementation.OperatoreResponseMapper;
+import it.unikey.BLL.mapper.implementation.OrdineRequestMapper;
+import it.unikey.BLL.mapper.implementation.RisorsaRequestMapper;
 import it.unikey.BLL.service.abstraction.OperatoreService;
 import it.unikey.DAL.Entity.Operatore;
+import it.unikey.DAL.Entity.Ordine;
+import it.unikey.DAL.Entity.Risorsa;
 import it.unikey.DAL.Repository.OperatoreRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,10 +24,16 @@ public class OperatoreServiceImpl implements OperatoreService {
     private final OperatoreRepository operatoreRepository;
     private final OperatoreRequestMapper operatoreRequestMapper;
     private final OperatoreResponseMapper operatoreResponseMapper;
+    private final RisorsaRequestMapper risorsaRequestMapper;
+    private final OrdineRequestMapper ordineRequestMapper;
 
     @Override
     public void saveOperatore(OperatoreRequestDTO operatoreRequestDTO) {
         Operatore o= operatoreRequestMapper.asEntity(operatoreRequestDTO);
+        List<Risorsa> listaRisorse= risorsaRequestMapper.asEntityList(operatoreRequestDTO.getListaRisorsaRequestDTO());
+        List<Ordine> listaOrdini= ordineRequestMapper.asEntityList(operatoreRequestDTO.getListaOrdineRequestDTO());
+        o.setListaRisorse(listaRisorse);
+        o.setListaOrdini(listaOrdini);
         operatoreRepository.save(o);
     }
 
