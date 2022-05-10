@@ -1,5 +1,8 @@
 package it.unikey.PL;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import it.unikey.BLL.mapper.dto.response.FatturaResponseDTO;
 import it.unikey.BLL.service.abstraction.FatturaService;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +24,11 @@ public class FatturaReplyController {
     private final FatturaService fatturaService;
 
     @GetMapping()
+    @ApiOperation(value= "Metodo per cercare le fatture fatte dal cliente Reply")
+    @ApiResponses(value= {
+            @ApiResponse(code= 200, message= "richiesta ricevuta ed eseguita"),
+            @ApiResponse(code= 404, message= "risorsa non trovata")
+    })
     public ResponseEntity<List<FatturaResponseDTO>> getFattureReply(){
         return new ResponseEntity<>(fatturaService.findFattureReply(), HttpStatus.OK);
     }

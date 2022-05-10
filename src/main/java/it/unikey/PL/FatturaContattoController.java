@@ -1,5 +1,8 @@
 package it.unikey.PL;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import it.unikey.BLL.mapper.dto.request.ContattoRequestDTO;
 import it.unikey.BLL.mapper.dto.response.FatturaResponseDTO;
 import it.unikey.BLL.service.abstraction.FatturaService;
@@ -22,6 +25,11 @@ public class FatturaContattoController {
     private final FatturaService fatturaService;
 
     @GetMapping()
+    @ApiOperation(value= "Metodo per cercare tutte le fatture di un contatto")
+    @ApiResponses(value= {
+            @ApiResponse(code= 200, message= "richiesta ricevuta ed eseguita"),
+            @ApiResponse(code= 404, message= "risorsa non trovata")
+    })
     public ResponseEntity<List<FatturaResponseDTO>> getAllFatturaContatto(ContattoRequestDTO contattoRequestDTO){
         return new ResponseEntity<>(fatturaService.findAllFatturaContatto(contattoRequestDTO), HttpStatus.OK);
     }

@@ -1,5 +1,8 @@
 package it.unikey.PL;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import it.unikey.BLL.mapper.dto.request.OperatoreRequestDTO;
 import it.unikey.BLL.mapper.dto.response.OperatoreResponseDTO;
 import it.unikey.BLL.service.abstraction.OperatoreService;
@@ -20,12 +23,23 @@ public class OperatoreController {
     private final OperatoreService operatoreService;
 
     @PostMapping
+    @ApiOperation(value= "Metodo per aggiungere un operatore")
+    @ApiResponses(value= {
+            @ApiResponse(code= 200, message= "richiesta ricevuta ed eseguita"),     //OK
+            @ApiResponse(code= 201, message= "ha creato la risorsa"),   //CREATE SUCCESSFULLY
+            @ApiResponse(code= 404, message= "pagina non trovata")      //PAGE NOT FOUND
+    })
     public ResponseEntity<Void> save(@RequestBody OperatoreRequestDTO operatoreRequestDTO){
         operatoreService.saveOperatore(operatoreRequestDTO);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @GetMapping(path= "/{id}")      //le graffe indicano una variabile
+    @ApiOperation(value= "Metodo per cercare un operatore dall'id")
+    @ApiResponses(value= {
+            @ApiResponse(code= 200, message= "richiesta ricevuta ed eseguita"),
+            @ApiResponse(code= 404, message= "risorsa non trovata")
+    })
     public ResponseEntity<OperatoreResponseDTO> getById(@PathVariable Long id) {
         try {
             return new ResponseEntity<>(operatoreService.findById(id), HttpStatus.OK);
@@ -36,6 +50,11 @@ public class OperatoreController {
     }
 
     @PutMapping(path="/{id}")
+    @ApiOperation(value= "Metodo per cancellare un operatore dall'id")
+    @ApiResponses(value= {
+            @ApiResponse(code= 200, message= "richiesta ricevuta ed eseguita"),
+            @ApiResponse(code= 404, message= "risorsa non trovata")
+    })
     public ResponseEntity<Void> delete(@PathVariable Long id){
         try{
             operatoreService.deleteById(id);
@@ -47,6 +66,11 @@ public class OperatoreController {
     }
 
     @GetMapping()
+    @ApiOperation(value= "Metodo per cercare gli operatori")
+    @ApiResponses(value= {
+            @ApiResponse(code= 200, message= "richiesta ricevuta ed eseguita"),
+            @ApiResponse(code= 404, message= "risorsa non trovata")
+    })
     public ResponseEntity<List<OperatoreResponseDTO>> getAll(){
         return new ResponseEntity<>(operatoreService.findAllOperatore(), HttpStatus.OK);
     }

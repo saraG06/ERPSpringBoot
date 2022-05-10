@@ -1,5 +1,8 @@
 package it.unikey.PL;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import it.unikey.BLL.mapper.dto.request.ContattoRequestDTO;
 import it.unikey.BLL.mapper.dto.response.ContattoResponseDTO;
 import it.unikey.BLL.service.abstraction.ContattoService;
@@ -20,12 +23,23 @@ public class ContattoController {
     private final ContattoService contattoService;
 
     @PostMapping
+    @ApiOperation(value= "Metodo per aggiungere un contatto")
+    @ApiResponses(value= {
+            @ApiResponse(code= 200, message= "richiesta ricevuta ed eseguita"),     //OK
+            @ApiResponse(code= 201, message= "ha creato la risorsa"),   //CREATE SUCCESSFULLY
+            @ApiResponse(code= 404, message= "pagina non trovata")      //PAGE NOT FOUND
+    })
     public ResponseEntity<Void> save(@RequestBody ContattoRequestDTO contattoRequestDTO){
         contattoService.saveContatto(contattoRequestDTO);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @GetMapping(path= "/{id}")      //le graffe indicano una variabile
+    @ApiOperation(value= "Metodo per cercare un contatto dall'id")
+    @ApiResponses(value= {
+            @ApiResponse(code= 200, message= "richiesta ricevuta ed eseguita"),
+            @ApiResponse(code= 404, message= "risorsa non trovata")
+    })
     public ResponseEntity<ContattoResponseDTO> getById(@PathVariable Long id) {
         try {
             return new ResponseEntity<>(contattoService.findById(id), HttpStatus.OK);
@@ -36,6 +50,11 @@ public class ContattoController {
     }
 
     @PutMapping(path="/{id}")
+    @ApiOperation(value= "Metodo per cancellare un contatto dall'id")
+    @ApiResponses(value= {
+            @ApiResponse(code= 200, message= "richiesta ricevuta ed eseguita"),
+            @ApiResponse(code= 404, message= "risorsa non trovata")
+    })
     public ResponseEntity<Void> delete(@PathVariable Long id){
         try{
             contattoService.deleteById(id);
@@ -47,6 +66,11 @@ public class ContattoController {
     }
 
     @GetMapping()
+    @ApiOperation(value= "Metodo per cercare i contatti")
+    @ApiResponses(value= {
+            @ApiResponse(code= 200, message= "richiesta ricevuta ed eseguita"),
+            @ApiResponse(code= 404, message= "risorsa non trovata")
+    })
     public ResponseEntity<List<ContattoResponseDTO>> getAll(){
         return new ResponseEntity<>(contattoService.findAllContatto(), HttpStatus.OK);
     }

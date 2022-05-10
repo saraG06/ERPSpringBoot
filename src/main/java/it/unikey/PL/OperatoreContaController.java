@@ -1,5 +1,8 @@
 package it.unikey.PL;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import it.unikey.BLL.service.abstraction.OperatoreService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -18,6 +21,11 @@ public class OperatoreContaController {
     private final OperatoreService operatoreService;
 
     @GetMapping()
+    @ApiOperation(value= "Metodo per contare gli operatori di un'azienda")
+    @ApiResponses(value= {
+            @ApiResponse(code= 200, message= "richiesta ricevuta ed eseguita"),
+            @ApiResponse(code= 404, message= "risorsa non trovata")
+    })
     public ResponseEntity<Long> getContaOperatori(){
         return new ResponseEntity<>(operatoreService.contaOperatori(), HttpStatus.OK);
     }

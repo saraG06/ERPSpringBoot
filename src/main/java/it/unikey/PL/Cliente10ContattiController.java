@@ -1,5 +1,8 @@
 package it.unikey.PL;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import it.unikey.BLL.mapper.dto.response.ClienteResponseDTO;
 import it.unikey.BLL.service.abstraction.ClienteService;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +24,11 @@ public class Cliente10ContattiController {
     private final ClienteService clienteService;
 
     @GetMapping()
+    @ApiOperation(value= "Metodo per cercare i clienti con almeno 10 contatti")
+    @ApiResponses(value= {
+            @ApiResponse(code= 200, message= "richiesta ricevuta ed eseguita"),
+            @ApiResponse(code= 404, message= "risorsa non trovata")
+    })
     public ResponseEntity<List<ClienteResponseDTO>> getclienti10Contatti(){
         return new ResponseEntity<>(clienteService.clienti10Contatti(), HttpStatus.OK);
     }

@@ -1,5 +1,8 @@
 package it.unikey.PL;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import it.unikey.BLL.mapper.dto.request.DipendenteRequestDTO;
 import it.unikey.BLL.mapper.dto.response.DipendenteResponseDTO;
 import it.unikey.BLL.service.abstraction.DipendenteService;
@@ -21,12 +24,23 @@ public class DipendenteController {
     private final DipendenteService dipendenteService;
 
     @PostMapping
+    @ApiOperation(value= "Metodo per aggiungere un dipendente")
+    @ApiResponses(value= {
+            @ApiResponse(code= 200, message= "richiesta ricevuta ed eseguita"),     //OK
+            @ApiResponse(code= 201, message= "ha creato la risorsa"),   //CREATE SUCCESSFULLY
+            @ApiResponse(code= 404, message= "pagina non trovata")      //PAGE NOT FOUND
+    })
     public ResponseEntity<Void> save(@RequestBody DipendenteRequestDTO dipendenteRequestDTO){
         dipendenteService.saveDipendente(dipendenteRequestDTO);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @GetMapping(path= "/{id}")      //le graffe indicano una variabile
+    @ApiOperation(value= "Metodo per cercare un dipendente dall'id")
+    @ApiResponses(value= {
+            @ApiResponse(code= 200, message= "richiesta ricevuta ed eseguita"),
+            @ApiResponse(code= 404, message= "risorsa non trovata")
+    })
     public ResponseEntity<DipendenteResponseDTO> getById(@PathVariable Long id) {
         try {
             return new ResponseEntity<>(dipendenteService.findById(id), HttpStatus.OK);
@@ -37,6 +51,11 @@ public class DipendenteController {
     }
 
     @PutMapping(path="/{id}")
+    @ApiOperation(value= "Metodo per cancellare un dipendente dall'id")
+    @ApiResponses(value= {
+            @ApiResponse(code= 200, message= "richiesta ricevuta ed eseguita"),
+            @ApiResponse(code= 404, message= "risorsa non trovata")
+    })
     public ResponseEntity<Void> delete(@PathVariable Long id){
         try{
             dipendenteService.deleteById(id);
@@ -48,6 +67,11 @@ public class DipendenteController {
     }
 
     @GetMapping()
+    @ApiOperation(value= "Metodo per cercare i dipendenti")
+    @ApiResponses(value= {
+            @ApiResponse(code= 200, message= "richiesta ricevuta ed eseguita"),
+            @ApiResponse(code= 404, message= "risorsa non trovata")
+    })
     public ResponseEntity<List<DipendenteResponseDTO>> getAll(){
         return new ResponseEntity<>(dipendenteService.findAllDipendente(), HttpStatus.OK);
     }
