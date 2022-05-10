@@ -1,9 +1,11 @@
 package it.unikey.erpspring.DAL.Entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
+@Data
 @Entity
-
 @Table(name = "operatore")
 public class Operatore {
 
@@ -20,40 +22,8 @@ public class Operatore {
     @Column(name = "dataNascita")
     private String dataNascita;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_azienda")
     private Azienda azienda;
 
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getCognome() {
-        return cognome;
-    }
-
-    public void setCognome(String cognome) {
-        this.cognome = cognome;
-    }
-
-    public String getDataNascita() {
-        return dataNascita;
-    }
-
-    public void setDataNascita(String dataNascita) {
-        this.dataNascita = dataNascita;
-    }
 }

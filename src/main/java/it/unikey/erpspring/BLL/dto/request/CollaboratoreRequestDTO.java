@@ -5,4 +5,5 @@ import lombok.Data;
 @Data
 public class CollaboratoreRequestDTO {
     private CollaboratoreRequestDTO collaboratoreRequestDTO;
+    private OperatoreRequestDTO operatoreRequestDTO;
 }

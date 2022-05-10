@@ -30,7 +30,7 @@ public class OrdineController {
         }
     }
 
-    @GetMapping(path = "/{id}")
+    @DeleteMapping(path = "/{id}")
     public ResponseEntity<OrdineResponseDTO> deleteOrdineById(@PathVariable Long id){
         ordineService.deleteById(id);
         return new ResponseEntity<>(HttpStatus.OK);

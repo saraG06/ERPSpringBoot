@@ -30,7 +30,10 @@ public class ClienteController {
         }
     }
 
-    @GetMapping(path = "/{id}")
+    //@GetMapping getAll()
+    //cambiare delete in put
+
+    @PutMapping(path = "/{id}")
     public ResponseEntity<ClienteResponseDTO> deleteClienteById(@PathVariable Long id){
         clienteService.deleteById(id);
         return new ResponseEntity<>(HttpStatus.OK);

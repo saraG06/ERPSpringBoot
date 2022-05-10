@@ -30,7 +30,7 @@ public class FatturaController {
         }
     }
 
-    @GetMapping(path = "/{id}")
+    @DeleteMapping(path = "/{id}")
     public ResponseEntity<FatturaResponseDTO> deleteFatturaById(@PathVariable Long id){
         fatturaService.deleteById(id);
         return new ResponseEntity<>(HttpStatus.OK);

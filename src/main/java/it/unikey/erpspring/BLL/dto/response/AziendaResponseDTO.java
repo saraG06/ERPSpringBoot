@@ -1,10 +1,14 @@
 package it.unikey.erpspring.BLL.dto.response;
 
-import it.unikey.erpspring.DAL.Entity.Operatore;
+import lombok.Data;
 
 import java.util.List;
 
+@Data
 public class AziendaResponseDTO {
     private Long id;
-    private List<Operatore> operatores;
+    private String nome;
+    private List<OperatoreResponseDTO> operatoreResponseDTOS;
+    private List<ClienteResponseDTO> clienteResponseDTOS;
+    private List<OrdineResponseDTO> ordineResponseDTOS;
 }

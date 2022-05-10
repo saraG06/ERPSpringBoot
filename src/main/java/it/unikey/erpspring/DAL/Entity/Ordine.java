@@ -1,10 +1,12 @@
 package it.unikey.erpspring.DAL.Entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
+@Data
 @Entity
-
 @Table(name = "ordine")
 public class Ordine {
 
@@ -15,7 +17,7 @@ public class Ordine {
     @Column(name = "data")
     private LocalDate data;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_ordine")
     private Azienda azienda;
 

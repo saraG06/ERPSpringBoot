@@ -1,13 +1,11 @@
-package it.unikey.erpspring.main;
+package it.unikey.erpspring;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringBootErpApplication {
-
+public class SpringBootERPApplication {
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootErpApplication.class, args);
+        SpringApplication.run(SpringBootERPApplication.class,args);
     }
-
 }

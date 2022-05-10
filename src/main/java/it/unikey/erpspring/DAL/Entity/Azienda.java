@@ -1,8 +1,11 @@
 package it.unikey.erpspring.DAL.Entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.util.List;
 
+@Data
 @Entity
 @Table(name = "azienda")
 public class Azienda {
@@ -19,9 +22,6 @@ public class Azienda {
 
     @OneToMany(mappedBy = "azienda")
     private List<Cliente> clienti;
-
-    @OneToMany(mappedBy = "azienda")
-    private List<Operatore> operatoris;
 
     @OneToMany(mappedBy = "azienda")
     private List<Ordine> ordini;

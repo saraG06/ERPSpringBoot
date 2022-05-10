@@ -1,10 +1,12 @@
 package it.unikey.erpspring.DAL.Entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
+@Data
 @Entity
-
 @Table(name = "fattura")
 public class Fattura {
 
@@ -16,9 +18,8 @@ public class Fattura {
     private LocalDate data;
 
     @OneToOne
-
     private Ordine ordine;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Cliente cliente;
 }

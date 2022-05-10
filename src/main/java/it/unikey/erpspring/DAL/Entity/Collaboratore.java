@@ -1,7 +1,10 @@
 package it.unikey.erpspring.DAL.Entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
+@Data
 @Entity
 @Table(name = "collaboratore")
 public class Collaboratore {

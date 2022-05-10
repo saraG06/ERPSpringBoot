@@ -30,7 +30,7 @@ public class DipendenteController {
         }
     }
 
-    @GetMapping(path = "/{id}")
+    @DeleteMapping(path = "/{id}")
     public ResponseEntity<DipendenteResponseDTO> deleteDipendenteById(@PathVariable Long id){
         dipendenteService.deleteById(id);
         return new ResponseEntity<>(HttpStatus.OK);

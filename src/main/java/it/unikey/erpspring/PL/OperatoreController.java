@@ -30,7 +30,7 @@ public class OperatoreController {
         }
     }
 
-    @GetMapping(path = "/{id}")
+    @DeleteMapping(path = "/{id}")
     public ResponseEntity<OperatoreResponseDTO> deleteOperatoreById(@PathVariable Long id){
         operatoreService.deleteById(id);
         return new ResponseEntity<>(HttpStatus.OK);

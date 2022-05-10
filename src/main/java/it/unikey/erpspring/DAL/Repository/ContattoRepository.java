@@ -12,7 +12,4 @@ import java.util.List;
 @Repository
 public interface ContattoRepository extends JpaRepository<Contatto,Long> {
 
-    @Query(value = "SELECT c FROM Contatto c WHERE c.fatturas IS NOT NULL ")
-    List<Fattura> fattureDiAzienda();
-
 }

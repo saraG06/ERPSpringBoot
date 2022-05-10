@@ -4,7 +4,7 @@ import it.unikey.erpspring.BLL.dto.request.OrdineRequestDTO;
 import it.unikey.erpspring.BLL.dto.response.FatturaResponseDTO;
 import it.unikey.erpspring.BLL.dto.response.OrdineResponseDTO;
 import it.unikey.erpspring.BLL.mapper.implementazioni.request.OrdineRequestMapper;
-import it.unikey.erpspring.BLL.mapper.implementazioni.request.OrdineResponseMapper;
+import it.unikey.erpspring.BLL.mapper.implementazioni.response.OrdineResponseMapper;
 import it.unikey.erpspring.BLL.service.astratti.OrdineService;
 import it.unikey.erpspring.DAL.Entity.Ordine;
 import it.unikey.erpspring.DAL.Repository.OrdineRepository;

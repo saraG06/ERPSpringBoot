@@ -1,9 +1,12 @@
 package it.unikey.erpspring.DAL.Entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
+@Data
 @Entity
 @Table(name = "dipendente")
 public class Dipendente{
@@ -21,8 +24,8 @@ public class Dipendente{
     @OneToMany(mappedBy = "dipendente")
     private List<Risorsa> risorsas;
 
-
-    /*@Column(name = "ruolo")
-    private List<Ruolo> ruoli;*/
+    @Enumerated
+    @Column(name = "ruolo")
+    private Ruolo ruoli;
 
 }

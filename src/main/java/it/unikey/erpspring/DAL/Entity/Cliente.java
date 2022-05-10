@@ -1,8 +1,11 @@
 package it.unikey.erpspring.DAL.Entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.util.List;
 
+@Data
 @Entity
 @Table(name = "cliente")
 public class Cliente {
@@ -12,10 +15,10 @@ public class Cliente {
     private Long id;
 
     @Column(name = "nome")
-    private String name;
+    private String nome;
 
-    @Column(name = "pIva")
-    private String pIva;
+    @Column(name = "piva")
+    private String piva;
 
     @OneToMany(mappedBy = "cliente")
     private List<Fattura> fatture;
@@ -23,16 +26,7 @@ public class Cliente {
     @OneToMany(mappedBy = "clienti")
     private List<Contatto> contattos;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Azienda azienda;
 
-    @Override
-    public String toString() {
-        return "Cliente{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", pIva='" + pIva + '\'' +
-                ", azienda=" + azienda +
-                '}';
-    }
 }

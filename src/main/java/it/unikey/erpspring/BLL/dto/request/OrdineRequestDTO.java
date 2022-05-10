@@ -2,7 +2,11 @@ package it.unikey.erpspring.BLL.dto.request;
 
 import lombok.Data;
 
+import java.time.LocalDate;
+
 @Data
 public class OrdineRequestDTO {
-    private OrdineRequestDTO ordineRequestDTO;
+    private LocalDate data;
+    private AziendaRequestDTO aziendaRequestDTO;
+    private FatturaRequestDTO fatturaRequestDTO;
 }

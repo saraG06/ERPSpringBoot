@@ -1,9 +1,13 @@
 package it.unikey.erpspring.BLL.dto.request;
 
-import it.unikey.erpspring.DAL.Entity.Operatore;
+import lombok.Data;
 
 import java.util.List;
 
+@Data
 public class AziendaRequestDTO {
-    private List<Operatore> operatores;
+    private String nome;
+    private List<OperatoreRequestDTO> operatoreRequestDTOS;
+    private List<ClienteRequestDTO> clienteRequestDTOS;
+    private List<OrdineRequestDTO> ordineRequestDTOS;
 }

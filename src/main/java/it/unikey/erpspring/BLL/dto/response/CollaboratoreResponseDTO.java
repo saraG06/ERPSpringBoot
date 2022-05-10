@@ -6,4 +6,5 @@ import lombok.Data;
 public class CollaboratoreResponseDTO {
     private Long id;
     private CollaboratoreResponseDTO collaboratoreResponseDTO;
+    private OperatoreResponseDTO operatoreResponseDTO;
 }

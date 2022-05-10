@@ -30,7 +30,7 @@ public class CollaboratoreController {
         }
     }
 
-    @GetMapping(path = "/{id}")
+    @DeleteMapping(path = "/{id}")
     public ResponseEntity<CollaboratoreResponseDTO> deleteCollaboratoreById(@PathVariable Long id){
         collaboratoreService.deleteById(id);
         return new ResponseEntity<>(HttpStatus.OK);

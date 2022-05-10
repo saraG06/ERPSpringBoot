@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface FatturaRepository extends JpaRepository<Fattura,Long> {
 
-    @Query(value = "SELECT f FROM Fattura  f WHERE f.cliente.name = 'reply'")
+    @Query(value = "SELECT f FROM Fattura  f WHERE f.cliente.nome = 'reply'")
     List<Cliente> clienti();
 
 }

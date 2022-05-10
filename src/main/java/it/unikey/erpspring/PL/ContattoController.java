@@ -26,11 +26,11 @@ public class ContattoController {
         try {
             return new ResponseEntity<>(contattoService.findbyId(id),HttpStatus.OK);
         } catch (NullPointerException e){
-            return new ResponseEntity<>(contattoService.findbyId(id),HttpStatus.NOT_FOUND);
-        }
+
+        } return new ResponseEntity<>(contattoService.findbyId(id),HttpStatus.NOT_FOUND);
     }
 
-    @GetMapping(path = "/{id}")
+    @DeleteMapping(path = "/{id}")
     public ResponseEntity<ContattoResponseDTO> deleteContattoById(@PathVariable Long id){
         contattoService.deleteById(id);
         return new ResponseEntity<>(HttpStatus.OK);
