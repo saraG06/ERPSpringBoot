@@ -7,9 +7,13 @@ import java.util.List;
 
 public interface OrderService {
 
-    List<OrderResponseDTO> getOrderWithoutInvoice();
+    /*List<OrderResponseDTO> getOrderWithoutInvoice();*/
 
     void saveOrder(OrderRequestDTO orderRequestDTO);
 
     OrderResponseDTO findOrderById(Long id);
+
+    void deleteOrderById(Long id);
+
+    List<OrderResponseDTO> findAllOrder();
 }

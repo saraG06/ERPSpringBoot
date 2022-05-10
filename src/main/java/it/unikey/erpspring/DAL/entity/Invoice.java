@@ -13,10 +13,10 @@ public class Invoice {
     @Column(name = "date")
     private LocalDate date;
     @OneToOne
-    @JoinColumn(name = "order_id", referencedColumnName = "id")
+    @JoinColumn(name = "order_id")
     private Order order;
     @OneToOne
-    @JoinColumn(name = "contact_id", referencedColumnName = "id")
+    @JoinColumn(name = "contact_id")
     private Contact contact;
     @ManyToOne
     private Client client;

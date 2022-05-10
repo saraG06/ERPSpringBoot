@@ -10,6 +10,5 @@ import java.util.List;
 @Repository
 public interface OrderRepository extends JpaRepository<Order, Long> {
 
-    @Query(value = "SELECT o FROM Order o JOIN Invoice.order e WHERE o.id <> e.id")
-    List<Order> getOrderWithoutInvoice();
+
 }

@@ -13,4 +13,8 @@ public interface ClientService {
     void saveClient(ClientRequestDTO clientRequestDTO);
 
     ClientResponseDTO findClientById(Long id);
+
+    void deleteClientById(Long id);
+
+    List<ClientResponseDTO> findAllClient();
 }

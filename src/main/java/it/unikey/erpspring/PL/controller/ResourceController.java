@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/resource")
@@ -28,6 +30,16 @@ public class ResourceController {
         return new ResponseEntity<>(resourceService.findResourceById(id), HttpStatus.OK);
     }
 
+    @GetMapping
+    public ResponseEntity<List<ResourceResponseDTO>> findAll(){
+        return new ResponseEntity<>(resourceService.findAllResource(), HttpStatus.OK);
+    }
+
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id){
+        resourceService.deleteResourceById(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 
 
 }

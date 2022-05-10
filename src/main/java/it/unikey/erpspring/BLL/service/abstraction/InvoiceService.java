@@ -15,4 +15,8 @@ public interface InvoiceService {
     void saveInvoice(InvoiceRequestDTO invoiceRequestDTO);
 
     InvoiceResponseDTO findInvoiceById(Long id);
+
+    void deleteInvoiceById(Long id);
+
+    List<InvoiceResponseDTO> findAllInvoice();
 }

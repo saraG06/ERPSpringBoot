@@ -16,4 +16,8 @@ public interface ContactService {
     void saveContact(ContactRequestDTO contactRequestDTO);
 
     ContactResponseDTO findContactById(Long id);
+
+    void deleteContactById(Long id);
+
+    List<ContactResponseDTO> findAllContact();
 }

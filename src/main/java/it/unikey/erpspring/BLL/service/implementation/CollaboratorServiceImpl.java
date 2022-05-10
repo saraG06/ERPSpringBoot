@@ -12,6 +12,8 @@ import it.unikey.erpspring.DAL.repository.CollaboratorRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class CollaboratorServiceImpl implements CollaboratorService {
@@ -36,5 +38,20 @@ public class CollaboratorServiceImpl implements CollaboratorService {
         }else{
             throw new NullPointerException();
         }
+    }
+
+    @Override
+    public void deleteCollaboratorById(Long id) throws NullPointerException{
+        if(collaboratorRepository.existsById(id)){
+            collaboratorRepository.deleteById(id);
+        }else{
+            throw new NullPointerException();
+        }
+    }
+
+    @Override
+    public List<CollaboratorResponseDTO> findAllCollaborator() {
+        List<Collaborator> c = collaboratorRepository.findAll();
+        return collaboratorResponseMapper.asDTOList(c);
     }
 }

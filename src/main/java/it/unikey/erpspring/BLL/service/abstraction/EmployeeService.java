@@ -15,4 +15,8 @@ public interface EmployeeService {
     List<EmployeeResponseDTO> getEmployeesWithCar();
 
     List<EmployeeResponseDTO> getOperatorsHiredLastMonth();
+
+    void deleteEmployeeById(Long id);
+
+    List<EmployeeResponseDTO> findAllEmployee();
 }

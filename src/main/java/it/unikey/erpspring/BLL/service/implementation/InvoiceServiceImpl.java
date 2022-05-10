@@ -54,4 +54,19 @@ public class InvoiceServiceImpl implements InvoiceService {
             throw new NullPointerException();
         }
     }
+
+    @Override
+    public void deleteInvoiceById(Long id) throws NullPointerException{
+        if(invoiceRepository.existsById(id)){
+            invoiceRepository.deleteById(id);
+        }else{
+            throw new NullPointerException();
+        }
+    }
+
+    @Override
+    public List<InvoiceResponseDTO> findAllInvoice() {
+        List<Invoice> i = invoiceRepository.findAll();
+        return invoiceResponseMapper.asDTOList(i);
+    }
 }

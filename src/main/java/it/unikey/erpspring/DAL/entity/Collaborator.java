@@ -21,7 +21,7 @@ public class Collaborator {
     @OneToMany(mappedBy = "collaborator")
     private List<Resource> assignedResources;
     @OneToOne
-    @JoinColumn(name = "worker_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "worker_id", nullable = false)
     private Worker worker;
 
     public Long getId() {

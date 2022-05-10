@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/collaborator")
@@ -25,5 +27,16 @@ public class CollaboratorController {
     @GetMapping(path = "/{id}")
     public ResponseEntity<CollaboratorResponseDTO> findById(@PathVariable Long id){
         return new ResponseEntity<>(collaboratorService.findCollaboratorById(id), HttpStatus.OK);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<CollaboratorResponseDTO>> findAll(){
+        return new ResponseEntity<>(collaboratorService.findAllCollaborator(),HttpStatus.OK);
+    }
+
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id){
+        collaboratorService.deleteCollaboratorById(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

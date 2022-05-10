@@ -10,7 +10,7 @@ public class ClientResponseDTO {
 
     private Long id;
     private String name;
-    private String IVA;
+    private String iva;
     private List<ContactResponseDTO> contactResponseDTOList;
     private List<OrderResponseDTO> orderResponseDTOList;
     private List<InvoiceResponseDTO> invoiceResponseDTOList;

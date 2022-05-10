@@ -29,9 +29,9 @@ public class OrderController {
         return new ResponseEntity<>(orderService.findOrderById(id), HttpStatus.OK);
     }
 
-    @GetMapping
+    /*@GetMapping
     public ResponseEntity<List<OrderResponseDTO>> getOrderWithoutInvoice(){
         return new ResponseEntity<>(orderService.getOrderWithoutInvoice(), HttpStatus.OK);
-    }
+    }*/
 
 }

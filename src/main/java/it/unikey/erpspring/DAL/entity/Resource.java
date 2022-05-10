@@ -5,7 +5,7 @@ import it.unikey.erpspring.DAL.enumerators.AssignedResources;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "resurce")
+@Table(name = "resource")
 public class Resource {
 
     @Id

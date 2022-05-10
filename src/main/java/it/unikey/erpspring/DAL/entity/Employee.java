@@ -31,7 +31,7 @@ public class Employee {
     @ManyToOne
     private Company company;
     @OneToOne
-    @JoinColumn(name = "worker_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "worker_id", nullable = false)
     private Worker worker;
 
     public Long getId() {

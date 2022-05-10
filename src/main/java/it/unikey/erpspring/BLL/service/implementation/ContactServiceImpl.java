@@ -46,4 +46,19 @@ public class ContactServiceImpl implements ContactService {
             throw new NullPointerException();
         }
     }
+
+    @Override
+    public void deleteContactById(Long id) throws NullPointerException{
+        if(contactRepository.existsById(id)){
+            contactRepository.deleteById(id);
+        }else{
+            throw new NullPointerException();
+        }
+    }
+
+    @Override
+    public List<ContactResponseDTO> findAllContact() {
+        List<Contact> c = contactRepository.findAll();
+        return contactResponseMapper.asDTOList(c);
+    }
 }

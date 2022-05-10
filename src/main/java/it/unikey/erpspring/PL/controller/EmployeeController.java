@@ -30,7 +30,13 @@ public class EmployeeController {
     }
 
     @GetMapping
-    public ResponseEntity<List<EmployeeResponseDTO>> getOperatorsHiredLastMonth(){
-        return new ResponseEntity<>(employeeService.getOperatorsHiredLastMonth(), HttpStatus.OK);
+    public ResponseEntity<List<EmployeeResponseDTO>> findAll(){
+        return new ResponseEntity<>(employeeService.findAllEmployee(), HttpStatus.OK);
+    }
+
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id){
+        employeeService.deleteEmployeeById(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

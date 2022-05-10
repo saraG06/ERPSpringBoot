@@ -7,6 +7,7 @@ import it.unikey.erpspring.BLL.service.abstraction.OrderService;
 import it.unikey.erpspring.DAL.entity.Order;
 import it.unikey.erpspring.DAL.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,12 +22,12 @@ public class OrderServiceImpl implements OrderService {
     private final WorkerRequestMapper workerRequestMapper;
     private final ClientRequestMapper clientRequestMapper;
     private final CompanyRequestMapper companyRequestMapper;
-
+/*
     @Override
     public List<OrderResponseDTO> getOrderWithoutInvoice() {
         List<Order> o = orderRepository.getOrderWithoutInvoice();
         return orderResponseMapper.asDTOList(o);
-    }
+    }*/
 
     @Override
     public void saveOrder(OrderRequestDTO orderRequestDTO) {
@@ -45,5 +46,20 @@ public class OrderServiceImpl implements OrderService {
         }else{
             throw new NullPointerException();
         }
+    }
+
+    @Override
+    public void deleteOrderById(Long id) throws NullPointerException{
+        if(orderRepository.existsById(id)){
+            orderRepository.deleteById(id);
+        }else{
+            throw new NullPointerException();
+        }
+    }
+
+    @Override
+    public List<OrderResponseDTO> findAllOrder() {
+        List<Order> o = orderRepository.findAll();
+        return orderResponseMapper.asDTOList(o);
     }
 }

@@ -5,7 +5,6 @@ import it.unikey.erpspring.BLL.DTO.response.ClientResponseDTO;
 import it.unikey.erpspring.BLL.mapper.implementation.*;
 import it.unikey.erpspring.BLL.service.abstraction.ClientService;
 import it.unikey.erpspring.DAL.entity.Client;
-import it.unikey.erpspring.DAL.entity.Contact;
 import it.unikey.erpspring.DAL.repository.ClientRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -40,5 +39,20 @@ public class ClientServiceImpl implements ClientService {
         }else{
             throw new NullPointerException();
         }
+    }
+
+    @Override
+    public void deleteClientById(Long id) throws NullPointerException{
+        if(clientRepository.existsById(id)){
+            clientRepository.deleteById(id);
+        }else{
+            throw new NullPointerException();
+        }
+    }
+
+    @Override
+    public List<ClientResponseDTO> findAllClient() {
+        List<Client> c = clientRepository.findAll();
+        return clientResponseMapper.asDTOList(c);
     }
 }

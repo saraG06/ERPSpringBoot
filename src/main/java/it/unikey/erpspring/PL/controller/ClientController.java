@@ -30,7 +30,13 @@ public class ClientController {
     }
 
     @GetMapping
-    public ResponseEntity<List<ClientResponseDTO>> getClientsContactGreater10(){
-        return new ResponseEntity<>(clientService.getClientsContactGreater10(), HttpStatus.OK);
+    public ResponseEntity<List<ClientResponseDTO>> findAll(){
+        return new ResponseEntity<>(clientService.findAllClient(), HttpStatus.OK);
+    }
+
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id){
+        clientService.deleteClientById(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

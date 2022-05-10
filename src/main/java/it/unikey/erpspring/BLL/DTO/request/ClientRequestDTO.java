@@ -9,7 +9,7 @@ import java.util.List;
 public class ClientRequestDTO {
 
     private String name;
-    private String IVA;
+    private String iva;
     private List<ContactRequestDTO> contactRequestDTOList;
     private List<OrderRequestDTO> orderRequestDTOList;
     private List<InvoiceRequestDTO> invoiceRequestDTOList;

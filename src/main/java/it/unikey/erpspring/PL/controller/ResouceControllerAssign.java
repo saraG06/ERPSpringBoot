@@ -18,7 +18,7 @@ public class ResouceControllerAssign {
     private final ResourceService resourceService;
 
     @PostMapping
-    public ResponseEntity<Void> assignResource(EmployeeRequestDTO one, EmployeeRequestDTO two, ResourceRequestDTO resource){
+    public ResponseEntity<Void> assignResource(@RequestBody EmployeeRequestDTO one,@RequestBody EmployeeRequestDTO two,@RequestBody ResourceRequestDTO resource){
         resourceService.assignResource(one,two,resource);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }

@@ -9,6 +9,8 @@ import it.unikey.erpspring.DAL.repository.CompanyRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class CompanyServiceImpl implements CompanyService {
@@ -36,5 +38,20 @@ public class CompanyServiceImpl implements CompanyService {
         }else{
             throw new NullPointerException();
         }
+    }
+
+    @Override
+    public void deleteCompanyById(Long id) throws NullPointerException{
+        if(companyRepository.existsById(id)){
+            companyRepository.deleteById(id);
+        }else{
+            throw new NullPointerException();
+        }
+    }
+
+    @Override
+    public List<CompanyResponseDTO> findAllCompany() {
+        List<Company> c = companyRepository.findAll();
+        return companyResponseMapper.asDTOList(c);
     }
 }

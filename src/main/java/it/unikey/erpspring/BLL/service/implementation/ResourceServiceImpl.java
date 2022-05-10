@@ -14,6 +14,8 @@ import it.unikey.erpspring.DAL.repository.ResourceRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class ResourceServiceImpl implements ResourceService {
@@ -50,5 +52,20 @@ public class ResourceServiceImpl implements ResourceService {
     public void saveResource(ResourceRequestDTO resourceRequestDTO) {
         Resource r = resourceRequestMapper.asEntity(resourceRequestDTO);
         resourceRepository.save(r);
+    }
+
+    @Override
+    public void deleteResourceById(Long id) throws NullPointerException{
+        if(resourceRepository.existsById(id)){
+            resourceRepository.deleteById(id);
+        }else{
+            throw new NullPointerException();
+        }
+    }
+
+    @Override
+    public List<ResourceResponseDTO> findAllResource() {
+        List<Resource> r = resourceRepository.findAll();
+        return resourceResponseMapper.asDTOList(r);
     }
 }

@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/company")
@@ -29,7 +31,13 @@ public class CompanyController {
     }
 
     @GetMapping
-    public ResponseEntity<Integer> findNumberOfEmployees(){
-        return new ResponseEntity<>(companyService.findNumberOfEmployees(), HttpStatus.OK);
+    public ResponseEntity<List<CompanyResponseDTO>> findAll(){
+        return new ResponseEntity<>(companyService.findAllCompany(), HttpStatus.OK);
+    }
+
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id){
+        companyService.deleteCompanyById(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

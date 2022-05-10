@@ -17,6 +17,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -52,5 +53,20 @@ public class WorkerServiceImpl implements WorkerService {
         }else{
             throw new NullPointerException();
         }
+    }
+
+    @Override
+    public void deleteWorkerById(Long id) throws NullPointerException{
+        if(workerRepository.existsById(id)){
+            workerRepository.deleteById(id);
+        }else{
+            throw new NullPointerException();
+        }
+    }
+
+    @Override
+    public List<WorkerResponseDTO> findAllWorker() {
+        List<Worker> w = workerRepository.findAll();
+        return workerResponseMapper.asDTOList(w);
     }
 }

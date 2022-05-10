@@ -12,8 +12,8 @@ public class Client {
     private Long id;
     @Column(name = "name")
     private String name;
-    @Column(name = "IVA")
-    private String IVA;
+    @Column(name = "iva")
+    private String iva;
     @OneToMany(mappedBy = "client")
     private List<Contact> contacts;
     @OneToMany(mappedBy = "client")
@@ -37,12 +37,12 @@ public class Client {
         this.name = name;
     }
 
-    public String getIVA() {
-        return IVA;
+    public String getIva() {
+        return iva;
     }
 
-    public void setIVA(String IVA) {
-        this.IVA = IVA;
+    public void setIva(String IVA) {
+        this.iva = IVA;
     }
 
     public List<Contact> getContacts() {
@@ -75,7 +75,7 @@ public class Client {
         return "Client{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", IVA='" + IVA + '\'' +
+                ", iva='" + iva + '\'' +
                 '}';
     }
 }

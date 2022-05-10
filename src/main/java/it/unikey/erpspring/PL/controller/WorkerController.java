@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/worker")
@@ -25,5 +27,16 @@ public class WorkerController {
     @GetMapping(path = "/{id}")
     public ResponseEntity<WorkerResponseDTO> getById(@PathVariable Long id){
         return new ResponseEntity<>(workerService.findWorkerById(id),HttpStatus.OK);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<WorkerResponseDTO>> findAll(){
+        return new ResponseEntity<>(workerService.findAllWorker(), HttpStatus.OK);
+    }
+
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id){
+        workerService.deleteWorkerById(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

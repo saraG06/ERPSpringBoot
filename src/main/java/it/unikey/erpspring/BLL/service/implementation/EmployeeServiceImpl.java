@@ -55,4 +55,19 @@ public class EmployeeServiceImpl implements EmployeeService {
         List<Employee> e = employeeRepository.getOperatorsHiredLastMonth();
         return employeeResponseMapper.asDTOList(e);
     }
+
+    @Override
+    public void deleteEmployeeById(Long id) throws NullPointerException{
+        if(employeeRepository.existsById(id)){
+            employeeRepository.deleteById(id);
+        }else{
+            throw new NullPointerException();
+        }
+    }
+
+    @Override
+    public List<EmployeeResponseDTO> findAllEmployee() {
+        List<Employee> e = employeeRepository.findAll();
+        return employeeResponseMapper.asDTOList(e);
+    }
 }

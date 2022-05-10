@@ -30,7 +30,13 @@ public class InvoiceController {
     }
 
     @GetMapping
-    public ResponseEntity<List<InvoiceResponseDTO>> getInvoicesClientReply(){
-        return new ResponseEntity<>(invoiceService.getInvoicesClientReply(), HttpStatus.OK);
+    public ResponseEntity<List<InvoiceResponseDTO>> findAll(){
+        return new ResponseEntity<>(invoiceService.findAllInvoice(), HttpStatus.OK);
+    }
+
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id){
+        invoiceService.deleteInvoiceById(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

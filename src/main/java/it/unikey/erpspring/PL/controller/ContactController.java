@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/contact")
@@ -25,6 +27,17 @@ public class ContactController {
     @GetMapping("/{id}")
     public ResponseEntity<ContactResponseDTO> findById(@PathVariable Long id){
         return new ResponseEntity<>(contactService.findContactById(id), HttpStatus.OK);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<ContactResponseDTO>> findAll(){
+        return new ResponseEntity<>(contactService.findAllContact(),HttpStatus.OK);
+    }
+
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id){
+        contactService.deleteContactById(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }
