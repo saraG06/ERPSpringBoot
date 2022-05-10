@@ -15,7 +15,7 @@ public class Invoice implements Serializable {
 
     @Column(name = "date", nullable = false)
     private LocalDate date;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Order order;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "contact")
