@@ -1,10 +1,9 @@
 package it.unikey.erpspring.PL.Controller;
 
-
-import it.unikey.erpspring.BLL.DTO.request.CollaboratorRequestDTO;
-import it.unikey.erpspring.BLL.DTO.response.CollaboratorResponseDTO;
+import it.unikey.erpspring.BLL.DTO.request.InvoiceRequestDTO;
+import it.unikey.erpspring.BLL.DTO.response.InvoiceResponseDTO;
 import it.unikey.erpspring.BLL.DTO.response.OrderResponseDTO;
-import it.unikey.erpspring.BLL.service.abstraction.CollaboratorService;
+import it.unikey.erpspring.BLL.service.abstraction.InvoiceService;
 import it.unikey.erpspring.BLL.service.exception.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -15,44 +14,47 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/collaborator")
+@RequestMapping("/api/v1/invoice")
 @CrossOrigin("http://localhost:8080")
-public class CollaboratorController {
+public class InvoiceController {
 
-    public final CollaboratorService collaboratorService;
+    public final InvoiceService invoiceService;
 
     @PostMapping
-    public ResponseEntity<Void> save(@RequestBody CollaboratorRequestDTO collaboratorRequestDTO){
+    public ResponseEntity<Void> save(@RequestBody InvoiceRequestDTO invoiceRequestDTO){
 
-        collaboratorService.saveCollaborator(collaboratorRequestDTO);
-
+        invoiceService.saveInvoice(invoiceRequestDTO);
         return new ResponseEntity<>(HttpStatus.CREATED);
+
     }
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<CollaboratorResponseDTO> getById(@PathVariable Long id) {
+    public ResponseEntity<InvoiceResponseDTO> getById(@PathVariable Long id){
+
         try {
-            return new ResponseEntity<>(collaboratorService.getCollaboratorById(id), HttpStatus.OK);
+            return new ResponseEntity<>(invoiceService.getInvoiceById(id), HttpStatus.OK);
         } catch (EntityNotFoundException e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+
     }
     @GetMapping
-    public ResponseEntity<List<CollaboratorResponseDTO>> getAll(){
+    public ResponseEntity<List<InvoiceResponseDTO>> getAll(){
 
-        return new ResponseEntity<>(collaboratorService.getAllCollaborator(), HttpStatus.OK);
+        return new ResponseEntity<>(invoiceService.getAllInvoice(), HttpStatus.OK);
 
     }
 
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable Long id) {
         try {
-            collaboratorService.deleteCollaboratorById(id);
+            invoiceService.deleteInvoiceById(id);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (EntityNotFoundException e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
 }

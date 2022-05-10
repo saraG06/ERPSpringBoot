@@ -6,6 +6,7 @@ import it.unikey.erpspring.BLL.DTO.request.ContactRequestDTO;
 
 import java.util.List;
 
+
 public interface ContactService {
 
     void saveContact(ContactRequestDTO contactRequestDTO);

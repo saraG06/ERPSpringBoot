@@ -1,10 +1,10 @@
 package it.unikey.erpspring.PL.Controller;
 
 
-import it.unikey.erpspring.BLL.DTO.request.CollaboratorRequestDTO;
-import it.unikey.erpspring.BLL.DTO.response.CollaboratorResponseDTO;
+import it.unikey.erpspring.BLL.DTO.request.CompanyRequestDTO;
+import it.unikey.erpspring.BLL.DTO.response.CompanyResponseDTO;
 import it.unikey.erpspring.BLL.DTO.response.OrderResponseDTO;
-import it.unikey.erpspring.BLL.service.abstraction.CollaboratorService;
+import it.unikey.erpspring.BLL.service.abstraction.CompanyService;
 import it.unikey.erpspring.BLL.service.exception.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -15,40 +15,43 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/collaborator")
+@RequestMapping("/api/v1/company")
 @CrossOrigin("http://localhost:8080")
-public class CollaboratorController {
 
-    public final CollaboratorService collaboratorService;
+public class CompanyController {
+
+    public final CompanyService companyService;
 
     @PostMapping
-    public ResponseEntity<Void> save(@RequestBody CollaboratorRequestDTO collaboratorRequestDTO){
+    public ResponseEntity<Void> save(@RequestBody CompanyRequestDTO companyRequestDTO){
 
-        collaboratorService.saveCollaborator(collaboratorRequestDTO);
+        companyService.saveCompany(companyRequestDTO);
 
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<CollaboratorResponseDTO> getById(@PathVariable Long id) {
+    public ResponseEntity<CompanyResponseDTO> getById(@PathVariable Long id) {
         try {
-            return new ResponseEntity<>(collaboratorService.getCollaboratorById(id), HttpStatus.OK);
+            return new ResponseEntity<>(companyService.getCompanyById(id), HttpStatus.OK);
         } catch (EntityNotFoundException e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-    }
-    @GetMapping
-    public ResponseEntity<List<CollaboratorResponseDTO>> getAll(){
 
-        return new ResponseEntity<>(collaboratorService.getAllCollaborator(), HttpStatus.OK);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<CompanyResponseDTO>> getAll(){
+
+        return new ResponseEntity<>(companyService.getAllCompany(), HttpStatus.OK);
 
     }
 
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable Long id) {
         try {
-            collaboratorService.deleteCollaboratorById(id);
+            companyService.deleteCompanyById(id);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (EntityNotFoundException e) {
             e.printStackTrace();
