@@ -16,12 +16,12 @@ public class Operatore{
     private String nome;
     @Column(name = "cognome", nullable = false)
     private String cognome;
-    @Column(name = "nascita", nullable = false)
+    @Column(name = "nascita")
     private LocalDate nascita;
 
-    @OneToMany(mappedBy = "operatore")
+    @OneToMany(mappedBy = "operatore", cascade = {CascadeType.MERGE,CascadeType.PERSIST})
     private List<Ordine> ordine;
-    @OneToMany(mappedBy = "operatore")
+    @OneToMany(mappedBy = "operatore", cascade = {CascadeType.MERGE,CascadeType.PERSIST})
     private List<Risorsa> risorseAssegnate;
 
     public Long getId() {

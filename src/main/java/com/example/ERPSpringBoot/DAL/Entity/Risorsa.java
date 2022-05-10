@@ -11,8 +11,7 @@ public class Risorsa implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinTable(name = "operatore", joinColumns = @JoinColumn(name = "id"))
+    @ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.MERGE,CascadeType.PERSIST})
     private Operatore operatore;
 
     public Risorsa() {

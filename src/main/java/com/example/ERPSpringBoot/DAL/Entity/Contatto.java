@@ -17,9 +17,9 @@ public class Contatto{
     private String cognome;
     @Column(name = "nascita")
     private LocalDate nascita;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.MERGE,CascadeType.PERSIST})
     private Cliente cliente;
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.MERGE,CascadeType.PERSIST})
     private Azienda azienda;
     @OneToMany(mappedBy = "contatto",cascade = {CascadeType.MERGE,CascadeType.PERSIST})
     private List<Fattura> fattura;

@@ -12,12 +12,12 @@ public class Cliente {
     private Long id;
     @Column(name = "nome", nullable = false)
     private String nome;
-    @Column(name = "PI", nullable = false)
+    @Column(name = "PI")
     private String PI;
-    @OneToMany(mappedBy = "cliente")
+    @OneToMany(mappedBy = "cliente",fetch = FetchType.LAZY,cascade = {CascadeType.MERGE,CascadeType.PERSIST})
     private List<Contatto> contatto;
 
-    @OneToMany(mappedBy = "cliente")
+    @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY,cascade = {CascadeType.MERGE,CascadeType.PERSIST})
     private List<Ordine> ordine;
 
     public Long getId() {

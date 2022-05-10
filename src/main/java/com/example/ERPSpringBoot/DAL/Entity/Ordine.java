@@ -14,15 +14,15 @@ public class Ordine {
     private String dettaglio;
     @Column(name = "dataImporto", nullable = false)
     private LocalDate dataImporto;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.MERGE,CascadeType.PERSIST})
     private Operatore operatore;
 
     @JoinColumn(name = "fattura_id")
     @OneToOne
     private Fattura fattura;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.MERGE,CascadeType.PERSIST})
     private Cliente cliente;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.MERGE,CascadeType.PERSIST})
     private Azienda azienda;
 
 

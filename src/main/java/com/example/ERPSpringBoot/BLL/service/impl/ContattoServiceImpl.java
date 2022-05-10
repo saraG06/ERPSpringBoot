@@ -16,7 +16,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ContattoServiceImpl implements ContattoService {
     private final ContattoRepository contattoRepository;
-    private final FatturaRepository fatturaRepository;
     private final ContattoRequestMapper contattoRequestMapper;
     private final ContattoResponseMapper contattoResponseMapper;
     private final AziendaRequestMapper aziendaRequestMapper;
@@ -30,19 +29,9 @@ public class ContattoServiceImpl implements ContattoService {
         List<Fattura> fatturaList= fatturaRequestMapper.asEntityList(contattoRequestDTO.getFatturaRequestDTOList());
 
         c.setFattura(fatturaList);
-        contattoRepository.save(c);
-        for(Fattura f: fatturaList){
-        fatturaRepository.save(f);
-            f.setContatto(c);
-        }
         c.setAzienda(azienda);
         c.setCliente(cliente);
-
-
-
-
-
-
+        contattoRepository.save(c);
     }
 
     @Override

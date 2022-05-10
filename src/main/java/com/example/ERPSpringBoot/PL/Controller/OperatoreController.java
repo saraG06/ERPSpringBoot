@@ -24,7 +24,6 @@ public class OperatoreController {
         operatoreService.saveOperatore(operatoreRequestDTO);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
-
     @GetMapping(path= "/{id}")      //le graffe indicano una variabile
     public ResponseEntity<OperatoreResponseDTO> getById(@PathVariable Long id) {
         try {
@@ -34,7 +33,6 @@ public class OperatoreController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-
     @DeleteMapping(path="/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id){
         try{
@@ -45,7 +43,6 @@ public class OperatoreController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-
     @GetMapping()
     public ResponseEntity<List<OperatoreResponseDTO>> getAll(){
         return new ResponseEntity<>(operatoreService.findAllOperatore(), HttpStatus.OK);

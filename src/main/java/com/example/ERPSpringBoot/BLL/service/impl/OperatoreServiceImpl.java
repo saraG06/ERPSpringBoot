@@ -27,8 +27,8 @@ public class OperatoreServiceImpl implements OperatoreService {
         List<Risorsa> risorsa= risorsaRequestMapper.asEntityList(operatoreRequestDTO.getRisorsaRequestDTOList());
         o.setOrdine(ordine);
         o.setRisorseAssegnate(risorsa);
-
         operatoreRepository.save(o);
+
     }
 
     @Override
