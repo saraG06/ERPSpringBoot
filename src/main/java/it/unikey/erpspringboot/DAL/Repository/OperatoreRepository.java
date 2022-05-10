@@ -17,4 +17,6 @@ public interface OperatoreRepository extends JpaRepository<Operatore,Long> {
     List<Operatore> getAllAssuntiUltimoMese(@Param("now") LocalDate now);
 
 
+
+
 }

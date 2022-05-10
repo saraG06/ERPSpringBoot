@@ -22,8 +22,8 @@ public class Operatore {
     @Column(name = "dataNascita")
     private LocalDate dataNascita;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "azienda_id")
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "azienda_id",nullable = false)
     private Azienda azienda;
 
 

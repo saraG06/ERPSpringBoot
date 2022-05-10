@@ -59,4 +59,12 @@ public class AziendaServiceImplementation implements AziendaService {
 
         return aziendaResponseMapper.asDTOList(lista);
     }
+
+   /* @Override
+    public AziendaResponseDTO findByNome(String nome) {
+        Azienda a = aziendaRepository.findByNome(nome);
+        return aziendaResponseMapper.asDTO(a);
+    }
+
+    */
 }

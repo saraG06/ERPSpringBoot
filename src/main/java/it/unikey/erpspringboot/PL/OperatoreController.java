@@ -1,5 +1,8 @@
 package it.unikey.erpspringboot.PL;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import it.unikey.erpspringboot.BLL.dto.Request.OperatoreRequestDTO;
 import it.unikey.erpspringboot.BLL.dto.Response.OperatoreResponseDTO;
 import it.unikey.erpspringboot.BLL.service.abstraction.OperatoreService;
@@ -19,6 +22,11 @@ public class OperatoreController {
     private final OperatoreService operatoreService;
 
     @PostMapping
+    @ApiOperation(value = "Metodo per aggiungere un Operatore",notes = "Per aggiungere la risorsa mi serve un oggetto")
+    @ApiResponses( value = {
+            @ApiResponse(code = 201, message = "Ha creato effettivamente la risorsa"),
+            @ApiResponse(code=403, message = "Non hai le autorizzazioni per aggiungere un operatore")
+    })
     public ResponseEntity<Void> save(@RequestBody OperatoreRequestDTO operatoreRequestDTO){
 
         try {

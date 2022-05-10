@@ -15,7 +15,7 @@ public class Cliente {
     @Column(name = "nome",nullable = false)
     private String nome;
 
-    @Column(name = "PI" , unique = true,nullable = false)
+    @Column(name = "pi" , unique = true,nullable = false)
     private String PI;
 
     @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)

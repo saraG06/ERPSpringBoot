@@ -1,10 +1,15 @@
 package it.unikey.erpspringboot.BLL.service.implementation;
 
 import it.unikey.erpspringboot.BLL.dto.Request.OperatoreRequestDTO;
+import it.unikey.erpspringboot.BLL.dto.Request.OperatoreRequestDTO2;
+import it.unikey.erpspringboot.BLL.dto.Response.AziendaResponseDTO;
 import it.unikey.erpspringboot.BLL.dto.Response.OperatoreResponseDTO;
 import it.unikey.erpspringboot.BLL.mapper.implementation.request.AziendaRequestMapper;
 import it.unikey.erpspringboot.BLL.mapper.implementation.request.OperatoreRequestMapper;
+import it.unikey.erpspringboot.BLL.mapper.implementation.request.OperatoreRequestMapper2;
 import it.unikey.erpspringboot.BLL.mapper.implementation.request.OrdineRequestMapper;
+import it.unikey.erpspringboot.BLL.mapper.implementation.response.AziendaResponseMapper;
+import it.unikey.erpspringboot.BLL.mapper.implementation.response.AziendaResponseMapper2;
 import it.unikey.erpspringboot.BLL.mapper.implementation.response.OperatoreResponseMapper;
 import it.unikey.erpspringboot.BLL.service.abstraction.OperatoreService;
 import it.unikey.erpspringboot.DAL.Entity.Azienda;
@@ -23,9 +28,13 @@ public class OperatoreServiceImplementation implements OperatoreService {
 
     private final OperatoreRepository operatoreRepository;
     private final OperatoreRequestMapper operatoreRequestMapper;
+    private final OperatoreRequestMapper2 operatoreRequestMapper2;
     private final OperatoreResponseMapper operatoreResponseMapper;
 
     private final AziendaRequestMapper aziendaRequestMapper;
+
+    private final AziendaResponseMapper2 aziendaResponseMapper2;
+    private final AziendaResponseMapper aziendaResponseMapper;
     private final OrdineRequestMapper ordineRequestMapper;
 
     @Override
@@ -35,6 +44,14 @@ public class OperatoreServiceImplementation implements OperatoreService {
         List<Ordine> listaOrdini = ordineRequestMapper.asEntityList(operatoreRequestDTO.getOrdineRequestDTOList());
         o.setAzienda(a);
         o.setOrdini(listaOrdini);
+        operatoreRepository.save(o);
+    }
+
+    @Override
+    public void saveOperatoreSenzaAzienda(OperatoreRequestDTO2 operatoreRequestDTO) {
+        Operatore o = operatoreRequestMapper2.asEntity(operatoreRequestDTO);
+        Azienda a = aziendaResponseMapper2.asDTO(operatoreRequestDTO.getAziendaResponseDTO());
+        o.setAzienda(a);
         operatoreRepository.save(o);
     }
 
@@ -61,8 +78,14 @@ public class OperatoreServiceImplementation implements OperatoreService {
     public List<OperatoreResponseDTO> findAllOperatore() {
 
         List<Operatore> lista = operatoreRepository.findAll();
+        List<OperatoreResponseDTO> listaDTO = operatoreResponseMapper.asDTOList(lista);
+        for(OperatoreResponseDTO o : listaDTO){
+            for(Operatore op : lista){
+                o.setAziendaResponseDTO(aziendaResponseMapper.asDTO(op.getAzienda()));
+            }
+        }
 
-        return operatoreResponseMapper.asDTOList(lista);
+        return listaDTO;
     }
 
     @Override

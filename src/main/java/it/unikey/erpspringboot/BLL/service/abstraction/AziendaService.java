@@ -14,4 +14,6 @@ public interface AziendaService {
     void deleteAziendaById (Long id);
 
     List<AziendaResponseDTO> findAllAzienda();
+
+   // AziendaResponseDTO findByNome(String nome);
 }

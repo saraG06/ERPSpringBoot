@@ -20,7 +20,6 @@ public class AziendaController {
 
     @PostMapping
     public ResponseEntity<Void> save(@RequestBody AziendaRequestDTO aziendaRequestDTO){
-
         try {
             aziendaService.saveAzienda(aziendaRequestDTO);
             return new ResponseEntity<>(HttpStatus.CREATED);
