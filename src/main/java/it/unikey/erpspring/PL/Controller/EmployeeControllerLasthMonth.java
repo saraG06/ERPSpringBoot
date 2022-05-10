@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/employee")
+@RequestMapping("/api/v1/employeeLastMonth")
 @CrossOrigin("http://localhost:8080")
 public class EmployeeControllerLasthMonth {
 

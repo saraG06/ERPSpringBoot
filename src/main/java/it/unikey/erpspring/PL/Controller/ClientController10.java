@@ -14,14 +14,14 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/client")
+@RequestMapping("/api/v1/clientGreater10")
 @CrossOrigin("http://localhost:8080")
 public class ClientController10 {
 
     private final ClientService clientService;
 
     @GetMapping
-    public ResponseEntity<List<ClientResponseDTO>> getAll(){
+    public ResponseEntity<List<ClientResponseDTO>> getAllCLientGreater10(){
 
         return new ResponseEntity<>(clientService.clientsContactGreater10(), HttpStatus.OK);
 

@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/client")
+@RequestMapping("/api/v1/invoiceClientCustom")
 @CrossOrigin("http://localhost:8080")
 public class InvoiceControllerClientCustom {
 

@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/order")
+@RequestMapping("/api/v1/orderNoInvoices")
 @CrossOrigin("http://localhost:8080")
 
 public class OrderControllerNoInvoices {
