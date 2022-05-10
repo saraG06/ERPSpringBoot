@@ -28,9 +28,9 @@ public class Employee {
     @Enumerated
     @Column(name = "role")
     private Role role;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Company company;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "worker_id", nullable = false)
     private Worker worker;
 

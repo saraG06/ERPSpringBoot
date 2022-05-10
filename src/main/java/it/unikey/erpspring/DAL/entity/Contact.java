@@ -16,7 +16,7 @@ public class Contact {
     private String lastName;
     @Column(name = "birthDate")
     private LocalDate birthDate;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Client client;
 
     public Long getId() {

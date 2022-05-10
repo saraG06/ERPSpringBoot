@@ -7,6 +7,4 @@ public class ResourceResponseDTO {
 
     private Long id;
     private String assignedResources;
-    private EmployeeResponseDTO employeeResponseDTO;
-    private CollaboratorResponseDTO collaboratorResponseDTO;
 }

@@ -18,7 +18,7 @@ public class Resource {
     @ManyToOne
     private Employee employee;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Collaborator collaborator;
 
     public Long getId() {

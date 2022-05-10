@@ -13,6 +13,4 @@ public class OrderResponseDTO {
     private Double price;
     private WorkerResponseDTO workerResponseDTO;
     private ClientResponseDTO clientResponseDTO;
-    private InvoiceResponseDTO invoiceResponseDTO;
-    private CompanyResponseDTO companyResponseDTO;
 }

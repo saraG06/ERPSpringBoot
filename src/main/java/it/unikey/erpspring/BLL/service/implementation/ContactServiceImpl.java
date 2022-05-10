@@ -1,7 +1,6 @@
 package it.unikey.erpspring.BLL.service.implementation;
 
 import it.unikey.erpspring.BLL.DTO.request.ContactRequestDTO;
-import it.unikey.erpspring.BLL.DTO.response.ClientResponseDTO;
 import it.unikey.erpspring.BLL.DTO.response.ContactResponseDTO;
 import it.unikey.erpspring.BLL.DTO.response.InvoiceResponseDTO;
 import it.unikey.erpspring.BLL.mapper.implementation.*;

@@ -6,6 +6,4 @@ import lombok.Data;
 public class ResourceRequestDTO {
 
     private String assignedResources;
-    private EmployeeRequestDTO employeeRequestDTO;
-    private CollaboratorRequestDTO collaboratorRequestDTO;
 }

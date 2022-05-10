@@ -21,7 +21,6 @@ public class InvoiceServiceImpl implements InvoiceService {
     private final OrderRequestMapper orderRequestMapper;
     private final ContactRequestMapper contactRequestMapper;
     private final ClientRequestMapper clientRequestMapper;
-    private final CompanyRequestMapper companyRequestMapper;
 
     @Override
     public List<InvoiceResponseDTO> getInvoicesClientReply() {
@@ -41,7 +40,6 @@ public class InvoiceServiceImpl implements InvoiceService {
         i.setOrder(orderRequestMapper.asEntity(invoiceRequestDTO.getOrderRequestDTO()));
         i.setContact(contactRequestMapper.asEntity(invoiceRequestDTO.getContactRequestDTO()));
         i.setClient(clientRequestMapper.asEntity(invoiceRequestDTO.getClientRequestDTO()));
-        i.setCompany(companyRequestMapper.asEntity(invoiceRequestDTO.getCompanyRequestDTO()));
         invoiceRepository.save(i);
     }
 

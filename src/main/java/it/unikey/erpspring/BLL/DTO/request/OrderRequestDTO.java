@@ -12,6 +12,4 @@ public class OrderRequestDTO {
     private Double price;
     private WorkerRequestDTO workerRequestDTO;
     private ClientRequestDTO clientRequestDTO;
-    private InvoiceRequestDTO invoiceRequestDTO;
-    private CompanyRequestDTO companyRequestDTO;
 }

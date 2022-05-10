@@ -4,7 +4,6 @@ import it.unikey.erpspring.BLL.DTO.request.CollaboratorRequestDTO;
 import it.unikey.erpspring.BLL.DTO.response.CollaboratorResponseDTO;
 import it.unikey.erpspring.BLL.mapper.implementation.CollaboratorRequestMapper;
 import it.unikey.erpspring.BLL.mapper.implementation.CollaboratorResponseMapper;
-import it.unikey.erpspring.BLL.mapper.implementation.ResourceRequestMapper;
 import it.unikey.erpspring.BLL.mapper.implementation.WorkerRequestMapper;
 import it.unikey.erpspring.BLL.service.abstraction.CollaboratorService;
 import it.unikey.erpspring.DAL.entity.Collaborator;

@@ -12,5 +12,4 @@ public class InvoiceResponseDTO {
     private OrderResponseDTO orderResponseDTO;
     private ContactResponseDTO contactResponseDTO;
     private ClientResponseDTO clientResponseDTO;
-    private CompanyResponseDTO companyResponseDTO;
 }

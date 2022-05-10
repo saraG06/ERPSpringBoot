@@ -16,6 +16,5 @@ public class EmployeeResponseDTO {
     private List<ResourceResponseDTO> resourceResponseDTOList;
     private LocalDate hiringDate;
     private Role role;
-    private CompanyResponseDTO companyResponseDTO;
     private WorkerResponseDTO workerResponseDTO;
 }

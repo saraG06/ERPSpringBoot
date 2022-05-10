@@ -11,5 +11,4 @@ public class InvoiceRequestDTO {
     private OrderRequestDTO orderRequestDTO;
     private ContactRequestDTO contactRequestDTO;
     private ClientRequestDTO clientRequestDTO;
-    private CompanyRequestDTO companyRequestDTO;
 }

@@ -14,5 +14,5 @@ public class WorkerResponseDTO {
     private String firstName;
     private String lastName;
     private LocalDate birthDate;
-    private List<OrderResponseDTO> orderResponseDTOList;
+
 }

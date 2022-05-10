@@ -15,12 +15,12 @@ public class Invoice {
     @OneToOne
     @JoinColumn(name = "order_id")
     private Order order;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "contact_id")
     private Contact contact;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Client client;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Company company;
 
     public Long getId() {

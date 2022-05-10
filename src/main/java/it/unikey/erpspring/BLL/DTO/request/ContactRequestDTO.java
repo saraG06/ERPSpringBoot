@@ -11,5 +11,4 @@ public class ContactRequestDTO {
     private String lastName;
     private LocalDate birthDate;
     private ClientRequestDTO clientRequestDTO;
-    private InvoiceRequestDTO invoiceRequestDTO;
 }

@@ -15,6 +15,5 @@ public class EmployeeRequestDTO {
     private List<ResourceRequestDTO> resourceRequestDTOList;
     private LocalDate hiringDate;
     private Role role;
-    private CompanyRequestDTO companyRequestDTO;
     private WorkerRequestDTO workerRequestDTO;
 }

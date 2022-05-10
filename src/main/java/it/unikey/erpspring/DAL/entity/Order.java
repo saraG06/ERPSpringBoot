@@ -17,11 +17,11 @@ public class Order {
     private LocalDate date;
     @Column(name = "price")
     private Double price;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Worker worker;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Client client;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Company company;
 
 

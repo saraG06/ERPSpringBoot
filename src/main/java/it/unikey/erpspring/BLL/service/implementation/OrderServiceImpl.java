@@ -7,7 +7,6 @@ import it.unikey.erpspring.BLL.service.abstraction.OrderService;
 import it.unikey.erpspring.DAL.entity.Order;
 import it.unikey.erpspring.DAL.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -34,7 +33,6 @@ public class OrderServiceImpl implements OrderService {
         Order o = orderRequestMapper.asEntity(orderRequestDTO);
         o.setWorker(workerRequestMapper.asEntity(orderRequestDTO.getWorkerRequestDTO()));
         o.setClient(clientRequestMapper.asEntity(orderRequestDTO.getClientRequestDTO()));
-        o.setCompany(companyRequestMapper.asEntity(orderRequestDTO.getCompanyRequestDTO()));
         orderRepository.save(o);
     }
 

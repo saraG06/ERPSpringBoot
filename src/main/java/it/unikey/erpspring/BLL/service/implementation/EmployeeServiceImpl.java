@@ -20,7 +20,6 @@ public class EmployeeServiceImpl implements EmployeeService {
     private final EmployeeRepository employeeRepository;
     private final EmployeeResponseMapper employeeResponseMapper;
     private final EmployeeRequestMapper employeeRequestMapper;
-    private final CompanyRequestMapper companyRequestMapper;
     private final WorkerRequestMapper workerRequestMapper;
 
 
@@ -29,7 +28,6 @@ public class EmployeeServiceImpl implements EmployeeService {
     public void saveEmployee(EmployeeRequestDTO employeeRequestDTO) {
         Employee e = employeeRequestMapper.asEntity(employeeRequestDTO);
         e.setRole(employeeRequestDTO.getRole());
-        e.setCompany(companyRequestMapper.asEntity(employeeRequestDTO.getCompanyRequestDTO()));
         e.setWorker(workerRequestMapper.asEntity(employeeRequestDTO.getWorkerRequestDTO()));
         employeeRepository.save(e);
     }

@@ -12,5 +12,4 @@ public class ContactResponseDTO {
     private String lastName;
     private LocalDate birthDate;
     private ClientResponseDTO clientResponseDTO;
-    private InvoiceResponseDTO invoiceResponseDTO;
 }
