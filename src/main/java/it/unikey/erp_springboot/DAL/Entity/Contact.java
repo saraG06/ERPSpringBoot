@@ -20,7 +20,7 @@ public class Contact implements Serializable {
     private String surname;
     @Column(name = "birth", nullable = false)
     private LocalDate birth;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "client")
     private Client client;
     @OneToMany(mappedBy = "contact")

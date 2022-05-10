@@ -12,5 +12,4 @@ public class ContactRequestDTO {
     private String lastname;
     private LocalDate birth;
     private ClientRequestDTO clientRequestDTO;
-    private List<InvoiceRequestDTO> invoiceRequestDTOList;
 }

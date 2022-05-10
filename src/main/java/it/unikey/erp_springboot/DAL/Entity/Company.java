@@ -28,7 +28,6 @@ public class Company implements Serializable {
     private List<Order> orders;
     @OneToMany(mappedBy = "company")
     private List<Employee> employees;
-
     @OneToMany(mappedBy = "company")
     private List<Operator> operators;
 

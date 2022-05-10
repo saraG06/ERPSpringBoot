@@ -13,8 +13,7 @@ public class EmployeeResponseDTO {
     private OperatorResponseDTO operatorResponseDTO;
     private Role role;
     private LocalDate hiring;
-
     private Resource resource;
-    private List<OrderResponseDTO> orderResponseDTOList;
+
 
 }

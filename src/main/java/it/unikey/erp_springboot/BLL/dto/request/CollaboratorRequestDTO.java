@@ -10,5 +10,4 @@ public class CollaboratorRequestDTO {
 
     private OperatorRequestDTO operatorRequestDTO;
     private Resource resource;
-    private List<OrderRequestDTO> orderRequestDTOList;
 }

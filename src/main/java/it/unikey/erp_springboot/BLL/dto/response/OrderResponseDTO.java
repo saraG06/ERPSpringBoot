@@ -15,5 +15,5 @@ public class OrderResponseDTO {
     private CollaboratorResponseDTO collaboratorResponseDTO;
     private ClientResponseDTO clientResponseDTO;
     private EmployeeResponseDTO employeeResponseDTO;
-    private InvoiceResponseDTO invoiceResponseDTO;
+
 }

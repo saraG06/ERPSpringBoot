@@ -13,6 +13,5 @@ public class OrderRequestDTO {
     private CollaboratorRequestDTO collaboratorRequestDTO;
     private ClientRequestDTO clientRequestDTO;
     private EmployeeRequestDTO employeeRequestDTO;
-    private InvoiceRequestDTO invoiceRequestDTO;
 
 }

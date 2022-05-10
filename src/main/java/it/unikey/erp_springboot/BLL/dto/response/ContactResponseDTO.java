@@ -14,5 +14,4 @@ public class ContactResponseDTO {
     private String lastname;
     private LocalDate birth;
     private ClientRequestDTO clientRequestDTO;
-    private List<InvoiceResponseDTO> invoiceResponseDTOList;
 }

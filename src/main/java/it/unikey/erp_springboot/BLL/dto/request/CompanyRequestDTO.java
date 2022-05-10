@@ -8,10 +8,5 @@ import java.util.List;
 public class CompanyRequestDTO {
 
     private String name;
-    private List<InvoiceRequestDTO> invoiceRequestDTOList;
-    private List<ClientRequestDTO> clientRequestDTOList;
-    private List<OperatorRequestDTO> operatorRequestDTOList;
-    private List<EmployeeRequestDTO> employeeRequestDTOList;
-    private List<OrderRequestDTO> orderRequestDTOList;
 
 }

@@ -12,8 +12,7 @@ public class EmployeeRequestDTO {
     private OperatorRequestDTO operatorRequestDTO;
     private Role role;
     private LocalDate hiring;
-
     private Resource resource;
-    private List<OrderRequestDTO> orderRequestDTOList;
+
 
 }

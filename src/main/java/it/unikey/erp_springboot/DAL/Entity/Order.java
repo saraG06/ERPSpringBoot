@@ -18,20 +18,20 @@ public class Order implements Serializable {
     private LocalDate date;
     @Column(name = "price", nullable = false)
     private double price;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "client")
     private Client client;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "operator")
     private Operator operator;
     @OneToOne(mappedBy = "order")
     Invoice invoice;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     Collaborator collaborator;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "contact")
     private Company company;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     Employee employee;
 
 }

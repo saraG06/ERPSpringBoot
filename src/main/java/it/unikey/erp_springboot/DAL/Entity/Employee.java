@@ -23,13 +23,11 @@ public class Employee implements Serializable {
     @Enumerated
     @Column(name = "role", nullable = false)
     private Role role;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "company")
     private Company company;
-
     @OneToMany(mappedBy = "employee")
     private List<Order> orders;
-
     @OneToOne()
     @JoinColumn(name = "operatore_id", referencedColumnName = "id", nullable = false)
     private Operator operator;

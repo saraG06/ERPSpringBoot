@@ -1,5 +1,7 @@
 package it.unikey.erp_springboot.BLL.dto.request;
 
+import io.swagger.annotations.ApiModelProperty;
+import it.unikey.erp_springboot.BLL.dto.response.CompanyResponseDTO;
 import lombok.Data;
 
 import java.util.List;
@@ -8,9 +10,6 @@ import java.util.List;
 public class ClientRequestDTO {
 
     private String name;
-    private String partitaIva;
-    private List<ContactRequestDTO> contactRequestDTOList;
-    private List<OrderRequestDTO> orderRequestDTOList;
+    private String partitaiva;
     private CompanyRequestDTO companyRequestDTO;
-
 }

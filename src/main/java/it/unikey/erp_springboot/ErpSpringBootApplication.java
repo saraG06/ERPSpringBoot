@@ -19,11 +19,11 @@ public class ErpSpringBootApplication {
         company1.setName("MMT");
 
         Client client1 = new Client();
-        client1.setName("Unikey"); client1.setPartitaIVA("00000000001");
+        client1.setName("Unikey"); client1.setPartitaiva("00000000001");
         Client client2 = new Client();
-        client2.setName("Reply"); client2.setPartitaIVA("00000000002");
+        client2.setName("Reply"); client2.setPartitaiva("00000000002");
         Client client3 = new Client();
-        client3.setName("ENI"); client3.setPartitaIVA("00000000003");
+        client3.setName("ENI"); client3.setPartitaiva("00000000003");
 
 
         Contact contact1 = new Contact();

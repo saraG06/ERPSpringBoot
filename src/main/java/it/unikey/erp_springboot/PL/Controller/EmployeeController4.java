@@ -1,5 +1,8 @@
 package it.unikey.erp_springboot.PL.Controller;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import it.unikey.erp_springboot.BLL.dto.request.CompanyRequestDTO;
 import it.unikey.erp_springboot.BLL.dto.response.EmployeeResponseDTO;
 import it.unikey.erp_springboot.BLL.service.abstraction.EmployeeService;
@@ -19,6 +22,11 @@ public class EmployeeController4 {
     private final EmployeeService employeeService;
 
     @GetMapping
+    @ApiOperation(value = "Method to get a list of a specific company's employees")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Done"),
+            @ApiResponse(code = 404, message = "List not found")
+    })
     public ResponseEntity<List<EmployeeResponseDTO>> getByCompany(@RequestBody CompanyRequestDTO companyRequestDTO){
         return new ResponseEntity<>(employeeService.findByCompany(companyRequestDTO), HttpStatus.OK);
     }

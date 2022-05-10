@@ -9,8 +9,6 @@ public class ClientResponseDTO {
 
     private Long id;
     private String name;
-    private String partitaIva;
-    private List<ContactResponseDTO> contactResponseDTOList;
-    private List<OrderResponseDTO> orderResponseDTOList;
+    private String partitaiva;
     private CompanyResponseDTO companyResponseDTO;
 }

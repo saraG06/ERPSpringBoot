@@ -17,11 +17,10 @@ public class Invoice implements Serializable {
     private LocalDate date;
     @OneToOne
     private Order order;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "contact")
     private Contact contact;
-
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "company")
     private Company company;
 
