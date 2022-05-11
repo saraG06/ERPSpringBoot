@@ -26,7 +26,7 @@ public class OrderServiceImplementation implements OrderService {
     private final ClientRequestMapper clientRequestMapper;
 
     @Override
-    public void saveOrder(OrderRequestDTO orderRequestDTO) {
+    public void saveOrdine(OrderRequestDTO orderRequestDTO) {
         Order o = orderRequestMapper.asEntity(orderRequestDTO);
         Client client = clientRequestMapper.asEntity(orderRequestDTO.getClientRequestDTO());
         o.setClient(client);
@@ -48,7 +48,7 @@ public class OrderServiceImplementation implements OrderService {
     }
 
     @Override
-    public void deleteOrderById(Long id) throws IdNotFoundException {
+    public void deleteOrdineById(Long id) throws IdNotFoundException {
         if(orderRepository.findById(id).isPresent()) {
             Order o = orderRepository.findById(id).get();
             if (o != null) {
@@ -59,9 +59,8 @@ public class OrderServiceImplementation implements OrderService {
             }
         }
     }
-
     @Override
-    public List<OrderResponseDTO> findAllOrders() {
+    public List<OrderResponseDTO> findAllOrdini() {
         return orderResponseMapper.asDTOList(orderRepository.findAll());
     }
 }

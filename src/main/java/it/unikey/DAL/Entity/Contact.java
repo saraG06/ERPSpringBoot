@@ -20,9 +20,9 @@ public class Contact implements Serializable {
     private String surname;
     @Column(name = "birth", nullable = false)
     private LocalDate birth;
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     private Client client;
-    @OneToMany(mappedBy = "contact")
+    @OneToMany(mappedBy = "contact",cascade=CascadeType.ALL)
     private List<Invoice> invoices;
 
     public Contact() {

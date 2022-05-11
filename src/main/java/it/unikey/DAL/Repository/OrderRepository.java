@@ -11,5 +11,5 @@ import java.util.List;
 public interface OrderRepository extends JpaRepository<Order, Long> {
 
     @Query(value = "Select o from Order o left join Invoice i where o.invoice = null", nativeQuery = true)
-    List<Order> findOrderWithoutInvoice();
+    List<Order> findOrdineWithoutInvoice();
 }

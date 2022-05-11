@@ -4,6 +4,7 @@ import it.unikey.BLL.dto.request.CompanyRequestDTO;
 import it.unikey.BLL.dto.response.CompanyResponseDTO;
 import it.unikey.BLL.exception.IdNotFoundException;
 import it.unikey.BLL.service.abstraction.CompanyService;
+import it.unikey.BLL.service.implementation.CompanyServiceImplementation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin("http://localhost:8080")
 public class CompanyController {
 
-    private final CompanyService companyService;
+    private final CompanyServiceImplementation companyService;
 
     @PostMapping
     public ResponseEntity<Void> save(@RequestBody CompanyRequestDTO companyRequestDTO) {
@@ -26,6 +27,5 @@ public class CompanyController {
     @GetMapping(path = "/{id}")
     public ResponseEntity<CompanyResponseDTO> getById(@PathVariable Long id) throws IdNotFoundException {
         return new ResponseEntity<>(companyService.findById(id), HttpStatus.OK);
-
     }
 }

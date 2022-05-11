@@ -5,6 +5,7 @@ import it.unikey.BLL.dto.response.OperatorResponseDTO;
 import it.unikey.BLL.exception.IdNotFoundException;
 import it.unikey.BLL.mapper.implementation.request.CompanyRequestMapper;
 import it.unikey.BLL.mapper.implementation.request.OperatorRequestMapper;
+import it.unikey.BLL.mapper.implementation.response.CompanyResponseMapper;
 import it.unikey.BLL.mapper.implementation.response.OperatorResponseMapper;
 import it.unikey.BLL.service.abstraction.OperatorService;
 import it.unikey.DAL.Entity.Company;
@@ -24,6 +25,7 @@ public class OperatorServiceImplementation implements OperatorService {
     private final OperatorRequestMapper operatorRequestMapper;
     private final OperatorResponseMapper operatorResponseMapper;
     private final CompanyRequestMapper companyRequestMapper;
+    private final CompanyResponseMapper companyResponseMapper;
     @Override
     public void saveOperator(OperatorRequestDTO operatorRequestDTO) {
         Operator o = operatorRequestMapper.asEntity(operatorRequestDTO);
@@ -37,6 +39,9 @@ public class OperatorServiceImplementation implements OperatorService {
         Operator o = null;
         if (operatorRepository.findById(id).isPresent()) {
             o = operatorRepository.findById(id).get();
+            OperatorResponseDTO oDto = operatorResponseMapper.asDto(o);
+            oDto.setCompanyResponseDTO(companyResponseMapper.asDto(o.getCompany()));
+            return oDto;
         }
         if(o == null){
             throw new IdNotFoundException("Id " + id + " non è presente nel db");

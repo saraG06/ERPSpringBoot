@@ -13,5 +13,4 @@ public interface ClientRepository extends JpaRepository<Client, Long> {
 
     @Query("Select c From Client c where c.contacts.size >= 10")
     List<Client> findContatcsGreaterThan10();
-    List<Client> findClientsByContactsIsGreaterThanEqual10();
 }

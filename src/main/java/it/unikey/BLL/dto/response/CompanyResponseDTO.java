@@ -12,8 +12,9 @@ import java.util.List;
 public class CompanyResponseDTO {
     private Long id;
     private String name;
-    private List<ClientRequestDTO> clientRequestDTOList;
-    private List<InvoiceRequestDTO> invoiceRequestDTOList;
-    private List<OrderRequestDTO> orderRequestDTOList;
-    private List<EmployeeRequestDTO> employeeRequestDTOList;
+    private List<ClientResponseDTO> clientResponseDTOList;
+    private List<InvoiceResponseDTO> invoiceResponseDTOList;
+    private List<OrderResponseDTO> orderResponseDTOList;
+    private List<EmployeeResponseDTO> employeeResponseDTOList;
+    private List<OperatorResponseDTO> operatorResponseDTOList;
 }

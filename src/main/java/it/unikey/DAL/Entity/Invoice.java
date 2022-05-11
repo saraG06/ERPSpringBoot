@@ -27,10 +27,10 @@ public class Invoice implements Serializable {
         this.order = order;
     }
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     private Contact contact;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     private Company company;
 
     public Invoice(String date, Order o, Contact c) {

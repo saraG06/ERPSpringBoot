@@ -15,16 +15,16 @@ public class Company implements Serializable {
     private Long id;
     @Column(name = "name", nullable = false)
     private String name;
-    @OneToMany(mappedBy = "company")
+    @OneToMany(mappedBy = "company",cascade=CascadeType.ALL)
     private List<Client> clients;
-    @OneToMany(mappedBy = "company")
+    @OneToMany(mappedBy = "company",cascade=CascadeType.ALL)
     private List<Invoice> invoices;
-    @OneToMany(mappedBy = "company")
+    @OneToMany(mappedBy = "company",cascade=CascadeType.ALL)
     private List<Order> orders;
-    @OneToMany(mappedBy = "company")
+    @OneToMany(mappedBy = "company",cascade=CascadeType.ALL)
     private List<Employee> employees;
 
-    @OneToMany(mappedBy = "company")
+    @OneToMany(mappedBy = "company",cascade=CascadeType.ALL)
     private List<Operator> operators;
 
     public Company(String name) {
@@ -146,15 +146,14 @@ public class Company implements Serializable {
             throw new RuntimeException(e);
         }
     }
+    @OneToMany(mappedBy = "company",cascade=CascadeType.ALL)
+    private List<Operator> operator;
 
-    @OneToMany(mappedBy = "company")
-    private Collection<Operator> operator;
-
-    public Collection<Operator> getOperator() {
+    public List<Operator> getOperator() {
         return operator;
     }
 
-    public void setOperator(Collection<Operator> operator) {
+    public void setOperator(List<Operator> operator) {
         this.operator = operator;
     }
 }

@@ -20,15 +20,15 @@ public class Order implements Serializable {
     private LocalDate date;
     @Column(name = "price", nullable = false)
     private double price;
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     private Client client;
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     private Operator operator;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     private Company company;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     private Collaborator collaborator;
 
 
@@ -43,7 +43,7 @@ public class Order implements Serializable {
     public Order() {
     }
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     private Employee employee;
 
     public Employee getEmployee() {
@@ -54,7 +54,7 @@ public class Order implements Serializable {
         this.employee = employee;
     }
 
-    @OneToOne(mappedBy = "order")
+    @OneToOne(mappedBy = "order",cascade=CascadeType.ALL)
     private Invoice invoice;
 
     public Invoice getInvoice() {

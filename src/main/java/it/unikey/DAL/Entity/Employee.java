@@ -26,10 +26,10 @@ public class Employee implements Serializable {
     @Enumerated
     @Column(name = "role", nullable = false)
     private Roles role;
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     private Company company;
 
-    @OneToMany(mappedBy = "employee")
+    @OneToMany(mappedBy = "employee",cascade=CascadeType.ALL)
     private List<Order> orders;
 
     @OneToOne()

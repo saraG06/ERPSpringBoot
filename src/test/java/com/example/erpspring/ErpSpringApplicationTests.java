@@ -1,12 +1,11 @@
 package com.example.erpspring;
 
-import it.unikey.DAL.Entity.Client;
-import it.unikey.DAL.Entity.Collaborator;
 import it.unikey.DAL.Repository.*;
+import com.erpspring.ErpSpringApplication;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+@SpringBootTest(classes = ErpSpringApplication.class)
 class ErpSpringApplicationTests {
     private ClientRepository clientRepository;
     private CollaboratorRepository collaboratorRepository;

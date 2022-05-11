@@ -19,7 +19,7 @@ public class OrderController {
 
     @PostMapping
     public ResponseEntity<Void> save(@RequestBody OrderRequestDTO orderRequestDTO){
-        orderService.saveOrder(orderRequestDTO);
+        orderService.saveOrdine(orderRequestDTO);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 

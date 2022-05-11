@@ -1,12 +1,12 @@
 package it.unikey.BLL.service.implementation;
 
 import it.unikey.BLL.dto.request.CompanyRequestDTO;
-import it.unikey.BLL.dto.response.CompanyResponseDTO;
+import it.unikey.BLL.dto.response.*;
 
 import it.unikey.BLL.exception.IdNotFoundException;
 import it.unikey.BLL.mapper.implementation.request.*;
 
-import it.unikey.BLL.mapper.implementation.response.CompanyResponseMapper;
+import it.unikey.BLL.mapper.implementation.response.*;
 import it.unikey.BLL.service.abstraction.CompanyService;
 import it.unikey.DAL.Entity.*;
 
@@ -26,22 +26,21 @@ public class CompanyServiceImplementation implements CompanyService {
     private final OrderRequestMapper orderRequestMapper;
     private final InvoiceRequestMapper invoiceRequestMapper;
     private final EmployeeRequestMapper employeeRequestMapper;
-
     private final OperatorRequestMapper operatorRequestMapper;
+    private final ClientResponseMapper clientResponseMapper;
+    private final OrderResponseMapper orderResponseMapper;
+    private final InvoiceResponseMapper invoiceResponseMapper;
+    private final EmployeeResponseMapper employeeResponseMapper;
+    private final OperatorResponseMapper operatorResponseMapper;
 
     @Override
     public void saveCompany(CompanyRequestDTO companyRequestDTO) {
         Company c = companyRequestMapper.asEntity(companyRequestDTO);
-        List<Client> clientList = clientRequestMapper.asEntityList(companyRequestDTO.getClientRequestDTOList());
-        List<Invoice> invoiceList = invoiceRequestMapper.asEntityList(companyRequestDTO.getInvoiceRequestDTOList());
-        List<Order> orderList = orderRequestMapper.asEntityList(companyRequestDTO.getOrderRequestDTOList());
-        List<Employee> employeeList = employeeRequestMapper.asEntityList(companyRequestDTO.getEmployeeRequestDTOList());
-        List<Operator> operatorList = operatorRequestMapper.asEntityList(companyRequestDTO.getOperatorRequestDTOList());
-        c.setClients(clientList);
-        c.setEmployees(employeeList);
-        c.setInvoices(invoiceList);
-        c.setOrders(orderList);
-        c.setOperator(operatorList);
+        c.setClients(clientRequestMapper.asEntityList(companyRequestDTO.getClientRequestDTOList()));
+        c.setOrders(orderRequestMapper.asEntityList(companyRequestDTO.getOrderRequestDTOList()));
+        c.setInvoices(invoiceRequestMapper.asEntityList(companyRequestDTO.getInvoiceRequestDTOList()));
+        c.setEmployees(employeeRequestMapper.asEntityList(companyRequestDTO.getEmployeeRequestDTOList()));
+        c.setOperator(operatorRequestMapper.asEntityList(companyRequestDTO.getOperatorRequestDTOList()));
         companyRepository.save(c);
     }
 
@@ -50,6 +49,13 @@ public class CompanyServiceImplementation implements CompanyService {
         Company c = null;
         if (companyRepository.findById(id).isPresent()) {
             c = companyRepository.findById(id).get();
+            CompanyResponseDTO cDto = companyResponseMapper.asDto(c);
+            cDto.setInvoiceResponseDTOList(invoiceResponseMapper.asDTOList(c.getInvoices()));
+            cDto.setEmployeeResponseDTOList(employeeResponseMapper.asDTOList(c.getEmployees()));
+            cDto.setOrderResponseDTOList(orderResponseMapper.asDTOList(c.getOrders()));
+            cDto.setClientResponseDTOList(clientResponseMapper.asDTOList(c.getClients()));
+            cDto.setOperatorResponseDTOList(operatorResponseMapper.asDTOList(c.getOperator()));
+            return cDto;
         }
         if(c == null){
             throw new IdNotFoundException("Id " + id + " non è presente nel db");

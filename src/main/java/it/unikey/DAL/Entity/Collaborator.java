@@ -21,10 +21,10 @@ public class Collaborator implements Serializable {
     @Column(name = "resource", nullable = false)
     private Resources resource;
 
-    @OneToMany(mappedBy = "collaborator")
+    @OneToMany(mappedBy = "collaborator",cascade=CascadeType.ALL)
     private List<Order> orders;
 
-    public Collection<Order> getOrders() {
+    public List<Order> getOrders() {
         return orders;
     }
 

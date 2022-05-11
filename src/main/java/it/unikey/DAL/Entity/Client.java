@@ -18,13 +18,13 @@ public class Client implements Serializable {
     private String name;
     @Column(name = "partitaIVA", nullable = false)
     private String partitaIVA;
-    @OneToMany(mappedBy = "client")
+    @OneToMany(mappedBy = "client",cascade=CascadeType.ALL)
     private List<Contact> contacts;
 
-    @OneToMany(mappedBy = "client")
+    @OneToMany(mappedBy = "client",cascade=CascadeType.ALL)
     private List<Order> orders;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     private Company company;
 
     public Client(String name, String partitaIVA) {

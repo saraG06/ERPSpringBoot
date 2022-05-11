@@ -7,8 +7,8 @@ import it.unikey.BLL.exception.IdNotFoundException;
 import java.util.List;
 
 public interface OrderService {
-    void saveOrder (OrderRequestDTO orderRequestDTO);
+    void saveOrdine (OrderRequestDTO orderRequestDTO);
     OrderResponseDTO findById(Long id) throws IdNotFoundException;
-    void deleteOrderById(Long id) throws IdNotFoundException;
-    List<OrderResponseDTO> findAllOrders();
+    void deleteOrdineById(Long id) throws IdNotFoundException;
+    List<OrderResponseDTO> findAllOrdini();
 }
