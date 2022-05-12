@@ -17,7 +17,7 @@ public class Fattura {
     @OneToOne
     private Ordine ordine;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.MERGE,CascadeType.PERSIST})
     private Azienda azienda;
 
     public LocalDate getData() {

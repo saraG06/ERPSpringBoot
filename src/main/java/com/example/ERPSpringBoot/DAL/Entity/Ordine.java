@@ -16,8 +16,6 @@ public class Ordine {
     private LocalDate dataImporto;
     @ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.MERGE,CascadeType.PERSIST})
     private Operatore operatore;
-
-    @JoinColumn(name = "fattura_id")
     @OneToOne
     private Fattura fattura;
     @ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.MERGE,CascadeType.PERSIST})

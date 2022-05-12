@@ -12,15 +12,15 @@ public class Azienda {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToMany(mappedBy = "azienda")
+    @OneToMany(mappedBy = "azienda", fetch = FetchType.LAZY,cascade = {CascadeType.MERGE,CascadeType.PERSIST})
     private List<Dipendente> listaDipendenti;
-    @OneToMany(mappedBy = "azienda")
+    @OneToMany(mappedBy = "azienda", fetch = FetchType.LAZY,cascade = {CascadeType.MERGE,CascadeType.PERSIST})
     private List<Collaboratore> listaCollaboratori;
-    @OneToMany(mappedBy = "azienda")
+    @OneToMany(mappedBy = "azienda", fetch = FetchType.LAZY,cascade = {CascadeType.MERGE,CascadeType.PERSIST})
     private List<Fattura> listaFatture;
-    @OneToMany(mappedBy = "azienda")
+    @OneToMany(mappedBy = "azienda",fetch = FetchType.LAZY,cascade = {CascadeType.MERGE,CascadeType.PERSIST})
     private List<Contatto> listaContatti;
-    @OneToMany(mappedBy = "azienda")
+    @OneToMany(mappedBy = "azienda",fetch = FetchType.LAZY,cascade = {CascadeType.MERGE,CascadeType.PERSIST})
     private List<Ordine> listaOrdini;
 
     public Long getId() {

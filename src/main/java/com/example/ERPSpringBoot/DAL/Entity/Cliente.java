@@ -12,7 +12,7 @@ public class Cliente {
     private Long id;
     @Column(name = "nome", nullable = false)
     private String nome;
-    @Column(name = "PI")
+    @Column(name = "pi")
     private String PI;
     @OneToMany(mappedBy = "cliente",fetch = FetchType.LAZY,cascade = {CascadeType.MERGE,CascadeType.PERSIST})
     private List<Contatto> contatto;

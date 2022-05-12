@@ -12,12 +12,10 @@ public class Collaboratore{
     private Long id;
     @OneToOne
     private Operatore o;
-    @ManyToOne
-    @JoinTable(name = "azienda", joinColumns = @JoinColumn(name = "id"))
+    @ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.MERGE,CascadeType.PERSIST})
     private Azienda azienda;
 
-    @ManyToOne
-    @JoinColumn(name = "risorsa_id",nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.MERGE,CascadeType.PERSIST})
     private Risorsa risorsa;
 
     public Azienda getAzienda() {

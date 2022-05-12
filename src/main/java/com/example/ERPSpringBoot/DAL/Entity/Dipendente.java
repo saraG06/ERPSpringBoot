@@ -14,12 +14,10 @@ public class Dipendente implements Serializable {
     private Operatore o;
     @Column(name = "assunzione", nullable = false)
     private LocalDate assunzione;
-    @ManyToOne
-    @JoinTable(name = "azienda", joinColumns = @JoinColumn(name = "id"))
+    @ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.MERGE,CascadeType.PERSIST})
     private Azienda azienda;
 
-    @ManyToOne
-    @JoinColumn(name = "risorsa_id",nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.MERGE,CascadeType.PERSIST})
     private Risorsa risorsa;
 
     private enum Ruolo{
